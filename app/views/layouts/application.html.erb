@@ -1,14 +1,93 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ascenders</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wrapper">
+      <header class="navbar navbar-default" role="navigation">
+        <div class="container">
+          <div class="navbar-right">
+            <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div><!-- /.navbar-right -->
+
+          <div class="title">
+            <%= link_to image_tag("/images/common/logo.png", alt:"Ascenders"), "/", id: "logo" %>
+            <p class="sub_title">アスリートのすべてがわかるメディア</p>
+          </div><!-- /.title -->
+        </div><!-- /.container -->
+
+        <nav class="collapse navbar-collapse" id="main-nav">
+          <div class="container">
+            <ul class="nav navbar-nav">
+              <li><%= link_to("トップ", "/") %></li>
+              <li><%= link_to("選手一覧", "#") %></li>
+              <li><%= link_to("競技一覧", "#") %></li>
+              <li><%= link_to("動画一覧", "#") %></li>
+              <li><%= link_to("記事一覧", "#") %></li>
+            </ul>
+          </div><!-- /.container -->
+        </nav><!-- /#mainNav -->
+      </header>
+
+      <div class="container">
+        <%= yield %>
+      </div><!-- /.container -->
+
+      <footer>
+        <div class="footer-link">
+          <div class="container">
+            <div class="row">
+              <div class="footer-nav col-sm-9">
+                <ul class="nav navbar-nav">
+                  <li><%= link_to("Ascendersについて", "#") %></li>
+                  <li><%= link_to("運営会社", "https://corporation.ascenders.co.jp/", target: "_blank") %></li>
+                  <li><%= link_to("プライバシーポリシー", "https://corporation.ascenders.co.jp/privacy/", target: "_blank") %></li>
+                  <li><%= link_to("お問い合わせ", "https://corporation.ascenders.co.jp/contact/", target: "_blank") %></li>
+                </ul>
+              </div><!-- /.footer_nav -->
+
+              <div class="sns-nav col-sm-3">
+                <ul class="nav navbar-nav">
+                  <li>
+                    <%= link_to("https://www.facebook.com/AscendersInc/?fref=ts", target: "_blank") do %>
+                      <i class="fa fa-facebook fa-fw" aria-hidden="true"></i>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to("https://twitter.com/ascenderspj?lang=ja", target: "_blank") do %>
+                      <i class="fa fa-twitter" aria-hidden="true"></i>
+                    <% end %>
+                  </li>
+                </ul>
+              </div><!-- /.sns-nav -->
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+        </div><!-- /.footer-link -->
+
+        <p class="copyright text-center">
+          <small>Copyright &copy; 2017 Ascenders All right reserved.</small>
+        </p><!-- /.copyright -->
+      </footer>
+    </div><!-- /.wrapper -->
   </body>
 </html>

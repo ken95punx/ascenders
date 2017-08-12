@@ -1,0 +1,97 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/*======== base ========*/
+html,body { height: 100%; }
+
+/* container */
+
+
+/*== wrapper ==*/
+.wrapper {
+  position: relative;
+  height: 100%;
+  background: #eee;
+}
+
+
+/*== header ==*/
+header {
+  .navbar-toggle:hover {
+    background: transparent;
+  }
+
+  /* nav_btn */
+  .navbar-toggle {
+    background: transparent;
+    border: 0 none;
+
+    .icon-bar {
+      width: 10.667vw;
+      height: 1.333vw;
+      background: #333;
+    }
+
+    .icon-bar + .icon-bar {
+      margin-top: 1.6vw;
+    }
+  }
+
+  /* logo */
+  #logo {
+    width: 50vw;
+    display: inline-block;
+    img {
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width:768px) { 
+    #logo {
+      width: 325px;
+    }
+  }
+
+  /* nav */
+  @media screen and (min-width:768px) { 
+    #main-nav {
+      background: #333;
+
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
+
+header.navbar-default {
+  background: #fff;
+  border: 0 none;
+}
+
+
+/*== footer ==*/
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  .footer-link {
+    background: #333;
+
+      a {
+        color: #fff;
+
+        &:hover {
+          background: transparent;
+        }
+      }
+  }
+
+  .copyright {
+    width: 100%;
+    background: #fff;
+    color: #333;
+  }
+}
