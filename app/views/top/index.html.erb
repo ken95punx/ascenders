@@ -27,12 +27,12 @@
 		<p class="title">新着記事<span><img src="" alt="RECENT NEWS"></span></p><!-- /.title -->
 
 		<!-- new_article_list -->
-		<% @Articles.first(2).each do |article| %>
+		<% @Articles.first(10).each do |article| %>
 			<div class="article_list">
 				<ul>
 					<li>
 						<a href="#">
-							<span class="thum"><%= article.image_link %></span>
+							<img src="<%= article.image_link %>" class="thum">
 							<span class="title"><%= article.title %></span>
 							<span class="media"><%= article.media %></span>
 							<span class="published"><%= article.created_at %></span>
