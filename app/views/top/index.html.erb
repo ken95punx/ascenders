@@ -1,6 +1,26 @@
 <div id="main" class="col-sm-9">
 	<div class="recent-movie-box">
-		
+		<p class="title">新着動画<span><img src="" alt="RECENT MOVIE"></span></p><!-- /.title -->
+
+		<div class="movie_player">
+			
+		</div><!-- /.movie_player -->
+
+		<!-- new_movie_list -->
+		<% @movies.first(10).each do |movie| %>
+			<div class="movie_list">
+				<ul>
+					<li>
+						<a href="#">
+							<span class="movie_thum"><%= movie.movie_url %></span>
+							<span class="movie_title"><%= movie.title %></span>
+							<span class="movie_name"></span>
+						</a>
+					</li>
+				</ul>
+			</div><!-- /.movie_list -->
+		<% end %>
+		<!-- /new_movie_list -->
 	</div><!-- /.recent-movie-box -->
 
 	<div class="recent-news-box">
