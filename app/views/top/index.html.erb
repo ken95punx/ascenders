@@ -7,14 +7,14 @@
 		</div><!-- /.movie_player -->
 
 		<!-- new_movie_list -->
-		<% @movies.first(2).each do |movie| %>
+		<% @movies.first(10).each do |movie| %>
 			<div class="movie_list">
 				<ul>
 					<li>
 						<a href="#">
 							<span class="thum"><%= movie.movie_url %></span>
 							<span class="title"><%= movie.title %></span>
-							<span class="name"></span>
+							<span class="name"><%= movie.player %></span>
 						</a>
 					</li>
 				</ul>
@@ -36,7 +36,7 @@
 							<span class="title"><%= article.title %></span>
 							<span class="media"><%= article.media %></span>
 							<span class="published"><%= article.created_at %></span>
-							<span class="name"></span>
+							<span class="name"><%= article.player %></span>
 						</a>
 					</li>
 				</ul>
