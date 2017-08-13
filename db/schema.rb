@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170812113639) do
+ActiveRecord::Schema.define(version: 20170813053717) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -26,6 +26,35 @@ ActiveRecord::Schema.define(version: 20170812113639) do
     t.string "title"
     t.string "movie_url"
     t.integer "player_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "kana_name"
+    t.string "profile_image"
+    t.string "cover_image"
+    t.datetime "birth_date"
+    t.string "place_birth"
+    t.string "blood_type"
+    t.string "league_school"
+    t.string "team"
+    t.integer "height"
+    t.integer "weight"
+    t.string "alma_mater"
+    t.string "website"
+    t.text "introduction"
+    t.string "opponent_next"
+    t.datetime "time_next"
+    t.string "url_next"
+    t.string "opponent_result"
+    t.string "result_result"
+    t.integer "self_point_result"
+    t.integer "enemy_point_result"
+    t.string "url_result"
+    t.integer "sports_id"
+    t.integer "staff_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
