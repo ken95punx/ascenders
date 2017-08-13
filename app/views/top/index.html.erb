@@ -7,14 +7,14 @@
 		</div><!-- /.movie_player -->
 
 		<!-- new_movie_list -->
-		<% @movies.first(10).each do |movie| %>
+		<% @movies.first(2).each do |movie| %>
 			<div class="movie_list">
 				<ul>
 					<li>
 						<a href="#">
-							<span class="movie_thum"><%= movie.movie_url %></span>
-							<span class="movie_title"><%= movie.title %></span>
-							<span class="movie_name"></span>
+							<span class="thum"><%= movie.movie_url %></span>
+							<span class="title"><%= movie.title %></span>
+							<span class="name"></span>
 						</a>
 					</li>
 				</ul>
@@ -24,7 +24,25 @@
 	</div><!-- /.recent-movie-box -->
 
 	<div class="recent-news-box">
-		
+		<p class="title">新着記事<span><img src="" alt="RECENT NEWS"></span></p><!-- /.title -->
+
+		<!-- new_article_list -->
+		<% @Articles.first(2).each do |article| %>
+			<div class="article_list">
+				<ul>
+					<li>
+						<a href="#">
+							<span class="thum"><%= article.image_link %></span>
+							<span class="title"><%= article.title %></span>
+							<span class="media"><%= article.media %></span>
+							<span class="published"><%= article.created_at %></span>
+							<span class="name"></span>
+						</a>
+					</li>
+				</ul>
+			</div><!-- /.article_list -->
+		<% end %>
+		<!-- /new_article_list -->
 	</div><!-- /.recent-news-box -->
 </div><!-- /#main -->
 
