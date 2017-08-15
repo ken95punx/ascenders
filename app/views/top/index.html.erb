@@ -2,47 +2,49 @@
 	<div class="recent-movie-box">
 		<p class="title">新着動画<span><img src="" alt="RECENT MOVIE"></span></p><!-- /.title -->
 
-		<div class="movie_player">
-			
-		</div><!-- /.movie_player -->
+		<div class="movie-player">
+			<div class="url"></div>
+			<div class="title"></div>
+			<div class="name"></div>
+		</div><!-- /.movie-player -->
 
-		<!-- new_movie_list -->
-		<% @movies.first(10).each do |movie| %>
-			<div class="movie_list">
-				<ul>
+		<!-- new-movie-list -->
+		<div class="movie-list">
+			<ul>
+				<% @movies.first(10).each do |movie| %>
 					<li>
-						<a href="#">
+            <%= link_to("#{movie.id}", {method: "post", remote: true, class: "click-movie"}) do %>
 							<span class="thum"><%= movie.movie_url %></span>
 							<span class="title"><%= movie.title %></span>
 							<span class="name"><%= movie.player %></span>
-						</a>
+            <% end %>
 					</li>
-				</ul>
-			</div><!-- /.movie_list -->
-		<% end %>
-		<!-- /new_movie_list -->
+				<% end %>
+			</ul>
+		</div><!-- /.movie-list -->
+		<!-- /new-movie-list -->
 	</div><!-- /.recent-movie-box -->
 
 	<div class="recent-news-box">
 		<p class="title">新着記事<span><img src="" alt="RECENT NEWS"></span></p><!-- /.title -->
 
 		<!-- new_article_list -->
-		<% @Articles.first(10).each do |article| %>
-			<div class="article_list">
+			<div class="article-list">
 				<ul>
-					<li>
-						<a href="#">
-							<img src="<%= article.image_link %>" class="thum">
-							<span class="title"><%= article.title %></span>
-							<span class="media"><%= article.media %></span>
-							<span class="published"><%= article.created_at %></span>
-							<span class="name"><%= article.player %></span>
-						</a>
-					</li>
+					<% @articles.first(10).each do |article| %>
+						<li>
+	            <%= link_to("#") do %>
+								<img src="<%= article.image_link %>" class="thum">
+								<span class="title"><%= article.title %></span>
+								<span class="media"><%= article.media %></span>
+								<span class="published"><%= article.created_at %></span>
+								<span class="name"><%= article.player %></span>
+							<% end %>
+						</li>
+					<% end %>
 				</ul>
-			</div><!-- /.article_list -->
-		<% end %>
-		<!-- /new_article_list -->
+			</div><!-- /.article-list -->
+		<!-- /new_article-list -->
 	</div><!-- /.recent-news-box -->
 </div><!-- /#main -->
 

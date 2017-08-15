@@ -1,0 +1,5 @@
+$('.click-movie').click(function(){
+	$('.movie-player .url').html('<%= @movie.movie_url %>');
+	$('.movie-player .title').html('<%= @movie.title %>');
+	$('.movie-player .name').html('<%= @movie.player %>');
+});
