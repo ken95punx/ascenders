@@ -2,6 +2,7 @@ class TopController < ApplicationController
   def index
   	@movies = Movie.all.order(created_at: :desc)
   	@articles = Article.all.order(created_at: :desc)
+  	@movie = Movie.find_by(id: 1)
   end
 
   def click_movie

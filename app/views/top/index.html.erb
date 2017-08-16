@@ -14,7 +14,7 @@
 				<% @movies.first(10).each do |movie| %>
 					<li>
             <%= link_to("#{movie.id}", {method: "post", remote: true, class: "click-movie"}) do %>
-							<span class="thum"><%= movie.movie_url %></span>
+            	<img src="<%= movie.movie_thum %>"  class="thum">
 							<span class="title"><%= movie.title %></span>
 							<span class="name"><%= movie.player %></span>
             <% end %>
