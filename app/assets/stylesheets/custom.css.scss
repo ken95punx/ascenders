@@ -2,20 +2,146 @@
 @import "bootstrap";
 
 
-/*======== base ========*/
+/* ========== Universal Reset ========== */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ===== Basic Style ===== */
+
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family:  YuGothic,    /* Mac用 */ 'Yu Gothic', /* Windows用 */ "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  background: url(../../images/common/bg.gif);
+  color: #26211b;
+  font-size: 13px;
+  font-size: 1.3rem;
+  -webkit-text-size-adjust: 100%;
+  line-height: 1.4;
+}
+@media screen and (min-width: 769px) {
+  body {
+    font-size: 15px;
+    font-size: 1.5rem;
+    line-height: 1.6;
+  }
+}
+img,video {
+  width: 100%;
+  border: 0;
+  vertical-align: top;
+}
+@media screen and (min-width: 769px) {
+  img {
+    width: auto;
+  }
+}
+ul, dl, ol {
+  list-style-type: none;
+  list-style-position: outside;
+}
+h1, h2, h3, h4, h5, h6 {
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+  font-size: 1.3rem;
+  font-weight: normal;
+  line-height: 1;
+}
+@media screen and (min-width: 769px) {
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 15px;
+    font-size: 1.5rem;
+  }
+}
+table, tr, td, div {
+  border: none;
+  padding: 0;
+  word-wrap: break-word;
+}
+table {
+  border-collapse: collapse;
+}
+th {
+  font-weight: normal;
+}
+form {
+  padding: 0;
+  margin: 0;
+}
+input[type="text"],
+input[type="radio"],
+input[type="submit"],
+textarea,
+select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none transparent;
+  vertical-align: middle;
+  font-size: inherit;
+  color: inherit;
+  box-sizing: content-box;
+  line-height: 1;
+}
+em {
+  font-style: normal;
+}
+input {
+  vertical-align: middle;
+}
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* link */
+a {
+  display: block;
+  color: #000;
+  /*
+  -webkit-transition:opacity 0.2s ease-in-out;
+  -moz-transition:opacity 0.2s ease-in-out;
+  -o-transition:opacity 0.2s ease-in-out;
+  transition:opacity 0.2s ease-in-out;
+  */
+}
+a:link, a:visited, a:hover, a:active {
+  text-decoration: none;
+}
+a:hover {
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -ms-filter: "alpha(opacity=70)";
+  -moz-opacity: 0.7;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+
+
+/* ========== base ========== */
 html,body { height: 100%; }
 
 /* container */
 
 
-/*== wrapper ==*/
+/* ===== wrapper ===== */
 .wrapper {
   position: relative;
   background: #eee;
 }
 
 
-/*== header ==*/
+/* ===== header ===== */
 header {
   .navbar-toggle:hover {
     background: transparent;
@@ -46,14 +172,14 @@ header {
     }
   }
 
-  @media screen and (min-width:768px) { 
+  @media screen and (min-width:769px) {
     #logo {
       width: 325px;
     }
   }
 
   /* nav */
-  @media screen and (min-width:768px) { 
+  @media screen and (min-width:769px) {
     #main-nav {
       background: #333;
 
@@ -70,7 +196,15 @@ header.navbar-default {
 }
 
 
-/*== footer ==*/
+/* ===== main ===== */
+#main {
+  .movie-list {
+    width: 100%;
+  }
+}
+
+
+/* ===== footer ===== */
 footer {
   position: absolute;
   width: 100%;
