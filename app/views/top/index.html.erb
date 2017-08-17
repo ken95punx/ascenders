@@ -3,9 +3,9 @@
 		<p class="title">新着動画<span><img src="" alt="RECENT MOVIE"></span></p><!-- /.title -->
 
 		<div class="movie-player">
-			<div class="html"></div>
-			<div class="title"></div>
-			<div class="name"></div>
+			<div class="html"><%= @movie.movie_html.html_safe %></div>
+			<div class="title"><%= @movie.title %></div>
+			<div class="name"<%= @movie.player %>></div>
 		</div><!-- /.movie-player -->
 
 		<!-- new-movie-list -->

@@ -131,8 +131,6 @@ a:hover {
 /* ========== base ========== */
 html,body { height: 100%; }
 
-/* container */
-
 
 /* ===== wrapper ===== */
 .wrapper {
@@ -200,6 +198,13 @@ header.navbar-default {
 #main {
   .movie-list {
     width: 100%;
+
+    ul {
+      li {
+        width:50%;
+        float: left;
+      }
+    }
   }
 }
 
