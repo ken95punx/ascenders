@@ -140,8 +140,6 @@ a:hover {
 /* ========== base ========== */
 html,body { height: 100%; }
 
-.row
-
 .pc-only {
   display: none;
 }
@@ -277,13 +275,60 @@ header.navbar-default {
     }
   }
 
-  .movie-list {
-    img {
-      width:100%;
+  .head-title {
+    padding-bottom: 2.267vw;
+    border-bottom: solid 2px #ccc;
+    position: relative;
+    font-size: 2.2rem;
+    font-weight: bold;
+    line-height: 1;
+
+    &:after {
+    position: absolute;
+    content: "";
+    display: block;
+    border-bottom: solid 2px #333;
+    bottom: -2px;
     }
 
-    .bx-pager {
-      display: none;
+    img {
+      margin-left: 2.667vw;
+      padding-bottom: .4vw;
+      vertical-align: bottom;
+    }
+  }
+
+  .recent-movie-box {
+    .movie-list {
+      img {
+        width:100%;
+      }
+
+      .bx-pager {
+        display: none;
+      }
+    }
+
+    .head-title {
+      &:after {
+        width: 51vw;
+      }
+
+      .new-movie-title {
+        width: 25.733vw;
+      }
+    }
+  }
+
+  .recent-news-box {
+    .head-title {
+      &:after {
+        width: 49vw;
+      }
+
+      .new-article-title {
+        width: 23.333vw;
+      }
     }
   }
 }
