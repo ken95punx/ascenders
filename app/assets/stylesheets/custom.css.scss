@@ -31,6 +31,11 @@ body {
     line-height: 1.6;
   }
 }
+div,p,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,form,input,button,textarea,table,tr,th,td,article,aside,header,footer,section,nav{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 img,video {
   width: 100%;
   border: 0;
@@ -99,8 +104,12 @@ em {
 input {
   vertical-align: middle;
 }
+input[type="text"] {
+  box-sizing: border-box;
+}
 input[type="submit"] {
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 /* link */
@@ -131,11 +140,69 @@ a:hover {
 /* ========== base ========== */
 html,body { height: 100%; }
 
+.row
+
+.pc-only {
+  display: none;
+}
+@media screen and (min-width: 769px) {
+  .sp-only {
+    display: none;
+  }
+  .pc-only {
+    display: block;
+  }
+}
+
+/* form */
+.search-box {
+  position: relative;
+
+  input[type="text"] {
+    width: 80vw;
+    height: 10vw;
+    padding: 2vw;
+    background: #fff;
+    font-size: 1.6rem;
+  }
+
+  input[type="submit"] {
+    width: 12vw;
+    height: 10vw;
+    background: #333;
+    text-indent: -9999px;
+  }
+
+  .glyphicon-search {
+    position: absolute;
+    top: 2vw;
+    right: 3.5vw;
+    color: #fff;
+    font-size: 2rem;
+  }
+}
+.search-box.sp-only {
+  margin-bottom: 4vw;
+}
+
+
 
 /* ===== wrapper ===== */
 .wrapper {
   position: relative;
   background: #eee;
+}
+
+/* container */
+@media screen and (min-width: 992px) {
+  .container {
+    width: 1170px;
+  }
+}
+@media screen and (min-width: 769px) {
+  .container {
+    width: 1170px;
+  }
 }
 
 
@@ -196,14 +263,27 @@ header.navbar-default {
 
 /* ===== main ===== */
 #main {
-  .movie-list {
-    width: 100%;
+  .html {
+    text-align: center;
 
-    ul {
-      li {
-        width:50%;
-        float: left;
+    @media screen and (min-width:769px) {
+      .fb-post.fb_iframe_widget span {
+        max-height: 458px !important;
+
+        iframe {
+          max-height: 458px !important;
+        }
       }
+    }
+  }
+
+  .movie-list {
+    img {
+      width:100%;
+    }
+
+    .bx-pager {
+      display: none;
     }
   }
 }

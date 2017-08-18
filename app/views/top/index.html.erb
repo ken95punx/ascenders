@@ -1,63 +1,72 @@
-<div id="main" class="col-sm-9">
-	<div class="recent-movie-box">
-		<p class="title">新着動画<span><img src="" alt="RECENT MOVIE"></span></p><!-- /.title -->
+<form>
+	<div class="row">
+		<div id="main" class="col-sm-9">
+			<div class="search-box sp-only">
+				<input type="text" name="" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
+				<i class="glyphicon glyphicon-search"></i>
+			</div><!-- /.search-box -->
 
-		<div class="movie-player">
-			<div class="html"><%= @movie.movie_html.html_safe %></div>
-			<div class="title"><%= @movie.title %></div>
-			<div class="name"<%= @movie.player %>></div>
-		</div><!-- /.movie-player -->
+			<div class="recent-movie-box">
+				<p class="title">新着動画<span><img src="" alt="RECENT MOVIE"></span></p><!-- /.title -->
 
-		<!-- new-movie-list -->
-		<div class="movie-list">
-			<ul>
-				<% @movies.first(10).each do |movie| %>
-					<li>
-            <%= link_to("#{movie.id}", {method: "post", remote: true, class: "click-movie"}) do %>
-            	<img src="<%= movie.movie_thum %>"  class="thum">
-							<span class="title"><%= movie.title %></span>
-							<span class="name"><%= movie.player %></span>
-            <% end %>
-					</li>
-				<% end %>
-			</ul>
-		</div><!-- /.movie-list -->
-		<!-- /new-movie-list -->
-	</div><!-- /.recent-movie-box -->
+				<div class="movie-player">
+					<div class="html"><%= @movie.movie_html.html_safe %></div>
+					<div class="title"><%= @movie.title %></div>
+					<div class="name"<%= @movie.player %>></div>
+				</div><!-- /.movie-player -->
 
-	<div class="recent-news-box">
-		<p class="title">新着記事<span><img src="" alt="RECENT NEWS"></span></p><!-- /.title -->
+				<!-- new-movie-list -->
+				<div class="movie-list">
+					<ul class="movie-slider">
+						<% @movies.first(10).each do |movie| %>
+							<li class="slide">
+		            <%= link_to("#{movie.id}", {method: "post", remote: true, class: "click-movie"}) do %>
+		            	<img src="<%= movie.movie_thum %>"  class="thum">
+									<span class="title"><%= movie.title %></span>
+									<span class="name"><%= movie.player %></span>
+		            <% end %>
+							</li>
+						<% end %>
+					</ul>
+				</div><!-- /.movie-list -->
+				<!-- /new-movie-list -->
+			</div><!-- /.recent-movie-box -->
 
-		<!-- new_article_list -->
-			<div class="article-list">
-				<ul>
-					<% @articles.first(10).each do |article| %>
-						<li>
-	            <%= link_to("#") do %>
-								<img src="<%= article.image_link %>" class="thum">
-								<span class="title"><%= article.title %></span>
-								<span class="media"><%= article.media %></span>
-								<span class="published"><%= article.created_at %></span>
-								<span class="name"><%= article.player %></span>
+			<div class="recent-news-box">
+				<p class="title">新着記事<span><img src="" alt="RECENT NEWS"></span></p><!-- /.title -->
+
+				<!-- new_article_list -->
+					<div class="article-list">
+						<ul>
+							<% @articles.first(9).each do |article| %>
+								<li>
+			            <%= link_to("#") do %>
+										<img src="<%= article.image_link %>" class="thum">
+										<span class="title"><%= article.title %></span>
+										<span class="media"><%= article.media %></span>
+										<span class="published"><%= article.created_at %></span>
+										<span class="name"><%= article.player %></span>
+									<% end %>
+								</li>
 							<% end %>
-						</li>
-					<% end %>
-				</ul>
-			</div><!-- /.article-list -->
-		<!-- /new_article-list -->
-	</div><!-- /.recent-news-box -->
-</div><!-- /#main -->
+						</ul>
+					</div><!-- /.article-list -->
+				<!-- /new_article-list -->
+			</div><!-- /.recent-news-box -->
+		</div><!-- /#main -->
 
-<div id="side" class="col-sm-3">
-	<div class="search-box">
-		
-	</div><!-- /.search-box -->
+		<div id="side" class="col-sm-3">
+			<div class="search-box pc-only">
+				
+			</div><!-- /.search-box -->
 
-	<div class="pop-movie-box">
-		
-	</div><!-- /.pop-movie-box -->
+			<div class="pop-movie-box">
+				
+			</div><!-- /.pop-movie-box -->
 
-	<div class="pop-news-box">
-		
-	</div><!-- /.pop-news-box -->
-</div><!-- /#side -->
+			<div class="pop-news-box">
+				
+			</div><!-- /.pop-news-box -->
+		</div><!-- /#side -->
+	</div><!-- /.row -->
+</form>
