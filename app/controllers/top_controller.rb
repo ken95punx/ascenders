@@ -1,7 +1,7 @@
 class TopController < ApplicationController
   def index
-  	@movies = Movie.all.order(created_at: :desc)
-  	@articles = Article.all.order(created_at: :desc)
+  	@movies = Movie.limit(10).order(created_at: :desc)
+  	@articles = Article.limit(9).order(created_at: :desc)
   	@movie = Movie.last
   end
 

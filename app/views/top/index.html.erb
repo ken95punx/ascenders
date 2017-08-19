@@ -18,7 +18,7 @@
 				<!-- new-movie-list -->
 				<div class="movie-list">
 					<ul class="movie-slider">
-						<% @movies.first(10).each do |movie| %>
+						<% @movies.each do |movie| %>
 							<li class="slide">
 		            <%= link_to("#{movie.id}", {method: "post", remote: true, id: "movie#{movie.id}"}) do %>
 		            	<img src="<%= movie.movie_thum %>"  class="thum">
@@ -42,7 +42,7 @@
 				<!-- new_article_list -->
 					<div class="article-list">
 						<ul>
-							<% @articles.first(9).each do |article| %>
+							<% @articles.each do |article| %>
 								<li>
 			            <%= link_to("#") do %>
 										<img src="<%= article.image_link %>" class="thum">
@@ -70,11 +70,11 @@
 			</div><!-- /.search-box -->
 
 			<div class="pop-movie-box">
-				
+
 			</div><!-- /.pop-movie-box -->
 
 			<div class="pop-news-box">
-				
+
 			</div><!-- /.pop-news-box -->
 		</div><!-- /#side -->
 	</div><!-- /.row -->
