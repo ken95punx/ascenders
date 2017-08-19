@@ -1,8 +1,8 @@
 //footerの高さ指定
 $(function() {
-	var footer_height = $('footer').height();
+  var footer_height = $('footer').height();
 
-	$('footer').css('bottom', "-" + footer_height + "px");
+  $('footer').css('bottom', "-" + footer_height + "px");
 });
 
 // bxslider

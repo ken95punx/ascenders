@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'movie/index'
+  get 'movie/' => 'movie#index'
+  post 'movie/:movie_id' => 'movie#click_movie'
 
   get '/' => 'top#index'
   post '/:movie_id' => 'top#click_movie'
