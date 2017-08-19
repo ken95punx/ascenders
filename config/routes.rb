@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'movie/index'
+
   get '/' => 'top#index'
   post '/:movie_id' => 'top#click_movie'
 
