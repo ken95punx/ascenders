@@ -153,7 +153,7 @@ html,body { height: 100%; }
 }
 
 /* form */
-.search-box {
+.search-form {
   position: relative;
 
   input[type="text"] {
@@ -179,7 +179,7 @@ html,body { height: 100%; }
     font-size: 2rem;
   }
 }
-.search-box.sp-only {
+.search-form.sp-only {
   margin-bottom: 4vw;
 }
 
