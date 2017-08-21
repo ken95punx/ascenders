@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'article/' => 'article#index'
+
   get 'movie/' => 'movie#index'
   post 'movie/:movie_id' => 'movie#click_movie'
 
