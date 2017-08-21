@@ -1,2 +1,54 @@
-<h1>Article#index</h1>
-<p>Find me in app/views/article/index.html.erb</p>
+<form>
+  <div class="row">
+    <div id="main" class="col-sm-9">
+      <div class="search-box sp-only">
+        <input type="text" name="" placeholder="キーワードを入力（記事検索）"><input type="submit" val="">
+        <i class="glyphicon glyphicon-search"></i>
+      </div><!-- /.search-box -->
+
+      <div class="recent-news-box">
+        <p class="head-title">新着記事<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-article-title") %></p><!-- /.head-title -->
+
+        <!-- new_article_list -->
+          <div class="article-list">
+            <ul>
+              <% @articles.each do |article| %>
+                <li>
+                  <%= link_to("#") do %>
+                    <img src="<%= article.image_link %>" class="thum">
+                    <span class="title"><%= article.title %></span>
+                    <span class="media"><%= article.media %></span>
+                    <span class="published"><%= article.created_at %></span>
+                    <span class="name"><%= article.player %></span>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+            <%= paginate @articles %>
+          </div><!-- /.article-list -->
+        <!-- /new_article-list -->
+
+        <div class="more-btn">
+          <a href="#">もっと見る<i class="glyphicon glyphicon-chevron-right"></i></a>
+        </div><!-- /.more-btn -->
+      </div><!-- /.recent-news-box -->
+    </div><!-- /#main -->
+
+    <div id="side" class="col-sm-3">
+      <div class="search-box pc-only">
+        <div class="search-form">
+          <input type="text" name="" placeholder="キーワードを入力（記事検索）"><input type="submit" val="">
+          <i class="glyphicon glyphicon-search"></i>
+        </div><!-- /.search-form -->
+      </div><!-- /.search-box -->
+
+      <div class="pop-movie-box">
+
+      </div><!-- /.pop-movie-box -->
+
+      <div class="pop-news-box">
+
+      </div><!-- /.pop-news-box -->
+    </div><!-- /#side -->
+  </div><!-- /.row -->
+</form>
