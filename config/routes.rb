@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'article/:id' => 'article#show'
   get 'article/' => 'article#index'
 
   get 'movie/' => 'movie#index'

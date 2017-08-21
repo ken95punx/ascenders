@@ -23,6 +23,20 @@
       <div class="recent-news-box">
         <p class="head-title">新着記事<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-article-title") %></p><!-- /.head-title -->
 
+        <div class="detail-block">
+          <img src="<%= @article.image_link %>" class="thum">
+          <span class="title"><%= @article.title %></span>
+          <span class="media"><%= @article.media %></span>
+          <span class="published"><%= @article.created_at %></span>
+          <span class="name"><%= @article.player %></span>
+        </div><!-- /.detail-block -->
+
+        <span class="url"><%= link_to("続きを見る", "#{@article.original_link}", target: "_blank") %><i class="glyphicon glyphicon-chevron-right"></i></span>
+      </div><!-- /.recent-news-box -->
+
+      <div class="recent-news-box">
+        <p class="head-title">新着記事<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-article-title") %></p><!-- /.head-title -->
+
         <!-- new_article_list -->
         <div class="article-list">
           <ul>
@@ -38,7 +52,6 @@
               </li>
             <% end %>
           </ul>
-          <%= paginate @articles %>
         </div><!-- /.article-list -->
         <!-- /new_article-list -->
 

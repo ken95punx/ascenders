@@ -3,13 +3,13 @@
     <div id="main" class="col-sm-9">
       <div class="search-box sp-only">
         <div class="search-form">
-          <input type="text" name="" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
+          <input type="text" name="movie" placeholder="キーワードを入力（動画検索）"><input type="submit" val="">
           <i class="glyphicon glyphicon-search"></i>
         </div><!-- /.search-form -->
 
         <div class="select-form">
           <select name="sport">
-            <option value="バスケットボール">バスケ</option>
+            <option value="" selected disabled>ジャンル</option>
             <option value="バスケットボール">バスケ</option>
           </select>
 
@@ -31,31 +31,45 @@
 
         <!-- new-movie-list -->
         <div class="movie-list">
-          <ul>
+          <ul class="movie-slider">
             <% @movies.each do |movie| %>
-              <li>
-                <%= link_to("#{movie.id}", {method: "post", remote: true, id: "movie#{movie.id}"}) do %>
+              <li class="slide">
+                <%= link_to("/movie/#{movie.id}", {method: "post", remote: true, id: "movie#{movie.id}"}) do %>
                   <img src="<%= movie.movie_thum %>"  class="thum">
                   <span class="title"><%= movie.title %></span>
                   <span class="name"><%= movie.player %></span>
                 <% end %>
               </li>
             <% end %>
-            <%= paginate @movies %>
           </ul>
+          <%= paginate @movies %>
         </div><!-- /.movie-list -->
         <!-- /new-movie-list -->
 
         <div class="more-btn">
-          <a href="#">もっと見る<i class="glyphicon glyphicon-chevron-right"></i></a>
+          <%= link_to("もっと見る", "/movie") %><i class="glyphicon glyphicon-chevron-right"></i>
         </div><!-- /.more-btn -->
       </div><!-- /.recent-movie-box -->
     </div><!-- /#main -->
 
     <div id="side" class="col-sm-3">
       <div class="search-box pc-only">
-        <input type="text" name="" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
-        <i class="glyphicon glyphicon-search"></i>
+        <div class="search-form">
+          <input type="text" name="movie" placeholder="キーワードを入力（動画検索）"><input type="submit" val="">
+          <i class="glyphicon glyphicon-search"></i>
+        </div><!-- /.search-form -->
+
+        <div class="select-form">
+          <select name="sport">
+            <option value="" selected disabled>ジャンル</option>
+            <option value="バスケットボール">バスケ</option>
+          </select>
+
+          <select name="order">
+            <option value="新着順">新着順</option>
+            <option value="人気順">人気順</option>
+          </select>
+        </div><!-- /.select-form -->
       </div><!-- /.search-box -->
 
       <div class="pop-movie-box">

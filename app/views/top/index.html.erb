@@ -2,7 +2,7 @@
   <div class="row">
     <div id="main" class="col-sm-9">
       <div class="search-box sp-only">
-        <input type="text" name="" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
+        <input type="text" name="player" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
         <i class="glyphicon glyphicon-search"></i>
       </div><!-- /.search-box -->
 
@@ -32,7 +32,7 @@
         <!-- /new-movie-list -->
 
         <div class="more-btn">
-          <a href="#">もっと見る<i class="glyphicon glyphicon-chevron-right"></i></a>
+          <%= link_to("もっと見る", "/movie") %><i class="glyphicon glyphicon-chevron-right"></i>
         </div><!-- /.more-btn -->
       </div><!-- /.recent-movie-box -->
 
@@ -40,25 +40,25 @@
         <p class="head-title">新着記事<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-article-title") %></p><!-- /.head-title -->
 
         <!-- new_article_list -->
-          <div class="article-list">
-            <ul>
-              <% @articles.each do |article| %>
-                <li>
-                  <%= link_to("#") do %>
-                    <img src="<%= article.image_link %>" class="thum">
-                    <span class="title"><%= article.title %></span>
-                    <span class="media"><%= article.media %></span>
-                    <span class="published"><%= article.created_at %></span>
-                    <span class="name"><%= article.player %></span>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div><!-- /.article-list -->
+        <div class="article-list">
+          <ul>
+            <% @articles.each do |article| %>
+              <li>
+                <%= link_to("/article/#{article.id}") do %>
+                  <img src="<%= article.image_link %>" class="thum">
+                  <span class="title"><%= article.title %></span>
+                  <span class="media"><%= article.media %></span>
+                  <span class="published"><%= article.created_at %></span>
+                  <span class="name"><%= article.player %></span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div><!-- /.article-list -->
         <!-- /new_article-list -->
 
         <div class="more-btn">
-          <a href="#">もっと見る<i class="glyphicon glyphicon-chevron-right"></i></a>
+          <%= link_to("もっと見る", "/article") %><i class="glyphicon glyphicon-chevron-right"></i>
         </div><!-- /.more-btn -->
       </div><!-- /.recent-news-box -->
     </div><!-- /#main -->
@@ -66,7 +66,7 @@
     <div id="side" class="col-sm-3">
       <div class="search-box pc-only">
         <div class="search-form">
-          <input type="text" name="" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
+          <input type="text" name="player" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
           <i class="glyphicon glyphicon-search"></i>
         </div><!-- /.search-form -->
       </div><!-- /.search-box -->
