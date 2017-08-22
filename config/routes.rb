@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'player/index'
+
   get 'article/:id' => 'article#show'
   get 'article/' => 'article#index'
 
