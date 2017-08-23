@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170822093752) do
+ActiveRecord::Schema.define(version: 20170823124110) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20170822093752) do
     t.integer "self_point_result"
     t.integer "enemy_point_result"
     t.string "url_result"
-    t.integer "sports_id"
     t.integer "staff_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "birth_date"
+    t.integer "sport_id"
   end
 
   create_table "sports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

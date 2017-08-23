@@ -31,7 +31,7 @@
                 <%= link_to("/player/#{player.id}") do %>
                   <%= image_tag("/images/common/#{player.profile_image}") %>
                   <span class="name"><%= player.name %></span>
-                  <span class="sport"><%= player.sport %></span>
+                  <span class="sport"><%= player.sport.name %></span>
                 <% end %>
               </li>
             <% end %>
