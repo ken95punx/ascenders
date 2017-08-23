@@ -26,7 +26,7 @@
         <div class="movie-player">
           <div class="html"><%= @movie.movie_html.html_safe %></div>
           <div class="title"><%= @movie.title %></div>
-          <div class="name"><%= @movie.player %></div>
+          <div class="name"><%= @movie.player.name %></div>
         </div><!-- /.movie-player -->
 
         <!-- new-movie-list -->
@@ -37,7 +37,7 @@
                 <%= link_to("/movie/#{movie.id}", {method: "post", remote: true, id: "movie#{movie.id}"}) do %>
                   <img src="<%= movie.movie_thum %>"  class="thum">
                   <span class="title"><%= movie.title %></span>
-                  <span class="name"><%= movie.player %></span>
+                  <span class="name"><%= movie.player.name %></span>
                 <% end %>
               </li>
             <% end %>

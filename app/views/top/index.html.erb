@@ -2,8 +2,10 @@
   <div class="row">
     <div id="main" class="col-sm-9">
       <div class="search-box sp-only">
-        <input type="text" name="player" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
-        <i class="glyphicon glyphicon-search"></i>
+        <div class="search-form">
+          <input type="text" name="player" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
+          <i class="glyphicon glyphicon-search"></i>
+        </div><!-- /.search-form -->
       </div><!-- /.search-box -->
 
       <div class="recent-movie-box">
@@ -12,7 +14,11 @@
         <div class="movie-player">
           <div class="html"><%= @movie.movie_html.html_safe %></div>
           <div class="title"><%= @movie.title %></div>
-          <div class="name"><%= @movie.player %></div>
+          <div class="name">
+            <%= link_to("/player/#{@movie.player_id}") do %>
+              <%= @movie.player %>
+            <% end %>
+          </div>
         </div><!-- /.movie-player -->
 
         <!-- new-movie-list -->
