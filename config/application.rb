@@ -16,3 +16,6 @@ module Ascenders
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+# デフォルトのlocaleを日本語(:ja)にする
+config.i18n.default_locale = :ja
