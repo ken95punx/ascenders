@@ -17,5 +17,8 @@ module Ascenders
 
     # デフォルトのlocaleを日本語(:ja)にする
     config.i18n.default_locale = :ja
+
+    # lib配下のパスを読み込む
+    config.autoload_paths += %W(#{config.root}/lib)
   end
 end
