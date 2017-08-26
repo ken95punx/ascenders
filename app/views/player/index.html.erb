@@ -29,7 +29,12 @@
             <% @players.each do |player| %>
               <li>
                 <%= link_to("/player/#{player.id}") do %>
-                  <%= image_tag("/images/common/#{player.profile_image}") %>
+                  <% if player.profile_image? %>
+                    <%= image_tag(player.profile_image.url) %>
+                  <% else %>
+                    <%= image_tag("/images/common/default_player_profile.jpg") %>
+                  <% end %>
+
                   <span class="name"><%= player.name %></span>
                   <span class="sport"><%= player.sport.name %></span>
                 <% end %>
