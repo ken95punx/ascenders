@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823124110) do
+ActiveRecord::Schema.define(version: 20170826065623) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "title"
@@ -34,8 +34,6 @@ ActiveRecord::Schema.define(version: 20170823124110) do
   create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "kana_name"
-    t.string "profile_image"
-    t.string "cover_image"
     t.string "place_birth"
     t.string "blood_type"
     t.string "league_school"
@@ -58,6 +56,8 @@ ActiveRecord::Schema.define(version: 20170823124110) do
     t.datetime "updated_at", null: false
     t.date "birth_date"
     t.integer "sport_id"
+    t.string "profile_image"
+    t.string "cover_image"
   end
 
   create_table "sports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
