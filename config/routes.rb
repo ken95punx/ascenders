@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'sport/' => 'sport#index'
 
+  get 'player/:id' => 'player#show'
   get 'player/' => 'player#index'
+  post 'player/:movie_id' => 'player#click_movie'
 
   get 'article/:id' => 'article#show'
   get 'article/' => 'article#index'
