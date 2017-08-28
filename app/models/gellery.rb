@@ -1,0 +1,2 @@
+class Gellery < ApplicationRecord
+end
