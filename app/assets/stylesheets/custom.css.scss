@@ -153,6 +153,9 @@ html,body { height: 100%; }
 }
 
 /* form */
+.search-box {
+  margin-bottom: 8vw;
+}
 .search-form {
   position: relative;
 
@@ -299,6 +302,16 @@ header.navbar-default {
   }
 
   .recent-movie-box {
+    .movie-player {
+      background: #fff;
+
+      .title {
+        font-size: 1.6rem;
+        font-weight: bold;
+        line-height: 1.2;
+      }
+    }
+
     .movie-list {
       img {
         width:100%;

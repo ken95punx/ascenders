@@ -9,19 +9,46 @@
 
         <div class="select-form">
           <select name="sport">
-            <option value="" selected disabled>ジャンル</option>
-            <option value="バスケットボール">バスケ</option>
+            <option value="すべて">すべて</option>
+            <option value="バスケットボール">バスケットボール</option>
+            <option value="バレーボール">バレーボール</option>
+            <option value="テニス">テニス</option>
+            <option value="ラグビー">ラグビー</option>
+            <option value="サッカー">サッカー</option>
+            <option value="野球">野球</option>
+            <option value="ゴルフ">ゴルフ</option>
+            <option value="格闘技">格闘技</option>
+            <option value="水泳">水泳</option>
+            <option value="ハンドボール">ハンドボール</option>
+            <option value="相撲">相撲</option>
+            <option value="柔道">柔道</option>
+            <option value="陸上">陸上</option>
+            <option value="卓球">卓球</option>
+            <option value="バドミントン">バドミントン</option>
+            <option value="武術">武術</option>
+            <option value="レスリング">レスリング</option>
+            <option value="空手">空手</option>
+            <option value="剣道">剣道</option>
+            <option value="自転車競技">自転車競技</option>
+            <option value="モータースポーツ">モータースポーツ</option>
+            <option value="ウインタースポーツ">ウインタースポーツ</option>
+            <option value="ビーチスポーツ">ビーチスポーツ</option>
+            <option value="マリンスポーツ">マリンスポーツ</option>
+            <option value="ダンス">ダンス</option>
+            <option value="その他">その他</option>
           </select>
 
+          <!-- after popular system
           <select name="order">
             <option value="新着順">新着順</option>
             <option value="人気順">人気順</option>
           </select>
+          -->
         </div><!-- /.select-form -->
       </div><!-- /.search-box -->
 
-      <div class="recent-news-box">
-        <p class="head-title">新着記事<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-article-title") %></p><!-- /.head-title -->
+      <div class="detail-news-box">
+        <p class="head-title">選手記事<%= image_tag("/images/common/head_title_article.png", alt:"NEWS", class:"details-news-title") %></p><!-- /.head-title -->
 
         <div class="detail-block">
           <img src="<%= @article.image_link %>" class="thum">
@@ -32,12 +59,11 @@
         </div><!-- /.detail-block -->
 
         <span class="url"><%= link_to("続きを見る", "#{@article.original_link}", target: "_blank") %><i class="glyphicon glyphicon-chevron-right"></i></span>
-      </div><!-- /.recent-news-box -->
+      </div><!-- /.detail-news-box -->
 
       <div class="recent-news-box">
         <p class="head-title">新着記事<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-article-title") %></p><!-- /.head-title -->
 
-        <!-- new_article_list -->
         <div class="article-list">
           <ul>
             <% @articles.each do |article| %>
@@ -53,7 +79,6 @@
             <% end %>
           </ul>
         </div><!-- /.article-list -->
-        <!-- /new_article-list -->
 
         <div class="more-btn">
           <%= link_to("もっと見る", "/article") %><i class="glyphicon glyphicon-chevron-right"></i>
@@ -70,14 +95,41 @@
 
         <div class="select-form">
           <select name="sport">
-            <option value="" selected disabled>ジャンル</option>
-            <option value="バスケットボール">バスケ</option>
+            <option value="すべて">すべて</option>
+            <option value="バスケットボール">バスケットボール</option>
+            <option value="バレーボール">バレーボール</option>
+            <option value="テニス">テニス</option>
+            <option value="ラグビー">ラグビー</option>
+            <option value="サッカー">サッカー</option>
+            <option value="野球">野球</option>
+            <option value="ゴルフ">ゴルフ</option>
+            <option value="格闘技">格闘技</option>
+            <option value="水泳">水泳</option>
+            <option value="ハンドボール">ハンドボール</option>
+            <option value="相撲">相撲</option>
+            <option value="柔道">柔道</option>
+            <option value="陸上">陸上</option>
+            <option value="卓球">卓球</option>
+            <option value="バドミントン">バドミントン</option>
+            <option value="武術">武術</option>
+            <option value="レスリング">レスリング</option>
+            <option value="空手">空手</option>
+            <option value="剣道">剣道</option>
+            <option value="自転車競技">自転車競技</option>
+            <option value="モータースポーツ">モータースポーツ</option>
+            <option value="ウインタースポーツ">ウインタースポーツ</option>
+            <option value="ビーチスポーツ">ビーチスポーツ</option>
+            <option value="マリンスポーツ">マリンスポーツ</option>
+            <option value="ダンス">ダンス</option>
+            <option value="その他">その他</option>
           </select>
 
+          <!-- after popular system
           <select name="order">
             <option value="新着順">新着順</option>
             <option value="人気順">人気順</option>
           </select>
+          -->
         </div><!-- /.select-form -->
       </div><!-- /.search-box -->
 

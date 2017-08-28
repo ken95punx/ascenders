@@ -9,8 +9,33 @@
 
         <div class="select-form">
           <select name="sport">
-            <option value="" selected disabled>ジャンル</option>
-            <option value="バスケットボール">バスケ</option>
+            <option value="すべて">すべて</option>
+            <option value="バスケットボール">バスケットボール</option>
+            <option value="バレーボール">バレーボール</option>
+            <option value="テニス">テニス</option>
+            <option value="ラグビー">ラグビー</option>
+            <option value="サッカー">サッカー</option>
+            <option value="野球">野球</option>
+            <option value="ゴルフ">ゴルフ</option>
+            <option value="格闘技">格闘技</option>
+            <option value="水泳">水泳</option>
+            <option value="ハンドボール">ハンドボール</option>
+            <option value="相撲">相撲</option>
+            <option value="柔道">柔道</option>
+            <option value="陸上">陸上</option>
+            <option value="卓球">卓球</option>
+            <option value="バドミントン">バドミントン</option>
+            <option value="武術">武術</option>
+            <option value="レスリング">レスリング</option>
+            <option value="空手">空手</option>
+            <option value="剣道">剣道</option>
+            <option value="自転車競技">自転車競技</option>
+            <option value="モータースポーツ">モータースポーツ</option>
+            <option value="ウインタースポーツ">ウインタースポーツ</option>
+            <option value="ビーチスポーツ">ビーチスポーツ</option>
+            <option value="マリンスポーツ">マリンスポーツ</option>
+            <option value="ダンス">ダンス</option>
+            <option value="その他">その他</option>
           </select>
 
           <select name="order">
@@ -20,11 +45,10 @@
         </div><!-- /.select-form -->
       </div><!-- /.search-box -->
 
-      <div class="recent-news-box">
-        <p class="head-title">選手一覧<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-player-title") %></p><!-- /.head-title -->
+      <div class="player-list-box">
+        <p class="head-title">選手一覧<%= image_tag("/images/common/head_title_article.png", alt:"ATHLETE", class:"player-list-title") %></p><!-- /.head-title -->
 
-        <!-- new_article_list -->
-        <div class="article-list">
+        <div class="player-list">
           <ul>
             <% @players.each do |player| %>
               <li>
@@ -42,9 +66,8 @@
             <% end %>
           </ul>
           <%= paginate @players %>
-        </div><!-- /.article-list -->
-        <!-- /new_article-list -->
-      </div><!-- /.recent-news-box -->
+        </div><!-- /.player-list -->
+      </div><!-- /.player-list-box -->
     </div><!-- /#main -->
 
     <div id="side" class="col-sm-3">
@@ -56,14 +79,42 @@
 
         <div class="select-form">
           <select name="sport">
-            <option value="" selected disabled>ジャンル</option>
-            <option value="バスケットボール">バスケ</option>
+            <option value="すべて">すべて</option>
+            <option value="バスケットボール">バスケットボール</option>
+            <option value="バレーボール">バレーボール</option>
+            <option value="テニス">テニス</option>
+            <option value="ラグビー">ラグビー</option>
+            <option value="サッカー">サッカー</option>
+            <option value="野球">野球</option>
+            <option value="ゴルフ">ゴルフ</option>
+            <option value="格闘技">格闘技</option>
+            <option value="水泳">水泳</option>
+            <option value="ハンドボール">ハンドボール</option>
+            <option value="相撲">相撲</option>
+            <option value="柔道">柔道</option>
+            <option value="陸上">陸上</option>
+            <option value="卓球">卓球</option>
+            <option value="バドミントン">バドミントン</option>
+            <option value="武術">武術</option>
+            <option value="レスリング">レスリング</option>
+            <option value="空手">空手</option>
+            <option value="剣道">剣道</option>
+            <option value="自転車競技">自転車競技</option>
+            <option value="モータースポーツ">モータースポーツ</option>
+            <option value="ウインタースポーツ">ウインタースポーツ</option>
+            <option value="ビーチスポーツ">ビーチスポーツ</option>
+            <option value="マリンスポーツ">マリンスポーツ</option>
+            <option value="ダンス">ダンス</option>
+            <option value="その他">その他</option>
           </select>
 
+          <!-- after popular system
           <select name="order">
             <option value="新着順">新着順</option>
             <option value="人気順">人気順</option>
           </select>
+          -->
+
         </div><!-- /.select-form -->
       </div><!-- /.search-box -->
 
