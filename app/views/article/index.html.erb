@@ -55,7 +55,11 @@
             <% @articles.each do |article| %>
               <li>
                 <%= link_to("/article/#{article.id}") do %>
-                  <img src="<%= article.image_link %>" class="thum">
+                  <% if article.image_link? %>
+                    <%= image_tag("#{article.image_link}", class:"thum") %>
+                  <% else %>
+                    <%= image_tag("/images/common/default_article_thum.jpg") %>
+                  <% end %>
                   <span class="title"><%= article.title %></span>
                   <span class="media"><%= article.media %></span>
                   <span class="published"><%= article.created_at %></span>
