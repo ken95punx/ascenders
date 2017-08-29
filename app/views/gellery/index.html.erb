@@ -1,2 +1,133 @@
-<h1>Gellery#index</h1>
-<p>Find me in app/views/gellery/index.html.erb</p>
+<form>
+  <div class="row">
+    <div id="main" class="col-sm-9">
+      <div class="search-box sp-only">
+        <div class="search-form">
+          <input type="text" name="player" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
+          <i class="glyphicon glyphicon-search"></i>
+        </div><!-- /.search-form -->
+
+        <div class="select-form">
+          <select name="sport">
+            <option value="すべて">すべて</option>
+            <option value="バスケットボール">バスケットボール</option>
+            <option value="バレーボール">バレーボール</option>
+            <option value="テニス">テニス</option>
+            <option value="ラグビー">ラグビー</option>
+            <option value="サッカー">サッカー</option>
+            <option value="野球">野球</option>
+            <option value="ゴルフ">ゴルフ</option>
+            <option value="格闘技">格闘技</option>
+            <option value="水泳">水泳</option>
+            <option value="ハンドボール">ハンドボール</option>
+            <option value="相撲">相撲</option>
+            <option value="柔道">柔道</option>
+            <option value="陸上">陸上</option>
+            <option value="卓球">卓球</option>
+            <option value="バドミントン">バドミントン</option>
+            <option value="武術">武術</option>
+            <option value="レスリング">レスリング</option>
+            <option value="空手">空手</option>
+            <option value="剣道">剣道</option>
+            <option value="自転車競技">自転車競技</option>
+            <option value="モータースポーツ">モータースポーツ</option>
+            <option value="ウインタースポーツ">ウインタースポーツ</option>
+            <option value="ビーチスポーツ">ビーチスポーツ</option>
+            <option value="マリンスポーツ">マリンスポーツ</option>
+            <option value="ダンス">ダンス</option>
+            <option value="その他">その他</option>
+          </select>
+
+          <!-- after popular system
+          <select name="order">
+            <option value="新着順">新着順</option>
+            <option value="人気順">人気順</option>
+          </select>
+          -->
+        </div><!-- /.select-form -->
+      </div><!-- /.search-box -->
+
+      <div class="player-detail-area">
+        <div class="player-gellery-box">
+          <p class="head-title">選手ギャラリー<%= image_tag("/images/common/head_title_article.png", alt:"NEWS", class:"player-gellery-title") %></p><!-- /.head-title -->
+
+          <div class="gellery-list">
+            <ul>
+              <% @gelleries.each do |gellery| %>
+                <li>
+                  <%= link_to("/gellery/#{@player.id}/#{gellery.id}") do %>
+                    <% if gellery.image? %>
+                      <%= image_tag("#{gellery.image.url}") %>
+                    <% else %>
+                    <% end %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+            <%= paginate @gelleries %>
+          </div><!-- /.gellery-list -->
+
+          <div class="back-btn">
+            <%= link_to("戻る", "/player/#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
+          </div><!-- /.back-btn -->
+        </div><!-- /.player-gellery-box -->
+      </div><!-- /player-detail-area -->
+    </div><!-- /#main -->
+
+    <div id="side" class="col-sm-3">
+      <div class="search-box pc-only">
+        <div class="search-form">
+          <input type="text" name="player" placeholder="キーワードを入力（選手検索）"><input type="submit" val="">
+          <i class="glyphicon glyphicon-search"></i>
+        </div><!-- /.search-form -->
+
+        <div class="select-form">
+          <select name="sport">
+            <option value="すべて">すべて</option>
+            <option value="バスケットボール">バスケットボール</option>
+            <option value="バレーボール">バレーボール</option>
+            <option value="テニス">テニス</option>
+            <option value="ラグビー">ラグビー</option>
+            <option value="サッカー">サッカー</option>
+            <option value="野球">野球</option>
+            <option value="ゴルフ">ゴルフ</option>
+            <option value="格闘技">格闘技</option>
+            <option value="水泳">水泳</option>
+            <option value="ハンドボール">ハンドボール</option>
+            <option value="相撲">相撲</option>
+            <option value="柔道">柔道</option>
+            <option value="陸上">陸上</option>
+            <option value="卓球">卓球</option>
+            <option value="バドミントン">バドミントン</option>
+            <option value="武術">武術</option>
+            <option value="レスリング">レスリング</option>
+            <option value="空手">空手</option>
+            <option value="剣道">剣道</option>
+            <option value="自転車競技">自転車競技</option>
+            <option value="モータースポーツ">モータースポーツ</option>
+            <option value="ウインタースポーツ">ウインタースポーツ</option>
+            <option value="ビーチスポーツ">ビーチスポーツ</option>
+            <option value="マリンスポーツ">マリンスポーツ</option>
+            <option value="ダンス">ダンス</option>
+            <option value="その他">その他</option>
+          </select>
+
+          <!-- after popular system
+          <select name="order">
+            <option value="新着順">新着順</option>
+            <option value="人気順">人気順</option>
+          </select>
+          -->
+        </div><!-- /.select-form -->
+      </div><!-- /.search-box -->
+
+      <div class="pop-movie-box">
+
+      </div><!-- /.pop-movie-box -->
+
+      <div class="pop-news-box">
+
+      </div><!-- /.pop-news-box -->
+    </div><!-- /#side -->
+  </div><!-- /.row -->
+</form>
