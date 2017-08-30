@@ -47,15 +47,15 @@
         </div><!-- /.select-form -->
       </div><!-- /.search-box -->
 
-      <div class="player-detail-box">
-        <div class="main-visual-block">
+      <div class="player-detail-area">
+        <div class="main-visual-box">
           <p class="head-title"><%= @player.name %></p><!-- /.head-title -->
 
           <div class="main-visual">
             <% if @player.cover_image? %>
               <%= image_tag(@player.cover_image.url) %>
             <% else %>
-              <%= image_tag("/images/common/default_player_profile.jpg") %>
+              <%= image_tag("/images/common/default_player_cover.jpg") %>
             <% end %>
 
             <% if @player.profile_image? %>
@@ -66,12 +66,13 @@
 
             <span class="name"><%= @player.name %></span>
             <span class="sport"><%= @player.sport.name %></span>
-
-
+            <span class="date"><%= @player.birth_date.year %>年<%= @player.birth_date.month %>月<%= @player.birth_date.day %>日</span>
+            <span class="place_birth"><%= @player.place_birth %></span>
+            <span class="blood_type"><%= @player.blood_type %></span>
           </div><!-- /.main-visual -->
-        </div><!-- /.main-visual-block -->
+        </div><!-- /.main-visual-box -->
 
-        <div class="movie-block">
+        <div class="movie-box">
           <p class="head-title">選手動画<%= image_tag("/images/common/head_title_article.png", alt:"MOVIE", class:"movie-title") %></p><!-- /.head-title -->
 
           <div class="player-movie-block">
@@ -109,10 +110,149 @@
             <% else %>
             <% end %>
           </div><!-- /.player-movie-block -->
-        </div><!-- /.movie-block -->
+        </div><!-- /.movie-box -->
 
+        <div class="profile-box">
+          <p class="head-title">プロフィール<%= image_tag("/images/common/head_title_article.png", alt:"MOVIE", class:"profile-title") %></p><!-- /.head-title -->
 
-      </div><!-- /player-detail-box -->
+          <div class="profile-block">
+            <span class="league_school"><%= @player.league_school %></span>
+            <span class="team"><%= @player.team %></span>
+            <span class="height"><%= @player.height %></span>
+            <span class="weight"><%= @player.weight %></span>
+            <span class="alma_mater"><%= @player.alma_mater %></span>
+            <div class="website">
+              <%= link_to("#{@player.website}", target: "_blank") do %>
+                <%= @player.website %>
+              <% end %>
+            </div>
+
+            <div class="profile-accordion">
+              <div class="accordion-body">
+                <p class="introduction"><%= @player.introduction %></p>
+              </div><!-- /.acordion-body -->
+
+              <div class="accordion-header">
+                続きを読む
+                <i class="fa fa-2x fa-angle-down header-icon"></i>
+              </div><!-- /.accordion-header -->
+            </div><!-- /.profile-accordion -->
+          </div><!-- /.profile-block -->
+        </div><!-- /.profile-box -->
+
+        <div class="player-news-box">
+          <p class="head-title">選手記事<%= image_tag("/images/common/head_title_article.png", alt:"NEWS", class:"player-article-title") %></p><!-- /.head-title -->
+
+          <div class="article-list">
+            <ul>
+              <% @articles.each do |article| %>
+                <li>
+                  <%= link_to("/article/#{article.id}") do %>
+                    <% if article.image_link? %>
+                      <%= image_tag("#{article.image_link}", class:"thum") %>
+                    <% else %>
+                      <%= image_tag("/images/common/default_article_thum.jpg") %>
+                    <% end %>
+                    <span class="title"><%= article.title %></span>
+                    <span class="media"><%= article.media %></span>
+                    <span class="published"><%= article.created_at %></span>
+                    <span class="name"><%= article.player.name %></span>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div><!-- /.article-list -->
+
+          <div class="more-btn">
+            <%= link_to("もっと見る", "/article") %><i class="glyphicon glyphicon-chevron-right"></i>
+          </div><!-- /.more-btn -->
+        </div><!-- /.player-news-box -->
+
+        <div class="player-gellery-box">
+          <p class="head-title">選手ギャラリー<%= image_tag("/images/common/head_title_article.png", alt:"NEWS", class:"player-gellery-title") %></p><!-- /.head-title -->
+
+          <div class="gellery-list">
+            <ul>
+              <% @gelleries.each do |gellery| %>
+                <li>
+                  <%= link_to("/gellery/#{@player.id}/#{gellery.id}") do %>
+                    <%= image_tag("#{gellery.image.url}") %>
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div><!-- /.gellery-list -->
+
+          <div class="more-btn">
+            <%= link_to("もっと見る", "/gellery/#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
+          </div><!-- /.more-btn -->
+        </div><!-- /.player-gellery-box -->
+
+        <div class="player-friend-box">
+          <p class="head-title">交友関係・同出身地・同出身校<%= image_tag("/images/common/head_title_article.png", alt:"FRIENDS", class:"player-friend-title") %></p><!-- /.head-title -->
+
+          <div class="friend-list">
+            <ul>
+              <% @player.followed_players.each do |friend| %>
+                <% if friend %>
+                  <li>
+                    <%= link_to("/player/#{friend.id}") do %>
+                      <%= image_tag("#{friend.profile_image.url}") %>
+                    <% end %>
+                  </li>
+                <% else %>
+                <% end %>
+              <% end %>
+            </ul>
+          </div><!-- /.friend-list -->
+
+          <div class="more-btn">
+            <%= link_to("もっと見る", "/gellery/#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
+          </div><!-- /.more-btn -->
+        </div><!-- /.player-friend-box -->
+
+        <div class="player-event-box">
+          <p class="head-title">イベント<%= image_tag("/images/common/head_title_article.png", alt:"EVENT", class:"player-event-title") %></p><!-- /.head-title -->
+
+          <div class="event-block">
+            <div class="next-game-block">
+              <% if @player.url_next %>
+                <%= link_to("#{@player.url_next}", target: "_blank") do %>
+                  <span class="opponent_next"><%= @player.opponent_next %></span>
+                  <div class="time-zone">
+                    <span class="time_next"><%= @player.time_next.year %></span>
+                    <span class="time_next"><%= @player.time_next.month %></span>
+                    <span class="time_next"><%= @player.time_next.day %></span>
+                    <span class="time_next"><%= @player.time_next.hour %></span>
+                    <span class="time_next"><%= @player.time_next.min %></span>
+                  </div><!-- /.time-zone -->
+                  <span class="place_next"><%= @player.place_next %></span>
+                <% end %>
+              <% else %>
+                <span>VS</span>
+                <span>日時</span>
+                <span>場所</span>
+              <% end %>
+            </div><!-- /.next-game-block -->
+
+            <div class="next-game-block">
+              <% if @player.url_result %>
+                <%= link_to("#{@player.url_result}", target: "_blank") do %>
+                  <span class="opponent_result"><%= @player.opponent_result %></span>
+                  <span class="result_result"><%= @player.result_result %></span>
+                  <span class="self_point_result"><%= @player.self_point_result %></span>
+                  <span class="enemy_point_result"><%= @player.enemy_point_result %></span>
+                <% end %>
+              <% else %>
+                <span>VS</span>
+                <span>結果</span>
+                <span>得点</span>
+              <% end %>
+            </div><!-- /.next-game-block -->
+          </div><!-- /.event-block -->
+        </div><!-- /.player-event-box -->
+
+      </div><!-- /player-detail-area -->
 
 
     </div><!-- /#main -->

@@ -45,7 +45,6 @@
       <div class="recent-news-box">
         <p class="head-title">新着記事<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-article-title") %></p><!-- /.head-title -->
 
-        <!-- new_article_list -->
         <div class="article-list">
           <ul>
             <% @articles.each do |article| %>
@@ -65,7 +64,6 @@
             <% end %>
           </ul>
         </div><!-- /.article-list -->
-        <!-- /new_article-list -->
 
         <div class="more-btn">
           <%= link_to("もっと見る", "/article") %><i class="glyphicon glyphicon-chevron-right"></i>

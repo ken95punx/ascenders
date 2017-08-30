@@ -9,6 +9,8 @@ class PlayerController < ApplicationController
     @player = Player.find(params[:id])
     @movies = Movie.where(player_id: params[:id]).limit(10).order(created_at: :desc)
     @movie = Movie.where(player_id: params[:id]).last
+    @articles = Article.where(player_id: params[:id]).limit(10).order(created_at: :desc)
+    @gelleries = Gellery.where(player_id: params[:id]).limit(10).order(created_at: :desc)
   end
 
   def click_movie
