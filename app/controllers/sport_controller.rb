@@ -1,6 +1,6 @@
 class SportController < ApplicationController
   def index
-    @sports = Sport.all.order(created_at: :desc)
+    @sports = Sport.all
   end
 
   private

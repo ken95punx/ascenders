@@ -2,8 +2,8 @@ class MovieController < ApplicationController
   PER = 8
 
   def index
-    @movies = Movie.order(created_at: :desc).page(params[:page]).per(PER)
-    @movie = Movie.last
+    @movies = Movie.page(params[:page]).per(PER)
+    @movie = Movie.first
   end
 
   def click_movie

@@ -1,8 +1,8 @@
 class TopController < ApplicationController
   def index
-    @movies = Movie.limit(10).order(created_at: :desc)
-    @articles = Article.limit(9).order(created_at: :desc)
-    @movie = Movie.last
+    @movies = Movie.limit(10)
+    @articles = Article.limit(9)
+    @movie = Movie.first
   end
 
   def click_movie

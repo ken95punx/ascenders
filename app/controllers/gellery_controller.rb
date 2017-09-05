@@ -2,7 +2,7 @@ class GelleryController < ApplicationController
   PER = 12
 
   def index
-    @gelleries = Gellery.where(player_id: params[:player_id]).order(created_at: :desc).page(params[:page]).per(PER)
+    @gelleries = Gellery.where(player_id: params[:player_id]).page(params[:page]).per(PER)
     @player = Player.find(params[:player_id])
   end
 

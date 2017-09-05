@@ -2,15 +2,18 @@ class PlayerController < ApplicationController
   PER = 8
 
   def index
-    @players = Player.order(created_at: :desc).page(params[:page]).per(PER)
+    @players = Player.page(params[:page]).per(PER)
+    @sports = Sport.all
+    @search = Player.ransack(params[:q])
+    @result = @search.result.page(params[:page]).per(PER)
   end
 
   def show
     @player = Player.find(params[:id])
-    @movies = Movie.where(player_id: params[:id]).limit(10).order(created_at: :desc)
+    @movies = Movie.where(player_id: params[:id]).limit(10)
     @movie = Movie.where(player_id: params[:id]).last
-    @articles = Article.where(player_id: params[:id]).limit(10).order(created_at: :desc)
-    @gelleries = Gellery.where(player_id: params[:id]).limit(10).order(created_at: :desc)
+    @articles = Article.where(player_id: params[:id]).limit(10)
+    @gelleries = Gellery.where(player_id: params[:id]).limit(10)
   end
 
   def click_movie
