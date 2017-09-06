@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170830124319) do
+ActiveRecord::Schema.define(version: 20170905081645) do
 
   create_table "administrators", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20170830124319) do
 
   create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "kana_name"
     t.string "place_birth"
     t.string "blood_type"
     t.string "league_school"
@@ -83,6 +82,8 @@ ActiveRecord::Schema.define(version: 20170830124319) do
     t.string "cover_image"
     t.integer "administrator_id"
     t.string "place_next"
+    t.string "hiragana_name"
+    t.string "katakana_name"
   end
 
   create_table "sports", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
