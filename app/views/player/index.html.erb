@@ -9,7 +9,7 @@
         </div><!-- /.search-form -->
 
         <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください" %>
+          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
 
           <select name="order">
             <option value="新着順">新着順</option>
@@ -18,7 +18,7 @@
         </div><!-- /.select-form -->
 
         <div class="submit-form">
-          <div><%= f.submit '検索', class: 'search-btn' %></div>
+          <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
         </div><!-- /.submit-form -->
       </div><!-- /.search-box -->
 
@@ -26,45 +26,23 @@
         <p class="head-title">選手一覧<%= image_tag("/images/common/head_title_article.png", alt:"ATHLETE", class:"player-list-title") %></p><!-- /.head-title -->
 
         <div class="player-list">
-          <% if @result.any? %>
-            <ul class="any">
-              <% @result.each do |player| %>
-                <li>
-                  <%= link_to("/player/#{player.id}") do %>
-                    <% if player.profile_image? %>
-                      <%= image_tag(player.profile_image.url) %>
-                    <% else %>
-                      <%= image_tag("/images/common/default_player_profile.jpg") %>
-                    <% end %>
-
-                    <span class="name"><%= player.name %></span>
-                    <span class="sport"><%= player.sport.name %></span>
+          <ul class="any">
+            <% @result.each do |player| %>
+              <li>
+                <%= link_to("/player/#{player.id}") do %>
+                  <% if player.profile_image? %>
+                    <%= image_tag(player.profile_image.url) %>
+                  <% else %>
+                    <%= image_tag("/images/common/default_player_profile.jpg") %>
                   <% end %>
-                </li>
-              <% end %>
-            </ul>
-            <%= paginate @result %>
-          <% end %>
 
-          <% if @result.nil? %>
-            <ul class="nil">
-              <% @players.each do |player| %>
-                <li>
-                  <%= link_to("/player/#{player.id}") do %>
-                    <% if player.profile_image? %>
-                      <%= image_tag(player.profile_image.url) %>
-                    <% else %>
-                      <%= image_tag("/images/common/default_player_profile.jpg") %>
-                    <% end %>
-
-                    <span class="name"><%= player.name %></span>
-                    <span class="sport"><%= player.sport.name %></span>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-            <%= paginate @players %>
-          <% end %>
+                  <span class="name"><%= player.name %></span>
+                  <span class="sport"><%= player.sport.name %></span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <%= paginate @result %>
         </div><!-- /.player-list -->
       </div><!-- /.player-list-box -->
     </div><!-- /#main -->
@@ -72,14 +50,13 @@
     <div id="side" class="col-sm-3">
       <div class="search-box pc-only">
         <div class="search-form">
-
           <div class="form-group">
             <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_cont, placeholder: 'キーワードを入力（名前・出身検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
 
         <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください" %>
+          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
 
           <select name="order">
             <option value="新着順">新着順</option>
@@ -88,7 +65,7 @@
         </div><!-- /.select-form -->
 
         <div class="submit-form">
-          <div><%= f.submit '検索', class: 'search-btn' %></div>
+          <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
         </div><!-- /.submit-form -->
       </div><!-- /.search-box -->
 

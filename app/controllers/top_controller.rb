@@ -3,6 +3,7 @@ class TopController < ApplicationController
     @movies = Movie.limit(10)
     @articles = Article.limit(9)
     @movie = Movie.first
+    @search = Player.ransack(params[:q])
   end
 
   def click_movie

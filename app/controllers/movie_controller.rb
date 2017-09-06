@@ -2,8 +2,10 @@ class MovieController < ApplicationController
   PER = 8
 
   def index
-    @movies = Movie.page(params[:page]).per(PER)
-    @movie = Movie.first
+    @sports = Sport.all
+    @search = Movie.ransack(params[:q])
+    @result = @search.result.page(params[:page]).per(PER)
+    @movie = @result.first
   end
 
   def click_movie
