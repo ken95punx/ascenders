@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'gellery/:player_id' => 'gellery#index'
-  get 'gellery/:player_id/:id' => 'gellery#show'
+  get 'player/:player_id/gellery' => 'gellery#index'
+  get 'player/:player_id/gellery/:id' => 'gellery#show'
 
   get 'sport/' => 'sport#index'
 
