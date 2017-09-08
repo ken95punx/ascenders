@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'friend/index'
+  get 'player/:player_id/friend' => 'friend#index'
 
   get 'player/:player_id/gellery' => 'gellery#index'
   get 'player/:player_id/gellery/:id' => 'gellery#show'
