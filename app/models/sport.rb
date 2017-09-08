@@ -1,7 +1,7 @@
 class Sport < ApplicationRecord
-  has_many :players
-  has_many :movies
-  has_many :articles
+  has_many :players, dependent: :destroy
+  has_many :movies, dependent: :destroy
+  has_many :articles, dependent: :destroy
 
   mount_uploader :image, ImageUploader
 end
