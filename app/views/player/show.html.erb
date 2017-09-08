@@ -160,24 +160,24 @@
         <div class="player-friend-box">
           <p class="head-title">交友関係・同出身地・同出身校<%= image_tag("/images/common/head_title_article.png", alt:"FRIENDS", class:"player-friend-title") %></p><!-- /.head-title -->
 
-          <div class="friend-list">
-            <ul>
-              <% @player.followed_players.each do |friend| %>
-                <% if friend %>
-                  <li>
-                    <%= link_to("/player/#{friend.id}") do %>
-                      <%= image_tag("#{friend.profile_image.url}") %>
-                    <% end %>
-                  </li>
-                <% else %>
+          <% if @friends %>
+            <div class="friend-list">
+              <ul>
+                <% @friends.each do |friend| %>
+                    <li>
+                      <%= link_to("/player/#{friend.id}") do %>
+                        <%= image_tag("#{friend.profile_image.url}") %>
+                      <% end %>
+                    </li>
                 <% end %>
-              <% end %>
-            </ul>
-          </div><!-- /.friend-list -->
+              </ul>
+            </div><!-- /.friend-list -->
 
-          <div class="more-btn">
-            <%= link_to("もっと見る", "#") %><i class="glyphicon glyphicon-chevron-right"></i>
-          </div><!-- /.more-btn -->
+            <div class="more-btn">
+              <%= link_to("もっと見る", "/player/#{@player.id}/frined") %><i class="glyphicon glyphicon-chevron-right"></i>
+            </div><!-- /.more-btn -->
+          <% else %>
+          <% end %>
         </div><!-- /.player-friend-box -->
 
         <div class="player-event-box">

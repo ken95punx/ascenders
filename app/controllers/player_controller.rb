@@ -13,6 +13,7 @@ class PlayerController < ApplicationController
     @movie = @movies.first
     @articles = Article.where(player_id: params[:id]).limit(10).order(created_at: :desc)
     @gelleries = Gellery.where(player_id: params[:id]).limit(10).order(created_at: :desc)
+    @friends = @player.followed_players.page(params[:page]).per(PER).limit(10).order(created_at: :desc)
   end
 
   def click_movie
