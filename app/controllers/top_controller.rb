@@ -1,8 +1,8 @@
 class TopController < ApplicationController
   def index
-    @movies = Movie.limit(10)
-    @articles = Article.limit(9)
-    @movie = Movie.first
+    @movies = Movie.limit(10).order(created_at: :desc)
+    @articles = Article.limit(9).order(created_at: :desc)
+    @movie = @movies.first
     @search = Player.ransack(params[:q])
   end
 

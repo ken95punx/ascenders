@@ -1,6 +1,4 @@
 class Player < ApplicationRecord
-  default_scope -> { order(created_at: :desc) }
-
   has_many :movies
   has_many :articles
   has_many :gelleries

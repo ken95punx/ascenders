@@ -10,11 +10,6 @@
 
         <div class="select-form">
           <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
-
-          <select name="order">
-            <option value="新着順">新着順</option>
-            <option value="名前順">名前順</option>
-          </select>
         </div><!-- /.select-form -->
 
         <div class="submit-form">
@@ -59,11 +54,6 @@
 
         <div class="select-form">
           <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
-
-          <select name="order">
-            <option value="新着順">新着順</option>
-            <option value="名前順">名前順</option>
-          </select>
         </div><!-- /.select-form -->
 
         <div class="submit-form">
