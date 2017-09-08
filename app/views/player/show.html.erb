@@ -74,8 +74,7 @@
               <!-- /new-movie-list -->
 
               <div class="more-btn">
-                <!-- 選手動画一覧に飛ぶ -->
-                <%= link_to("もっと見る", "/movie") %><i class="glyphicon glyphicon-chevron-right"></i>
+                <%= link_to "もっと見る", movie_path(@search, :'q[player_id_eq]' => "#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
               </div><!-- /.more-btn -->
             <% else %>
             <% end %>
@@ -134,7 +133,7 @@
           </div><!-- /.article-list -->
 
           <div class="more-btn">
-            <%= link_to("もっと見る", "/article") %><i class="glyphicon glyphicon-chevron-right"></i>
+            <%= link_to "もっと見る", article_path(@search, :'q[player_id_eq]' => "#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
           </div><!-- /.more-btn -->
         </div><!-- /.player-news-box -->
 
