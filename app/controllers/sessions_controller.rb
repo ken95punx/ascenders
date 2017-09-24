@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :require_login
+
   def new # ログイン画面
     @administrator = Administrator.new
   end
@@ -18,4 +20,10 @@ class SessionsController < ApplicationController
     session[:administrator_id] = nil #ログアウトしたセッションユーザーを消去
     redirect_to(login_path, notice: 'ログアウトしました')
   end
+
+  private
+
+    def not_authenticated
+      redirect_to login_path, alert: "ログインしてください"
+    end
 end

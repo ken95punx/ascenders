@@ -1,4 +1,5 @@
 class AdministratorsController < ApplicationController
+  before_action :require_login
   before_action :set_administrator, only: [:edit, :update, :destroy]
   before_action :set_current_administrator, only: [:index, :new, :edit, :create, :update] #現在ログインしているユーザーをAdministorページに実装（順番気をつける。下記記述の上にする）
   before_action :authenticate_administrator, only: [:new, :create]  #新規登録は管理者のみアクセス可能
@@ -61,5 +62,9 @@ class AdministratorsController < ApplicationController
       if @current_administrator != @administrator 
         redirect_to(:administrators, notice: ' 管理者権限がありません')
       end
+    end
+
+    def not_authenticated
+      redirect_to login_path, alert: "ログインしてください"
     end
 end
