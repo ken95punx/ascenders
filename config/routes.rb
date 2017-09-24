@@ -26,5 +26,11 @@ Rails.application.routes.draw do
   root :to => 'top#index'
   post '/:movie_id' => 'top#click_movie'
 
+  get '/login' => 'sessions#new', :as => :login  #ログイン画面
+  post '/logout' => 'sessions#destroy', :as => :logout  #ログアウト
+
+  resources :administrators, only: [:index, :new, :create, :edit, :update, :destroy]  #管理トップ,新規登録画面,新規登録,アカウント編集画面,アカウント編集,編集者削除
+  resources :sessions #ログイン・ログアウト関連
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
