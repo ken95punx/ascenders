@@ -1,74 +1,65 @@
 class AdministratorsController < ApplicationController
-  before_action :set_administrator, only: [:show, :edit, :update, :destroy]
+  before_action :set_administrator, only: [:edit, :update, :destroy]
+  before_action :set_current_administrator, only: [:index, :new, :edit, :create, :update] #現在ログインしているユーザーをAdministorページに実装（順番気をつける。下記記述の上にする）
+  before_action :authenticate_administrator, only: [:new, :create]  #新規登録は管理者のみアクセス可能
 
-  # GET /administrators
-  # GET /administrators.json
   def index
     @administrators = Administrator.all
+    @admin = Administrator.find_by(email: 'creative.stonevillagehill@gmail.com') #管理者を定義
   end
 
-  # GET /administrators/1
-  # GET /administrators/1.json
-  def show
-  end
+#show削除（viewも削除）
 
-  # GET /administrators/new
-  def new
+  def new  #新規登録画面
     @administrator = Administrator.new
   end
 
-  # GET /administrators/1/edit
-  def edit
+  def edit  #アカウント編集画面
   end
 
-  # POST /administrators
-  # POST /administrators.json
-  def create
+  def create  #新規登録
     @administrator = Administrator.new(administrator_params)
-
-    respond_to do |format|
-      if @administrator.save
-        format.html { redirect_to @administrator, notice: 'Administrator was successfully created.' }
-        format.json { render :show, status: :created, location: @administrator }
-      else
-        format.html { render :new }
-        format.json { render json: @administrator.errors, status: :unprocessable_entity }
-      end
+    if @administrator.save
+    redirect_to(:administrators, notice: 'アカウント作成しました')
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /administrators/1
-  # PATCH/PUT /administrators/1.json
-  def update
-    respond_to do |format|
-      if @administrator.update(administrator_params)
-        format.html { redirect_to @administrator, notice: 'Administrator was successfully updated.' }
-        format.json { render :show, status: :ok, location: @administrator }
-      else
-        format.html { render :edit }
-        format.json { render json: @administrator.errors, status: :unprocessable_entity }
-      end
+  def update  #アカウント更新
+    if @administrator.update(administrator_params)
+      redirect_to(:administrators, notice: ' アカウント更新しました')
+    else
+      render :edit
     end
   end
 
-  # DELETE /administrators/1
-  # DELETE /administrators/1.json
   def destroy
     @administrator.destroy
-    respond_to do |format|
-      format.html { redirect_to administrators_url, notice: 'Administrator was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to(:administrators, notice: 'アカウントを削除しました')
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_administrator
+    def set_administrator #ログインユーザー取得（パラメータから取得）
       @administrator = Administrator.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def administrator_params
-      params.require(:administrator).permit(:name, :email, :crypted_password, :salt)
+    def set_current_administrator #現在セッションしてるユーザーを定義
+      @current_administrator = Administrator.find_by(id: session[:administrator_id])
+    end
+
+    def administrator_params #new、create登録時のストロングパラメータ
+      params.require(:administrator).permit(
+        :email,
+        :password,
+        :password_confirmation,
+      )
+    end
+
+    def authenticate_administrator #セッションユーザーと管理者が相違していた場合の実装
+      @administrator = Administrator.find_by(email: 'creative.stonevillagehill@gmail.com')
+      if @current_administrator != @administrator 
+        redirect_to(:administrators, notice: ' 管理者権限がありません')
+      end
     end
 end
