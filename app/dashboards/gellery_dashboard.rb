@@ -10,7 +10,8 @@ class GelleryDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     player: Field::BelongsTo,
     id: Field::Number,
-    image: Field::String,
+    #image: Field::String,
+    image: Administrate::Field::Image,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze

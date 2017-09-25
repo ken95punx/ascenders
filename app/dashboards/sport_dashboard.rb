@@ -13,7 +13,8 @@ class SportDashboard < Administrate::BaseDashboard
     articles: Field::HasMany,
     id: Field::Number,
     name: Field::String,
-    image: Field::String,
+    #image: Field::String,
+    image: Administrate::Field::Image,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze

@@ -21,6 +21,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'sorcery'
 gem 'administrate'
 gem 'bourbon'
+gem "administrate-field-image"
 
 # css
 gem 'sass-rails', '~> 5.0'
