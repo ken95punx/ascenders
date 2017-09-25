@@ -13,22 +13,19 @@
 
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name, id: :administrator_name %>
+    <%= form.text_field :name %>
   </div>
-
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email, id: :administrator_email %>
+    <%= form.text_field :email, id: :administrator_email  %>
   </div>
-
   <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest, id: :administrator_password_digest %>
+     <%= form.label :password %><br />
+     <%= form.password_field :password %>
   </div>
-
   <div class="field">
-    <%= form.label :salt %>
-    <%= form.text_field :salt, id: :administrator_salt %>
+     <%= form.label :password_confirmation %><br />
+     <%= form.password_field :password_confirmation %>
   </div>
 
   <div class="actions">
