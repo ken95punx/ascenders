@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :administrators
   get 'player/:player_id/frined' => 'friend#index'
 
   get 'player/:player_id/gellery' => 'gellery#index'
