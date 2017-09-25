@@ -28,11 +28,14 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :administrators #必須
     resources :articles #任意（必要なモデル）
+    resources :gelleries #任意（必要なモデル）
     resources :movies #任意（必要なモデル）
     resources :players #任意（必要なモデル）
     resources :sports #任意（必要なモデル）
+    resources :friend_relationships #任意（必要なモデル）
 
     root to: "administrators#index" #トップにしたい画面（先頭にadminは不要）
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
