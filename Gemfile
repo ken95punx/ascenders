@@ -17,6 +17,7 @@ gem 'annotate'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rambulance'
+gem 'bcrypt', '~> 3.1.7'
 
 # css
 gem 'sass-rails', '~> 5.0'
