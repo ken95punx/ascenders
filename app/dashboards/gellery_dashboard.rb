@@ -22,27 +22,22 @@ class GelleryDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :player,
-    :id,
     :image,
-    :created_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :player,
-    :id,
     :image,
-    :created_at,
-    :updated_at,
+    :player,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :player,
     :image,
+    :player,
   ].freeze
 
   # Overwrite this method to customize how gelleries are displayed

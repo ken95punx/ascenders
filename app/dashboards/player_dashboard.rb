@@ -50,24 +50,21 @@ class PlayerDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :movies,
-    :articles,
-    :gelleries,
+    :name,
     :sport,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :movies,
-    :articles,
-    :gelleries,
-    :sport,
-    :administrator,
-    :friend_relationships,
-    :followed_players,
-    :id,
     :name,
+    :hiragana_name,
+    :katakana_name,
+    :administrator,
+    :sport,
+    :profile_image,
+    :cover_image,
+    :birth_date,
     :place_birth,
     :blood_type,
     :league_school,
@@ -85,28 +82,23 @@ class PlayerDashboard < Administrate::BaseDashboard
     :self_point_result,
     :enemy_point_result,
     :url_result,
-    :created_at,
-    :updated_at,
-    :birth_date,
-    :profile_image,
-    :cover_image,
     :place_next,
-    :hiragana_name,
-    :katakana_name,
+    :followed_players,
+    :movies,
+    :articles,
+    :gelleries,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :movies,
-    :articles,
-    :gelleries,
-    :sport,
-    :administrator,
-    :friend_relationships,
-    :followed_players,
     :name,
+    :hiragana_name,
+    :katakana_name,
+    :administrator,
+    :sport,
+    :birth_date,
     :place_birth,
     :blood_type,
     :league_school,
@@ -124,12 +116,10 @@ class PlayerDashboard < Administrate::BaseDashboard
     :self_point_result,
     :enemy_point_result,
     :url_result,
-    :birth_date,
+    :place_next,
+    :followed_players,
     :profile_image,
     :cover_image,
-    :place_next,
-    :hiragana_name,
-    :katakana_name,
   ].freeze
 
   # Overwrite this method to customize how players are displayed

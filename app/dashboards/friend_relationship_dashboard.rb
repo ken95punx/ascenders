@@ -25,8 +25,6 @@ class FriendRelationshipDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :follower,
     :followed,
-    :id,
-    :follower_id,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -34,11 +32,6 @@ class FriendRelationshipDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :follower,
     :followed,
-    :id,
-    :follower_id,
-    :followed_id,
-    :created_at,
-    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -47,8 +40,6 @@ class FriendRelationshipDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :follower,
     :followed,
-    :follower_id,
-    :followed_id,
   ].freeze
 
   # Overwrite this method to customize how friend relationships are displayed

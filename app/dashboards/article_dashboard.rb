@@ -25,36 +25,32 @@ class ArticleDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :title,
     :player,
     :sport,
-    :id,
-    :title,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :player,
-    :sport,
-    :id,
     :title,
     :media,
     :image_link,
     :original_link,
-    :created_at,
-    :updated_at,
+    :player,
+    :sport,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :player,
-    :sport,
     :title,
     :media,
     :image_link,
     :original_link,
+    :player,
+    :sport,
   ].freeze
 
   # Overwrite this method to customize how articles are displayed
