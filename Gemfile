@@ -18,6 +18,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'rambulance'
 gem 'bcrypt', '~> 3.1.7'
+gem 'sorcery'
 
 # css
 gem 'sass-rails', '~> 5.0'
