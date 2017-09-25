@@ -56,4 +56,8 @@ class SportDashboard < Administrate::BaseDashboard
   # def display_resource(sport)
   #   "Sport ##{sport.id}"
   # end
+
+  def display_resource(sport)
+    sport.name
+  end
 end

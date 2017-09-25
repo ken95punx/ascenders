@@ -47,4 +47,8 @@ class AdministratorDashboard < Administrate::BaseDashboard
   # def display_resource(administrator)
   #   "Administrator ##{administrator.id}"
   # end
+
+  def display_resource(administrator)
+    administrator.name
+  end
 end

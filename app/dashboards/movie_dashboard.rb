@@ -8,8 +8,10 @@ class MovieDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    player: Field::BelongsTo,
-    sport: Field::BelongsTo,
+    #player: Field::BelongsTo,
+    player: BelongsToField,
+    #sport: Field::BelongsTo,
+    player: BelongsToField,
     id: Field::Number,
     title: Field::String,
     created_at: Field::DateTime,
@@ -55,4 +57,8 @@ class MovieDashboard < Administrate::BaseDashboard
   # def display_resource(movie)
   #   "Movie ##{movie.id}"
   # end
+
+  def display_resource(movie)
+    movie.title
+  end
 end

@@ -8,7 +8,8 @@ class GelleryDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    player: Field::BelongsTo,
+    #player: Field::BelongsTo,
+    player: BelongsToField,
     id: Field::Number,
     #image: Field::String,
     image: Administrate::Field::Image,
@@ -47,4 +48,8 @@ class GelleryDashboard < Administrate::BaseDashboard
   # def display_resource(gellery)
   #   "Gellery ##{gellery.id}"
   # end
+
+  def display_resource(gellery)
+    gellery.player.name
+  end
 end

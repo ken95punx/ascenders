@@ -11,8 +11,10 @@ class PlayerDashboard < Administrate::BaseDashboard
     movies: Field::HasMany,
     articles: Field::HasMany,
     gelleries: Field::HasMany,
-    sport: Field::BelongsTo,
-    administrator: Field::BelongsTo,
+    #sport: Field::BelongsTo,
+    sport: BelongsToField,
+    #administrator: Field::BelongsTo,
+    administrator: BelongsToField,
     friend_relationships: Field::HasMany,
     followed_players: Field::HasMany.with_options(class_name: "Player"),
     id: Field::Number,
@@ -130,4 +132,8 @@ class PlayerDashboard < Administrate::BaseDashboard
   # def display_resource(player)
   #   "Player ##{player.id}"
   # end
+
+  def display_resource(player)
+    player.name
+  end
 end

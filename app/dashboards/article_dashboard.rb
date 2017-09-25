@@ -8,8 +8,10 @@ class ArticleDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    player: Field::BelongsTo,
-    sport: Field::BelongsTo,
+    #player: Field::BelongsTo,
+    player: BelongsToField,
+    #sport: Field::BelongsTo,
+    sport: BelongsToField,
     id: Field::Number,
     title: Field::String,
     media: Field::String,
@@ -59,4 +61,8 @@ class ArticleDashboard < Administrate::BaseDashboard
   # def display_resource(article)
   #   "Article ##{article.id}"
   # end
+
+  def display_resource(article)
+    article.title
+  end
 end
