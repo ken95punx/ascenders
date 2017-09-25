@@ -51,7 +51,6 @@ class ArticleDashboard < Administrate::BaseDashboard
     :media,
     :image_link,
     :original_link,
-    :player,
     :sport,
   ].freeze
 

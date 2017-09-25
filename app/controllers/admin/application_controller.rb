@@ -7,6 +7,7 @@
 module Admin
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_admin
+    before_action :default_params
 
     def authenticate_admin
       # TODO Add authentication logic here.
@@ -21,5 +22,10 @@ module Admin
     # def records_per_page
     #   params[:per_page] || 20
     # end
+
+    def default_params
+      params[:order] ||= "updated_at"
+      params[:direction] ||= "desc"
+    end
   end
 end

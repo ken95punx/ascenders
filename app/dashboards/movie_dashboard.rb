@@ -11,7 +11,7 @@ class MovieDashboard < Administrate::BaseDashboard
     #player: Field::BelongsTo,
     player: BelongsToField,
     #sport: Field::BelongsTo,
-    player: BelongsToField,
+    sport: BelongsToField,
     id: Field::Number,
     title: Field::String,
     created_at: Field::DateTime,
@@ -47,7 +47,6 @@ class MovieDashboard < Administrate::BaseDashboard
     :title,
     :movie_thum,
     :movie_html,
-    :player,
     :sport,
   ].freeze
 
