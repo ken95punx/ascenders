@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   before_action :require_login
+  skip_before_action :require_login, except: [:destroy]
 
   def new # ログイン画面
     @administrator = Administrator.new
