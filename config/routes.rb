@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  get '/login' => 'sessions#new', :as => :login  #ログイン画面
+  post '/logout' => 'sessions#destroy', :as => :logout  #ログアウト
 
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  resources :administrators
+  resources :administrators, only: [:index, :new, :create, :edit, :update, :destroy]  #管理トップ,新規登録画面,新規登録,アカウント編集画面,アカウント編集,編集者削除
+  resources :sessions #ログイン・ログアウト関連
 
   get 'player/:player_id/frined' => 'friend#index'
 
