@@ -17,16 +17,11 @@ gem 'annotate'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'rambulance'
-<<<<<<< HEAD
 gem 'bcrypt', '~> 3.1.7'
 gem 'sorcery'
 gem 'administrate'
 gem 'bourbon'
 gem "administrate-field-image"
-=======
-gem 'sorcery'
-
->>>>>>> eb663406f76b632b4afcef86367bd126b942239c
 
 # css
 gem 'sass-rails', '~> 5.0'

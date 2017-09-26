@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170925081719) do
 
   create_table "administrators", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -20,17 +19,6 @@ ActiveRecord::Schema.define(version: 20170925081719) do
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-=======
-ActiveRecord::Schema.define(version: 20170924103513) do
-
-  create_table "administrators", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "email", null: false
-    t.string "crypted_password"
-    t.string "salt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "name"
->>>>>>> eb663406f76b632b4afcef86367bd126b942239c
     t.index ["email"], name: "index_administrators_on_email", unique: true
   end
 
