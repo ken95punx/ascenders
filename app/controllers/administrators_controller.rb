@@ -6,7 +6,11 @@ class AdministratorsController < ApplicationController
 
   def index
     @administrators = Administrator.all
+<<<<<<< HEAD
     @admin = Administrator.find_by(name: '石原　健') #管理者を定義
+=======
+    @admin = Administrator.find_by(email: 'creative.stonevillagehill@gmail.com') #管理者を定義
+>>>>>>> eb663406f76b632b4afcef86367bd126b942239c
   end
 
 #show削除（viewも削除）
@@ -51,16 +55,26 @@ class AdministratorsController < ApplicationController
 
     def administrator_params #new、create登録時のストロングパラメータ
       params.require(:administrator).permit(
+<<<<<<< HEAD
         :name,
         :email,
         :password,
         :password_confirmation,
         :salt
+=======
+        :email,
+        :password,
+        :password_confirmation,
+>>>>>>> eb663406f76b632b4afcef86367bd126b942239c
       )
     end
 
     def authenticate_administrator #セッションユーザーと管理者が相違していた場合の実装
+<<<<<<< HEAD
       @administrator = Administrator.find_by(name: '石原　健')
+=======
+      @administrator = Administrator.find_by(email: 'creative.stonevillagehill@gmail.com')
+>>>>>>> eb663406f76b632b4afcef86367bd126b942239c
       if @current_administrator != @administrator 
         redirect_to(:administrators, notice: ' 管理者権限がありません')
       end
