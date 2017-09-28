@@ -29,19 +29,6 @@ $(function() {
   });
 });
 
-// slick解除
-$(window).resize(function(){
-  //windowの幅をxに代入
-  var x = $(window).width();
-  //windowの分岐幅をyに代入
-  var y = 769;
-  if (x <= y) {
-    $('.article-list ul').removeClass('multiple-item');
-  } else {
-    $('.article-list ul').addClass('multiple-item');
-  }
-});
-
 // matchheight.js（slider）
 
 $(function() {
