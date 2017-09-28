@@ -269,6 +269,12 @@ header,header.navbar-default {
       border-bottom: 0 none;
     }
   }
+  @media screen and (min-width:769px) {
+    #main-nav li {
+      border: 0 none;
+    }
+  }
+
 
   /* nav */
   @media screen and (min-width:769px) {
@@ -279,6 +285,12 @@ header,header.navbar-default {
         color: #fff;
       }
     }
+  }
+}
+
+@media screen and (min-width:769px) {
+  header.navbar {
+    margin-bottom: 50px;
   }
 }
 
