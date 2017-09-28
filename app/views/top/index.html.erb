@@ -47,10 +47,13 @@
           <% @movies.each do |movie| %>
             <li class="slide">
               <%= link_to("#{movie.id}", {method: "post", remote: true, id: "movie#{movie.id}"}) do %>
-                <img src="<%= movie.movie_thum %>"  class="thum">
-                <span class="title"><%= movie.title %></span>
-                <span class="name"><%= movie.player.name %></span>
+                <figure class="thum">
+                  <img src="<%= movie.movie_thum %>">
+                </figure>
+                <p class="title"><%= movie.title %></p>
+                <p class="name"><%= movie.player.name %></p>
               <% end %>
+              <i class="glyphicon glyphicon-play-circle"></i>
             </li>
           <% end %>
         </ul><!-- /.multiple-item -->
@@ -58,7 +61,7 @@
       <!-- /new-movie-list -->
 
       <div class="more-btn">
-        <%= link_to("もっと見る", "/movie") %><i class="glyphicon glyphicon-chevron-right"></i>
+        <a href="/movie"><i class="glyphicon glyphicon-chevron-right"></i><span>もっと見る</span></a>
       </div><!-- /.more-btn -->
     </div><!-- /.recent-movie-box -->
 
@@ -66,7 +69,7 @@
       <p class="head-title">新着記事<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-article-title") %></p><!-- /.head-title -->
 
       <div class="article-list">
-        <ul>
+        <ul class="multiple-item">
           <% @articles.each do |article| %>
             <li>
               <%= link_to("/article/#{article.id}") do %>
@@ -75,10 +78,11 @@
                 <% else %>
                   <%= image_tag("/images/common/default_article_thum.jpg") %>
                 <% end %>
-                <span class="title"><%= article.title %></span>
-                <span class="media"><%= article.media %></span>
-                <span class="published"><%= article.created_at %></span>
-                <span class="name"><%= article.player.name %></span>
+                <span class="detail">
+                  <span class="title"><%= article.title %></span>
+                  <span class="media"><%= article.media %></span>
+                  <span class="name"><%= article.player.name %></span>
+                </span><!-- /.detail -->
               <% end %>
             </li>
           <% end %>
@@ -86,7 +90,7 @@
       </div><!-- /.article-list -->
 
       <div class="more-btn">
-        <%= link_to("もっと見る", "/article") %><i class="glyphicon glyphicon-chevron-right"></i>
+        <a href="/article"><i class="glyphicon glyphicon-chevron-right"></i><span>もっと見る</span></a>
       </div><!-- /.more-btn -->
     </div><!-- /.recent-news-box -->
   </div><!-- /#main -->

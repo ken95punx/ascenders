@@ -1,17 +1,49 @@
-//footerの高さ指定
 $(function() {
+  //footerの高さ指定
   var footer_height = $('footer').height();
-
   $('footer').css('bottom', "-" + footer_height + "px");
 });
 
-// bxslider
+
+// slick.js（slider）
 $(function() {
-  $('.movie-slider').bxSlider({
-    slideWidth: 200,
-    minSlides: 2,
-    maxSlides: 3,
-    slideMargin: 10
+  $('.multiple-item').slick({
+    infinite: true,
+    dots:true,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [{
+        breakpoint: 768,
+        settings: {
+           slidesToShow: 2,
+           slidesToScroll: 2,
+        }
+    },{
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      }
+    ]
   });
-  $('.bx-wrapper').css('max-width', '100%');
+});
+
+// slick解除
+$(window).resize(function(){
+  //windowの幅をxに代入
+  var x = $(window).width();
+  //windowの分岐幅をyに代入
+  var y = 769;
+  if (x <= y) {
+    $('.article-list ul').removeClass('multiple-item');
+  } else {
+    $('.article-list ul').addClass('multiple-item');
+  }
+});
+
+// matchheight.js（slider）
+
+$(function() {
+    $('.multiple-item li').matchHeight();
 });
