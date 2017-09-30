@@ -172,6 +172,11 @@ html,body { height: 100%; }
   position: relative;
   background: #eee;
 }
+@media screen and (min-width: 992px) {
+  .wrapper {
+    overflow: hidden;
+  }
+}
 
 /* container */
 @media screen and (min-width: 992px) {
@@ -753,7 +758,7 @@ header.navbar-default {
               height: 320px;
 
               .detail {
-                padding: 10px 10px 15px;
+                padding: 10px;
 
                 .title {
                   font-size: 1.5rem;
@@ -782,9 +787,6 @@ header.navbar-default {
 
 /* ===== footer ===== */
 footer {
-  position: absolute;
-  width: 100%;
-
   .footer-link {
     padding: 6vw 0 6.667vw;
     background: $black;
