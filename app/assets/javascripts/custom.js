@@ -1,10 +1,3 @@
-$(function() {
-  //footerの高さ指定
-  var footer_height = $('footer').height();
-  $('footer').css('bottom', "-" + footer_height + "px");
-});
-
-
 // slick.js（slider）
 $(function() {
   $('.multiple-item').slick({

@@ -1,5 +1,5 @@
 <div class="row">
-  <div id="side" class="col-sm-3 col-sm-push-9">
+  <div id="side" class="col-sm-4 col-sm-push-8">
     <%= search_form_for @search, url:player_path do |f| %>
       <div class="search-box">
         <div class="search-form">
@@ -25,9 +25,9 @@
     -->
   </div><!-- /#side -->
 
-  <div id="main" class="col-sm-9 col-sm-pull-3">
+  <div id="main" class="col-sm-8 col-sm-pull-4">
     <div class="recent-movie-box">
-      <p class="head-title">新着動画<%= image_tag("/images/common/head_title_movie.png", alt:"RECENT MOVIE", class:"new-movie-title") %></p><!-- /.head-title -->
+      <p class="head-title">新着動画<span class="en-title new-movie-title">RECENT MOVIE</span></p><!-- /.head-title -->
 
       <div class="movie-player">
         <div class="html"><%= @movie.movie_html.html_safe %></div>
@@ -49,11 +49,11 @@
               <%= link_to("#{movie.id}", {method: "post", remote: true, id: "movie#{movie.id}"}) do %>
                 <figure class="thum">
                   <img src="<%= movie.movie_thum %>">
+                  <i class="glyphicon glyphicon-play-circle"></i>
                 </figure>
                 <p class="title"><%= movie.title %></p>
                 <p class="name"><%= movie.player.name %></p>
               <% end %>
-              <i class="glyphicon glyphicon-play-circle"></i>
             </li>
           <% end %>
         </ul><!-- /.multiple-item -->
@@ -66,7 +66,7 @@
     </div><!-- /.recent-movie-box -->
 
     <div class="recent-news-box">
-      <p class="head-title">新着記事<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-article-title") %></p><!-- /.head-title -->
+      <p class="head-title">新着記事<span class="en-title new-article-title">RECENT NEWS</span></p><!-- /.head-title -->
 
       <div class="article-list pc-only ">
         <ul>
