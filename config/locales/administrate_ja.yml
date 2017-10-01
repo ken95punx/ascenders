@@ -1,0 +1,32 @@
+ja:
+  helpers:
+    label:
+      movie:
+        title: タイトル
+        movie_thum: サムネイル画像
+        movie_html: URL
+        player: 選手
+        sport: 競技
+        created_at: 作成日
+        updated_at: 更新日
+      article:
+        title: タイトル
+        media: メディア
+        image_link: 画像URL
+        original_link: 記事元URL
+        player: 選手
+        sport: 競技
+        created_at: 作成日
+        updated_at: 更新日
+      gellery:
+        image: 画像
+        player: 選手
+  activerecord:
+    models:
+      administrator: 管理人
+      article: 記事
+      gellery: 画像ギャラリー
+      movie: 動画
+      player: 選手
+      sport: 競技
+      friend_relationship: 交友関係
