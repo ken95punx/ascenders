@@ -1,3 +1,65 @@
 // Place all the styles related to the player controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* sass */
+$red: #cc3333;
+
+
+/* player-list-box */
+#main {
+  .player-list-box {
+    .head-title:after {
+      width: 47vw;
+    }
+
+    .player-list {
+      li {
+        padding: 4vw;
+        background: #fff;
+
+        .player-img {
+          overflow: hidden;
+          float: left;
+          position: relative;
+          width: 29.333vw;
+          height: 26.667vw;
+
+          img{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+          }
+        }
+
+        .player-detail {
+          margin-left: 36vw;
+
+          span {
+            display: block;
+            text-align: center;
+          }
+
+          [class$='-label'] {
+            color: $red;
+            padding-bottom: .667vw;
+            border-bottom: 1px dotted $red;
+          }
+          .sport-label {
+            margin-top: 4vw;
+          }
+          [class$='-name'] {
+            margin-top: 2vw;
+          }
+        }
+      }
+
+      li + li {
+        margin-top: 4vw;
+      }
+    }
+  }
+}

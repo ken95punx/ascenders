@@ -23,7 +23,6 @@ $(function() {
 });
 
 // matchheight.js（slider）
-
 $(function() {
     $('.multiple-item li').matchHeight();
 });

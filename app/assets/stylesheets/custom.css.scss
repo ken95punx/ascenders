@@ -31,7 +31,7 @@ body {
     line-height: 1.6;
   }
 }
-div,p,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,form,input,button,textarea,table,tr,th,td,article,aside,header,footer,section,nav{
+div,p,dl,dt,dd,ol,ul,li,h1,h2,h3,h4,h5,h6,form,input,button,textarea,table,tr,th,td,article,aside,header,footer,section,nav,select{
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -142,6 +142,7 @@ a:hover {
 $black: #333;
 $red: #cc3333;
 $grey: #ccc;
+$formgrey: #999;
 @mixin link() {
   color: #006699;
   text-decoration: underline;
@@ -264,17 +265,17 @@ header,header.navbar-default {
     a {
       color: $black;
       font-size: 1.5rem;
-      font-weight: bold;
     }
     @media screen and (min-width:769px) {
       a {
+        padding: 15px 30px;
         color: #fff;
-        padding-bottom: 10px;
-        border-bottom: 5px solid $black;
 
         &:hover {
-          border-bottom: 5px solid $red;
           opacity: 1;
+          background: #fff;
+          color: $black;
+          font-weight: bold;
         }
       }
     }
@@ -286,6 +287,11 @@ header,header.navbar-default {
   @media screen and (min-width:769px) {
     #main-nav li {
       border: 0 none;
+      border-right: 1px solid #fff;
+
+      &:first-child {
+       border-left: 1px solid #fff;
+      }
     }
   }
 
@@ -317,7 +323,6 @@ header.navbar-default {
 #side {
   .search-box {
     display: table;
-    margin-bottom: 8vw;
 
     .search-form {
       display:table-cell;
@@ -348,12 +353,12 @@ header.navbar-default {
       position: relative;
       width: 20vw;
       display:table-cell;
-      background: $black;
+      background: $formgrey;
 
       input[type="submit"] {
         width: 12vw;
-        height: 12vw;
-        background: $black;
+        height: 11vw;
+        background: $formgrey;
         text-indent: -9999px;
       }
       @media screen and (min-width: 769px) {
@@ -373,11 +378,55 @@ header.navbar-default {
       }
     }
   }
+
+  .select-box {
+    position: relative;
+    margin-top: 2.667vw;
+
+    .select-form {
+      &:after {
+        position: absolute;
+        top: 50%;
+        right: 2.667vw;
+        margin-top: -1.333vw;
+        content: '';
+        display: block;
+        width: 0;
+        height: 0;
+        border-top: 3.333vw solid $formgrey;
+        border-left: 2vw solid transparent;
+        border-bottom: 3.333vw solid transparent;
+        border-right: 2vw solid transparent;
+      }
+      select{
+        width: 100%;
+        height: 12vw;
+        padding: 2vw;
+        background: #fff;
+        font-size: 1.6rem;
+        color: $formgrey;
+        box-sizing: border-box;
+      }
+    }
+  }
+  .submit-btn {
+    margin-top: 2.667vw;
+
+    input {
+      width: 100%;
+      padding: 2.667vw 1.333vw;
+      background: $formgrey;
+      color: #fff;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  }
 }
 
 
 /* ===== main ===== */
 #main {
+  margin-top: 8vw;
   margin-bottom: 13.333vw;
 
   /* head-title */
@@ -400,7 +449,7 @@ header.navbar-default {
       position: absolute;
       content: "";
       display: block;
-      width: 65vw;
+      width: 61vw;
       border-bottom: solid 2px #333;
       bottom: -2px;
     }
@@ -777,9 +826,19 @@ header.navbar-default {
       }
     }
   }
+
+  /* ===== pagenation ===== */
+  .pagination {
+    display: flex;
+    span {
+
+    }
+  }
+
 }
 @media screen and (min-width:769px) {
   #main {
+    margin-top: 0;
     margin-bottom: 70px;
   }
 }
