@@ -830,8 +830,37 @@ header.navbar-default {
   /* ===== pagenation ===== */
   .pagination {
     display: flex;
-    span {
+    justify-content: center;
 
+    span {
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 8vw;
+
+      a {
+        width: 8vw;
+        height: 8vw;
+        background: #ccc;
+      }
+    }
+    span.current {
+      width: 8vw;
+      height: 8vw;
+      background: $black;
+      color: #fff;
+    }
+    span.gap {
+      display: none;
+    }
+    span + span {
+      margin-left: 4vw;
+    }
+    span.first,
+    span.prev,
+    span.last,
+    span.next {
+      font-size: 2.2rem;
     }
   }
 
