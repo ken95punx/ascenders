@@ -2,8 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.recent-news-box {
-  .head-title {
-    margin-top: 13.333vw;
+.recent-news-box .head-title {
+  margin-top: 13.333vw;
+}
+@media screen and (min-width:769px) {
+.recent-news-box .head-title {
+    margin-top: 50px;
   }
 }

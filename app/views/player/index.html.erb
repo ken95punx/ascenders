@@ -1,10 +1,10 @@
-<div class="row">
+<div id="player" class="row">
   <div id="side" class="col-sm-4 col-sm-push-8">
     <%= search_form_for @search, url:player_path do |f| %>
       <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_cont, placeholder: 'キーワードを入力（名前・出身検索）', class: 'form-control' %>
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（名前・出身検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
 
@@ -15,7 +15,7 @@
 
       <div class="select-box">
         <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "ジャンル", :include_blank => 'すべて' %>
+          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
         </div><!-- /.select-form -->
       </div><!-- /.select-box -->
 
@@ -39,37 +39,42 @@
     <div class="player-list-box">
       <p class="head-title">選手一覧<span class="en-title player-list-title">ATHLETE</span></p><!-- /.head-title -->
 
-      <div class="player-list">
-        <ul class="any">
-          <% @result.each do |player| %>
-            <li>
-              <%= link_to("/player/#{player.id}") do %>
-                <div class="player-block clearfix">
-                  <figure class="player-img">
-                    <% if player.profile_image? %>
-                      <%= image_tag(player.profile_image.url) %>
-                    <% else %>
-                      <%= image_tag("/images/common/default_player_profile.jpg") %>
-                    <% end %>
-                  </figure><!-- /.player-img -->
+      <% if @player %>
 
-                  <div class="player-detail">
-                    <span class="name">
-                      <span class="player-label">名前</span>
-                      <span class="player-name"><%= player.name %></span>
-                    </span><!-- /.name -->
-                    <span class="sport">
-                      <span class="sport-label">競技</span>
-                      <span class="sport-name"><%= player.sport.name %></span>
-                    </span><!-- /.sport -->
-                  </div><!-- /.player-detail -->
-                </div><!-- /.player-block -->
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-        <%= paginate @result %>
-      </div><!-- /.player-list -->
+        <div class="player-list">
+          <ul>
+            <% @result.each do |player| %>
+              <li>
+                <%= link_to("/player/#{player.id}") do %>
+                  <div class="player-block clearfix">
+                    <figure class="player-img">
+                      <% if player.profile_image? %>
+                        <%= image_tag(player.profile_image.url) %>
+                      <% else %>
+                        <%= image_tag("/images/common/default_player_profile.jpg") %>
+                      <% end %>
+                    </figure><!-- /.player-img -->
+
+                    <div class="player-detail">
+                      <span class="name">
+                        <span class="player-label">名前</span>
+                        <span class="player-name"><%= player.name %></span>
+                      </span><!-- /.name -->
+                      <span class="sport">
+                        <span class="sport-label">競技</span>
+                        <span class="sport-name"><%= player.sport.name %></span>
+                      </span><!-- /.sport -->
+                    </div><!-- /.player-detail -->
+                  </div><!-- /.player-block -->
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <%= paginate @result %>
+        </div><!-- /.player-list -->
+      <% else %>
+        <p>検索結果が見つかりませんでした</p>
+      <% end %>
     </div><!-- /.player-list-box -->
   </div><!-- /#main -->
 </div><!-- /.row -->

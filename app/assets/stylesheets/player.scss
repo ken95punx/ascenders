@@ -9,7 +9,7 @@ $black: #333;
 
 
 /* player-list-box */
-#main {
+#player #main {
   .player-list-box {
     .head-title:after {
       width: 47vw;
@@ -54,7 +54,7 @@ $black: #333;
           [class$='-label'] {
             color: $red;
             padding-bottom: .667vw;
-            border-bottom: 1px dotted $red;
+            border-bottom: 1px dashed $red;
           }
           .sport-label {
             margin-top: 4vw;

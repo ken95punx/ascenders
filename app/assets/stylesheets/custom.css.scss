@@ -233,7 +233,7 @@ header,header.navbar-default {
   @media screen and (min-width:769px) {
     .title {
       overflow: hidden;
-      margin: 25px 0;
+      margin: 16px 0;
     }
   }
 
@@ -268,14 +268,14 @@ header,header.navbar-default {
     }
     @media screen and (min-width:769px) {
       a {
-        padding: 15px 30px;
+        padding: 10px 25px 5px;
         color: #fff;
+        font-size: 1.3rem;
+        border-bottom: 4px solid $black;
 
         &:hover {
           opacity: 1;
-          background: #fff;
-          color: $black;
-          font-weight: bold;
+          border-bottom: 4px solid $red;
         }
       }
     }
@@ -287,11 +287,6 @@ header,header.navbar-default {
   @media screen and (min-width:769px) {
     #main-nav li {
       border: 0 none;
-      border-right: 1px solid #fff;
-
-      &:first-child {
-       border-left: 1px solid #fff;
-      }
     }
   }
 
@@ -310,7 +305,7 @@ header,header.navbar-default {
 
 @media screen and (min-width:769px) {
   header.navbar {
-    margin-bottom: 50px;
+    margin-bottom: 45px;
   }
 }
 
@@ -457,6 +452,11 @@ header.navbar-default {
     }
   }
 }
+@media screen and (min-width:769px) {
+  #side {
+    margin: 47px 0 70px;
+  }
+}
 
 
 /* ===== main ===== */
@@ -503,8 +503,8 @@ header.navbar-default {
   }
 
 
-  /* recent-movie-box */
-  .recent-movie-box {
+  /* movie-box */
+  .movie-box {
 
     /* movie-title */
     @media screen and (min-width:769px) {
@@ -582,7 +582,7 @@ header.navbar-default {
       padding: 4vw;
       @include listblock();
 
-      .slick-dotted.slick-slider {
+      ul {
         margin-bottom: 0;
 
         .slide {
@@ -596,11 +596,16 @@ header.navbar-default {
             justify-content: center;
 
             img {
-              width: auto;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              -webkit-transform: translate(-50%, -50%);
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
               max-width: 100%;
-              height: auto;
               max-height: 100%;
-              margin: 0 auto;
+              width: auto;
+              height: auto;
             }
             .glyphicon-play-circle {
               position: absolute;
@@ -659,7 +664,7 @@ header.navbar-default {
         margin-top: 10px;
         padding: 20px;
 
-        .slick-dotted.slick-slider .slide {
+        ul .slide {
          padding: 0 5px;
 
           .thum {
@@ -729,15 +734,11 @@ header.navbar-default {
   }
 
 
-  /* recent-news-box */
-  .recent-news-box {
+  /* news-box */
+  .news-box {
     @media screen and (min-width:769px) {
-      .head-title {
-        margin-top: 50px;
-
-        &:after {
+      .head-title:after {
           width: 310px;
-        }
       }
     }
 

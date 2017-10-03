@@ -5,6 +5,7 @@ class PlayerController < ApplicationController
 
   def index
     @result = @search.result.page(params[:page]).per(PER).order(created_at: :desc)
+    @player = @result.first
   end
 
   def show
