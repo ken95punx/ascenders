@@ -5,6 +5,7 @@ class ArticleController < ApplicationController
 
   def index
     @result = @search.result.page(params[:page]).per(PER).order(created_at: :desc)
+    @article = @result.first
   end
 
   def show
