@@ -1,5 +1,5 @@
 <div class="row">
-  <div id="side" class="col-sm-4 col-sm-push-8">
+  <div id="side" class="col-sm-3 col-sm-push-9">
     <%= search_form_for @search, url:player_path do |f| %>
       <div class="search-box">
         <div class="search-form">
@@ -25,7 +25,7 @@
     -->
   </div><!-- /#side -->
 
-  <div id="main" class="col-sm-8 col-sm-pull-4">
+  <div id="main" class="col-sm-9 col-sm-pull-3">
     <div class="movie-box recent-movie-box">
       <p class="head-title">新着動画<span class="en-title new-movie-title">RECENT MOVIE</span></p><!-- /.head-title -->
 
@@ -41,7 +41,6 @@
         </div><!-- /.detail -->
       </div><!-- /.movie-player -->
 
-      <!-- new-movie-list -->
       <div class="movie-list">
         <ul class="multiple-item">
           <% @movies.each do |movie| %>

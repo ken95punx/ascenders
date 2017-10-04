@@ -172,6 +172,7 @@ html,body { height: 100%; }
 .wrapper {
   position: relative;
   background: #eee;
+  min-height: 100%;
 }
 @media screen and (min-width: 992px) {
   .wrapper {
@@ -211,7 +212,7 @@ header,header.navbar-default {
       #logo {
         float: left;
         display: block;
-        width: 325px;
+        width: 205px;
         margin-top: 0;
       }
     }
@@ -224,8 +225,8 @@ header,header.navbar-default {
     @media screen and (min-width:769px) {
       .sub-title {
         float: left;
-        font-size: 16px;
-        margin: 30px 0 0 10px;
+        font-size: 1.1rem;
+        margin: 15px 0 0 15px;
       }
     }
   }
@@ -233,7 +234,7 @@ header,header.navbar-default {
   @media screen and (min-width:769px) {
     .title {
       overflow: hidden;
-      margin: 16px 0;
+      margin: 10px 0 13px;
     }
   }
 
@@ -305,7 +306,7 @@ header,header.navbar-default {
 
 @media screen and (min-width:769px) {
   header.navbar {
-    margin-bottom: 45px;
+    margin-bottom: 30px;
   }
 }
 
@@ -313,6 +314,7 @@ header.navbar-default {
   background: #fff;
   border: 0 none;
 }
+
 
 /* ===== side ===== */
 #side {
@@ -335,10 +337,10 @@ header.navbar-default {
         }
         @media screen and (min-width: 769px) {
           input[type="text"] {
-            width: 290px;
-            height: 45px;
-            padding: 10px 15px;
-            font-size: 1.5rem;
+            width: 220px;
+            height: 35px;
+            padding: 8px 10px;
+            font-size: 1.3rem;
           }
         }
       }
@@ -358,8 +360,8 @@ header.navbar-default {
       }
       @media screen and (min-width: 769px) {
         input[type="submit"] {
-          width: 70px;
-          height: 45px;
+          width: 42px;
+          height: 35px;
         }
       }
 
@@ -370,6 +372,11 @@ header.navbar-default {
         margin: -1rem 0 -0 -1rem;
         color: #fff;
         font-size: 2rem;
+      }
+      @media screen and (min-width: 769px) {
+        .glyphicon-search {
+          font-size: 1.8rem;
+        }
       }
     }
   }
@@ -407,22 +414,22 @@ header.navbar-default {
   }
   @media screen and (min-width: 769px) {
     .select-box {
-      margin-top: 10px;
+      margin-top: 8px;
 
       .select-form {
         &:after {
           right: 10px;
-          margin-top: -7px;
-          border-top: 13px solid $formgrey;
+          margin-top: -5px;
+          border-top: 10px solid $formgrey;
           border-left: 8px solid transparent;
-          border-bottom: 13px solid transparent;
+          border-bottom: 10px solid transparent;
           border-right: 8px solid transparent;
         }
 
         select {
-          height: 45px;
-          padding: 10px 15px;
-          font-size: 1.5rem;
+          height: 35px;
+          padding: 8px 10px;
+          font-size: 1.3rem;
         }
       }
     }
@@ -443,18 +450,20 @@ header.navbar-default {
   @media screen and (min-width: 769px) {
     .submit-btn {
       margin-top: 15px;
+      text-align: center;
 
       input {
-        height: 45px;
-        padding: 10px 15px;
-        font-size: 1.6rem;
+        width: 110px;
+        height: 35px;
+        padding: 5px 10px;
+        font-size: 1.4rem;
       }
     }
   }
 }
 @media screen and (min-width:769px) {
   #side {
-    margin: 47px 0 70px;
+    margin-top: 28px;
   }
 }
 
@@ -462,7 +471,6 @@ header.navbar-default {
 /* ===== main ===== */
 #main {
   margin-top: 8vw;
-  margin-bottom: 13.333vw;
 
   /* head-title */
   .head-title {
@@ -491,13 +499,13 @@ header.navbar-default {
   }
   @media screen and (min-width:769px) {
     .head-title {
-      margin-bottom: 20px;
-      padding-bottom: 15px;
-      font-size: 30px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      font-size: 2rem;
 
       .en-title {
-        margin-left: 20px;
-        font-size: 2.4rem;
+        margin-left: 10px;
+        font-size: 1.7rem;
       }
     }
   }
@@ -510,14 +518,6 @@ header.navbar-default {
     @media screen and (min-width:769px) {
       .head-title:after {
         width: 310px;
-      }
-      .new-movie-title {
-        width: 25.733vw;
-      }
-      @media screen and (min-width:769px) {
-        .new-movie-title {
-          width: 160px;
-        }
       }
     }
 
@@ -537,7 +537,7 @@ header.navbar-default {
       }
       @media screen and (min-width:769px) {
         .html {
-          height: 400px;
+          height: 436px;
         }
       }
 
@@ -548,11 +548,6 @@ header.navbar-default {
           font-size: 1.6rem;
           font-weight: bold;
           line-height: 1.2;
-        }
-        @media screen and (min-width:769px) {
-          .title {
-            font-size: 1.8rem;
-          }
         }
 
         .name {
@@ -567,10 +562,10 @@ header.navbar-default {
       }
       @media screen and (min-width:769px) {
         .detail {
-          padding: 10px 30px;
+          padding: 20px 20px 10px;
 
           .name {
-            margin-top: 15px;
+            margin-top: 8px;
             font-size: 1.6rem;
           }
         }
@@ -662,7 +657,7 @@ header.navbar-default {
     @media screen and (min-width:769px) {
       .movie-list {
         margin-top: 10px;
-        padding: 20px;
+        padding: 15px 10px 10px;
 
         ul .slide {
          padding: 0 5px;
@@ -680,6 +675,7 @@ header.navbar-default {
           }
 
           .title {
+            margin-top: 8px;
             font-size: 1.3rem;
           }
           .name {
@@ -722,9 +718,11 @@ header.navbar-default {
     }
     @media screen and (min-width:769px) {
       a {
-        margin-top: 20px;
+        width: 250px;
+        margin: 30px auto 0;
         padding: 15px 10px;
-        font-size: 2rem;
+        border-bottom: 2px solid $grey;
+        font-size: 1.7rem;
 
         .glyphicon {
           margin-right: 8px;
@@ -831,30 +829,31 @@ header.navbar-default {
           flex-wrap: wrap;
 
           li {
-            &:nth-child(3n+2),
-            &:nth-child(3n+3) {
-              margin-left: 12px;
+            &:nth-child(4n+2),
+            &:nth-child(4n+3),
+            &:nth-child(4n+4) {
+              margin-left: 15px;
             }
-            &:nth-child(n+4) {
-              margin-top: 12px;
+            &:nth-child(n+5) {
+              margin-top: 15px;
             }
 
             a {
-              width: 228px;
-              height: 320px;
+              width: 190px;
+              height: 260px;
 
               .detail {
                 padding: 10px;
 
                 .title {
-                  font-size: 1.5rem;
+                  font-size: 1.3rem;
                 }
                 .media {
                   margin-top: 8px;
-                  font-size: 1.4rem;
+                  font-size: 1.2rem;
                 }
                 .name {
-                  font-size: 1.4rem;
+                  font-size: 1.2rem;
                 }
               }
             }
@@ -904,7 +903,6 @@ header.navbar-default {
 @media screen and (min-width:769px) {
   #main {
     margin-top: 0;
-    margin-bottom: 70px;
 
     .pagination {
       margin-top: 50px;
@@ -938,6 +936,10 @@ header.navbar-default {
 
 /* ===== footer ===== */
 footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
   .footer-link {
     padding: 6vw 0 6.667vw;
     background: $black;
@@ -1048,12 +1050,18 @@ footer {
 
   .copyright {
     width: 100%;
+    margin-bottom: 0;
     padding: 4vw 0;
     background: #fff;
-    small {
-      color: $black;
-      font-size: 1rem;
-      font-weight: bold;
+
+    .container {
+      padding: 0;
+
+      small {
+        color: $black;
+        font-size: 1rem;
+        font-weight: bold;
+      }
     }
   }
   @media screen and (min-width:769px) {

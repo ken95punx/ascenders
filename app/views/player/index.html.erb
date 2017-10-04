@@ -1,10 +1,10 @@
 <div id="player" class="row">
-  <div id="side" class="col-sm-4 col-sm-push-8">
+  <div id="side" class="col-sm-3 col-sm-push-9">
     <%= search_form_for @search, url:player_path do |f| %>
       <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（名前・出身検索）', class: 'form-control' %>
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
 
@@ -35,7 +35,7 @@
     -->
   </div><!-- /#side -->
 
-  <div id="main" class="col-sm-8 col-sm-pull-4">
+  <div id="main" class="col-sm-9 col-sm-pull-3">
     <div class="player-list-box">
       <p class="head-title">選手一覧<span class="en-title player-list-title">ATHLETE</span></p><!-- /.head-title -->
 
@@ -56,14 +56,14 @@
                     </figure><!-- /.player-img -->
 
                     <div class="player-detail">
-                      <span class="name">
+                      <div class="name">
                         <span class="player-label">名前</span>
                         <span class="player-name"><%= player.name %></span>
-                      </span><!-- /.name -->
-                      <span class="sport">
+                      </div><!-- /.name -->
+                      <div class="sport">
                         <span class="sport-label">競技</span>
                         <span class="sport-name"><%= player.sport.name %></span>
-                      </span><!-- /.sport -->
+                      </div><!-- /.sport -->
                     </div><!-- /.player-detail -->
                   </div><!-- /.player-block -->
                 <% end %>

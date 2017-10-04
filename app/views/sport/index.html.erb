@@ -1,10 +1,10 @@
-<%= search_form_for @search, url:player_path do |f| %>
-  <div class="row">
-    <div id="main" class="col-sm-9">
-      <div class="search-box sp-only">
+<div id="sport" class="row">
+  <div id="side" class="col-sm-3 col-sm-push-9">
+    <%= search_form_for @search, url:player_path do |f| %>
+      <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
 
@@ -13,49 +13,44 @@
         </div><!-- /.submit-form -->
       </div><!-- /.search-box -->
 
-      <div class="sport-box">
-        <p class="head-title">競技一覧<%= image_tag("/images/common/head_title_article.png", alt:"SPORTS", class:"sports-list-title") %></p><!-- /.head-title -->
+    <% end %>
 
-        <div class="sport-list">
-          <ul>
-            <% @sports.each do |sport| %>
-              <li>
-                <%= link_to player_path(@search, :'q[sport_id_eq]' => "#{sport.id}") do %>
-                  <% if sport.image? %>
+    <!--
+    <div class="pop-movie-box">
+      人気動画箇所
+    </div>
+
+    <div class="pop-news-box">
+      人気記事箇所
+    </div>
+    -->
+  </div><!-- /#side -->
+
+  <div id="main" class="col-sm-9 col-sm-pull-3">
+    <div class="sport-box">
+      <p class="head-title">競技一覧<span class="en-title sports-list-title">SPORTS</span></p><!-- /.head-title -->
+
+      <div class="sport-list">
+        <ul>
+          <% @sports.each do |sport| %>
+            <li>
+              <%= link_to player_path(@search, :'q[sport_id_eq]' => "#{sport.id}") do %>
+                <% if sport.image? %>
+                  <figure class="thum">
                     <%= image_tag(sport.image.url) %>
-                  <% else %>
+                  </figure>
+                <% else %>
+                  <figure class="thum">
                     <%= image_tag("/images/common/default_sport_thum.jpg") %>
-                  <% end %>
-
-                  <span class="name"><%= sport.name %></span>
+                  </figure>
                 <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </div><!-- /.sports-list -->
-      </div><!-- /.sport-box -->
-    </div><!-- /#main -->
 
-    <div id="side" class="col-sm-3">
-      <div class="search-box pc-only">
-        <div class="search-form">
-          <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
-          </div><!-- /.form-group -->
-        </div><!-- /.search-form -->
-
-        <div class="submit-form">
-          <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
-        </div><!-- /.submit-form -->
-      </div><!-- /.search-box -->
-
-      <div class="pop-movie-box">
-
-      </div><!-- /.pop-movie-box -->
-
-      <div class="pop-news-box">
-
-      </div><!-- /.pop-news-box -->
-    </div><!-- /#side -->
-  </div><!-- /.row -->
-<% end %>
+                <p class="name"><%= sport.name %></p>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div><!-- /.sports-list -->
+    </div><!-- /.sport-box -->
+  </div><!-- /#main -->
+</div><!-- /.row -->

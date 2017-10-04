@@ -1,5 +1,5 @@
 class ArticleController < ApplicationController
-  PER = 9
+  PER = 12
 
   before_action :set_article
 

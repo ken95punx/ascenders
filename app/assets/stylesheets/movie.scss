@@ -18,16 +18,16 @@
       flex-wrap: wrap;
 
       .slide {
-        width: 168px;
+        width: 198px;
         padding: 0;
 
         &:nth-child(4n+2),
         &:nth-child(4n+3),
         &:nth-child(4n+4) {
-          margin-left: 12px;
+          margin-left: 10px;
         }
         &:nth-child(n+5) {
-          margin-top: 12px;
+          margin-top: 10px;
         }
 
         .thum {

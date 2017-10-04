@@ -1,5 +1,5 @@
 class MovieController < ApplicationController
-  PER = 12
+  PER = 20
 
   def index
     @sports = Sport.all.order(created_at: :desc)

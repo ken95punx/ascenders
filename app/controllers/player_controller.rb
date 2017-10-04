@@ -1,5 +1,5 @@
 class PlayerController < ApplicationController
-  PER = 20
+  PER = 30
 
   before_action :set_player, only: [:index, :show]
 
