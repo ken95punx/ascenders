@@ -5,6 +5,7 @@ class GelleryController < ApplicationController
 
   def index
     @gelleries = Gellery.where(player_id: params[:player_id]).page(params[:page]).per(PER).order(created_at: :desc)
+    @gellery = @gelleries.first
   end
 
   def show

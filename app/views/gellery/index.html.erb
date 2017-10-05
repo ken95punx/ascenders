@@ -40,23 +40,27 @@
       <div class="player-gellery-box">
         <p class="head-title">ギャラリー<span class="en-title player-gellery-title">GELLERY</span></p><!-- /.head-title -->
 
-        <div class="gellery-list">
-          <ul>
-            <% @gelleries.each do |gellery| %>
-              <li>
-                <%= link_to("/player/#{@player.id}/gellery/#{gellery.id}") do %>
-                  <% if gellery.image? %>
-                    <figure class="thum">
-                      <%= image_tag("#{gellery.image.url}") %>
-                    </figure>
-                  <% else %>
+        <% if @gellery %>
+          <div class="gellery-list">
+            <ul>
+              <% @gelleries.each do |gellery| %>
+                <li>
+                  <%= link_to("/player/#{@player.id}/gellery/#{gellery.id}") do %>
+                    <% if gellery.image? %>
+                      <figure class="thum">
+                        <%= image_tag("#{gellery.image.url}") %>
+                      </figure>
+                    <% else %>
+                    <% end %>
                   <% end %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-          <%= paginate @gelleries %>
-        </div><!-- /.gellery-list -->
+                </li>
+              <% end %>
+            </ul>
+            <%= paginate @gelleries %>
+          </div><!-- /.gellery-list -->
+        <% else %>
+          <p>ギャラリー画像が登録されていません</p>
+        <% end %>
 
         <div class="back-btn">
           <a href=<%= "/player/#{@player.id}" %>><i class="glyphicon glyphicon-chevron-left"></i><span>戻る</span></a>

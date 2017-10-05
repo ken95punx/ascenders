@@ -1,70 +1,71 @@
-<%= search_form_for @search, url:player_path do |f| %>
-  <div class="row">
-    <div id="main" class="col-sm-9">
-      <div class="search-box sp-only">
+<div id="friend" class="row">
+  <div id="side" class="col-sm-3 col-sm-push-9">
+    <%= search_form_for @search, url:player_path do |f| %>
+      <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
-
-        <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
-        </div><!-- /.select-form -->
 
         <div class="submit-form">
           <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
         </div><!-- /.submit-form -->
       </div><!-- /.search-box -->
 
-      <div class="player-detail-area">
-        <div class="player-gellery-box">
-          <p class="head-title">交友関係・同出身地・同出身校<%= image_tag("/images/common/head_title_article.png", alt:"FRIENDS", class:"player-friend-title") %></p><!-- /.head-title -->
+      <div class="select-box">
+        <div class="select-form">
+          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
+        </div><!-- /.select-form -->
+      </div><!-- /.select-box -->
 
+      <div class="submit-btn">
+        <div><%= f.submit '検索', class: 'search-btn' %></div>
+      </div>
+    <% end %>
+
+    <!--
+    <div class="pop-movie-box">
+      人気動画箇所
+    </div>
+
+    <div class="pop-news-box">
+      人気記事箇所
+    </div>
+    -->
+  </div><!-- /#side -->
+
+  <div id="main" class="col-sm-9 col-sm-pull-3">
+    <div class="player-detail-area">
+      <div class="player-gellery-box">
+        <p class="head-title">関連選手<span class="en-title player-friend-title">RELATED PLAYER</span></p><!-- /.head-title -->
+
+        <% if @friend %>
           <div class="friend-list">
             <ul>
               <% @friends.each do |friend| %>
                 <li>
                   <%= link_to("/player/#{friend.id}") do %>
-                    <%= image_tag("#{friend.profile_image.url}") %>
+                    <figure class="thum">
+                      <%= image_tag("#{friend.profile_image.url}") %>
+                    </figure>
                   <% end %>
+
+                  <p class="name"><%= friend.name%></p>
                 </li>
               <% end %>
             </ul>
             <%= paginate @friends %>
           </div><!-- /.friend-list -->
+        <% else %>
+          <p>交友関係が登録されていません</p>
+        <% end %>
 
-          <div class="back-btn">
-            <%= link_to("戻る", "/player/#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
-          </div><!-- /.back-btn -->
-        </div><!-- /.player-gellery-box -->
-      </div><!-- /player-detail-area -->
-    </div><!-- /#main -->
+        <div class="back-btn">
+          <a href=<%= "/player/#{@player.id}" %>><i class="glyphicon glyphicon-chevron-left"></i><span>戻る</span></a>
+        </div><!-- /.back-btn -->
+      </div><!-- /.player-gellery-box -->
+    </div><!-- /player-detail-area -->
+  </div><!-- /#main -->
 
-    <div id="side" class="col-sm-3">
-      <div class="search-box pc-only">
-        <div class="search-form">
-          <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
-          </div><!-- /.form-group -->
-        </div><!-- /.search-form -->
-
-        <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
-        </div><!-- /.select-form -->
-
-        <div class="submit-form">
-          <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
-        </div><!-- /.submit-form -->
-      </div><!-- /.search-box -->
-
-      <div class="pop-movie-box">
-
-      </div><!-- /.pop-movie-box -->
-
-      <div class="pop-news-box">
-
-      </div><!-- /.pop-news-box -->
-    </div><!-- /#side -->
-  </div><!-- /.row -->
-<% end %>
+</div><!-- /.row -->

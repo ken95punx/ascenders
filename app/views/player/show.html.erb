@@ -45,8 +45,8 @@
         <div class="movie-box">
           <p class="head-title">選手動画<%= image_tag("/images/common/head_title_article.png", alt:"MOVIE", class:"movie-title") %></p><!-- /.head-title -->
 
-          <div class="player-movie-block">
-            <% if @movie %>
+          <% if @movie %>
+            <div class="player-movie-block">
               <div class="movie-player">
                   <div class="html"><%= @movie.movie_html.html_safe %></div>
                   <div class="title"><%= @movie.title %></div>
@@ -76,9 +76,10 @@
               <div class="more-btn">
                 <%= link_to "もっと見る", movie_path(@search, :'q[player_id_eq]' => "#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
               </div><!-- /.more-btn -->
-            <% else %>
-            <% end %>
-          </div><!-- /.player-movie-block -->
+            </div><!-- /.player-movie-block -->
+          <% else %>
+            <p>動画が登録されていません</p>
+          <% end %>
         </div><!-- /.movie-box -->
 
         <div class="profile-box">
@@ -98,7 +99,7 @@
 
             <div class="profile-accordion">
               <div class="accordion-body">
-                <p class="introduction"><%= @player.introduction %></p>
+                <p class="introduction"><%= simple_format(@player.introduction) %></p>
               </div><!-- /.acordion-body -->
 
               <div class="accordion-header">
@@ -112,55 +113,63 @@
         <div class="player-news-box">
           <p class="head-title">選手記事<%= image_tag("/images/common/head_title_article.png", alt:"NEWS", class:"player-article-title") %></p><!-- /.head-title -->
 
-          <div class="article-list">
-            <ul>
-              <% @articles.each do |article| %>
-                <li>
-                  <%= link_to("/article/#{article.id}") do %>
-                    <% if article.image_link? %>
-                      <%= image_tag("#{article.image_link}", class:"thum") %>
-                    <% else %>
-                      <%= image_tag("/images/common/default_article_thum.jpg") %>
+          <% if @article %>
+            <div class="article-list">
+              <ul>
+                <% @articles.each do |article| %>
+                  <li>
+                    <%= link_to("/article/#{article.id}") do %>
+                      <% if article.image_link? %>
+                        <%= image_tag("#{article.image_link}", class:"thum") %>
+                      <% else %>
+                        <%= image_tag("/images/common/default_article_thum.jpg") %>
+                      <% end %>
+                      <span class="title"><%= article.title %></span>
+                      <span class="media"><%= article.media %></span>
+                      <span class="published"><%= article.created_at %></span>
+                      <span class="name"><%= article.player.name %></span>
                     <% end %>
-                    <span class="title"><%= article.title %></span>
-                    <span class="media"><%= article.media %></span>
-                    <span class="published"><%= article.created_at %></span>
-                    <span class="name"><%= article.player.name %></span>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div><!-- /.article-list -->
+                  </li>
+                <% end %>
+              </ul>
+            </div><!-- /.article-list -->
 
-          <div class="more-btn">
-            <%= link_to "もっと見る", article_path(@search, :'q[player_id_eq]' => "#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
-          </div><!-- /.more-btn -->
+            <div class="more-btn">
+              <%= link_to "もっと見る", article_path(@search, :'q[player_id_eq]' => "#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
+            </div><!-- /.more-btn -->
+          <% else %>
+            <p>記事が登録されていません</p>
+          <% end %>
         </div><!-- /.player-news-box -->
 
         <div class="player-gellery-box">
           <p class="head-title">選手ギャラリー<%= image_tag("/images/common/head_title_article.png", alt:"NEWS", class:"player-gellery-title") %></p><!-- /.head-title -->
 
-          <div class="gellery-list">
-            <ul>
-              <% @gelleries.each do |gellery| %>
-                <li>
-                  <%= link_to("/player/#{@player.id}/gellery/#{gellery.id}") do %>
-                    <%= image_tag("#{gellery.image.url}") %>
-                  <% end %>
-                </li>
-              <% end %>
-            </ul>
-          </div><!-- /.gellery-list -->
+          <% if @gellery %>
+            <div class="gellery-list">
+              <ul>
+                <% @gelleries.each do |gellery| %>
+                  <li>
+                    <%= link_to("/player/#{@player.id}/gellery/#{gellery.id}") do %>
+                      <%= image_tag("#{gellery.image.url}") %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            </div><!-- /.gellery-list -->
 
-          <div class="more-btn">
-            <%= link_to("もっと見る", "/player/#{@player.id}/gellery") %><i class="glyphicon glyphicon-chevron-right"></i>
-          </div><!-- /.more-btn -->
+            <div class="more-btn">
+              <%= link_to("もっと見る", "/player/#{@player.id}/gellery") %><i class="glyphicon glyphicon-chevron-right"></i>
+            </div><!-- /.more-btn -->
+          <% else %>
+            <p>ギャラリー画像が登録されていません</p>
+          <% end %>
         </div><!-- /.player-gellery-box -->
 
         <div class="player-friend-box">
           <p class="head-title">交友関係・同出身地・同出身校<%= image_tag("/images/common/head_title_article.png", alt:"FRIENDS", class:"player-friend-title") %></p><!-- /.head-title -->
 
-          <% if @friends %>
+          <% if @friend %>
             <div class="friend-list">
               <ul>
                 <% @friends.each do |friend| %>
@@ -177,6 +186,7 @@
               <%= link_to("もっと見る", "/player/#{@player.id}/frined") %><i class="glyphicon glyphicon-chevron-right"></i>
             </div><!-- /.more-btn -->
           <% else %>
+            <p>交友関係が登録されていません</p>
           <% end %>
         </div><!-- /.player-friend-box -->
 
