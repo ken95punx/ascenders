@@ -1,3 +1,89 @@
 // Place all the styles related to the gellery controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$grey: #ccc;
+
+#gellery {
+  .head-title:after {
+    width: 53.333vw;
+  }
+  @media screen and (min-width:769px) {
+    .head-title:after {
+      width: 190px;
+    }
+  }
+
+  .gellery-list ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li:nth-child(2n+2) {
+      margin-left: 4vw;
+    }
+    li:nth-child(n+3) {
+      margin-top: 4vw;
+    }
+    @media screen and (min-width:769px) {
+      li:nth-child(2n+2) {
+        margin-left: 0;
+      }
+      li:nth-child(5n+2),
+      li:nth-child(5n+3),
+      li:nth-child(5n+4),
+      li:nth-child(5n+5) {
+        margin-left: 10px;
+      }
+      li:nth-child(n+3) {
+        margin-top: 0;
+      }
+      li:nth-child(n+6) {
+        margin-top: 10px;
+      }
+    }
+
+    li .thum {
+      position: relative;
+      background: $grey;
+      width: 44vw;
+      height: 44vw;
+      display: flex;
+      justify-content: center;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+      }
+    }
+    @media screen and (min-width:769px) {
+      li .thum {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  }
+
+  @media screen and (min-width:769px) {
+    .gellery-image {
+      margin-top: 30px;
+      text-align: center;
+
+      img {
+        max-width: 100%;
+      }
+    }
+
+    .back-btn {
+      margin-top: 50px;
+    }
+  }
+}

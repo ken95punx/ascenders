@@ -315,6 +315,16 @@ header.navbar-default {
   border: 0 none;
 }
 
+/* ===== container ===== */
+header + .container {
+  padding-bottom: 82.714vw;
+}
+@media screen and (min-width:769px) {
+  header + .container {
+    padding-bottom: 214px;
+  }
+}
+
 
 /* ===== side ===== */
 #side {
@@ -703,7 +713,8 @@ header.navbar-default {
     }
   }
 
-  .more-btn {
+  .more-btn,
+  .back-btn {
     a {
       margin-top: 4vw;
       padding: 4vw 2vw;

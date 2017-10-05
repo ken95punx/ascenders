@@ -1,5 +1,5 @@
 class GelleryController < ApplicationController
-  PER = 12
+  PER = 50
 
   before_action :set_gellery
 

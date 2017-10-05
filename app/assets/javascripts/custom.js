@@ -1,19 +1,3 @@
-//footer
-
-$(window).on('load resize', function(){
-  var w = $(window).width();
-  var x = 769;
-  var footerHight = $('footer').height();
-
-  if (w >= x) {
-    $('header + .container').css('padding-bottom', footerHight + 70 + 'px');
-  } else {
-    $('header + .container').css('padding-bottom', footerHight + 30 + 'px');
-  }
-});
-
-
-
 // slick.js（slider）
 $(function() {
   $('.multiple-item').slick({
