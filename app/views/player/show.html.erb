@@ -43,7 +43,7 @@
 
       <div class="select-box">
         <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
+          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
         </div><!-- /.select-form -->
       </div><!-- /.select-box -->
 
@@ -79,18 +79,22 @@
 
           <div class="profile-image">
             <% if @player.profile_image? %>
-              <%= image_tag(@player.profile_image.url) %>
+              <figure class="thum">
+                <%= image_tag(@player.profile_image.url) %>
+              </figure>
             <% else %>
-              <%= image_tag("/images/common/default_player_profile.jpg") %>
+              <figure class="thum">
+                <%= image_tag("/images/common/default_player_profile.jpg") %>
+              </figure>
             <% end %>
           </div><!-- /.profile-image -->
 
           <div class="main-profile">
             <p class="name"><%= @player.name %></p>
-            <p class="sport"><%= @player.sport.name %></p>
-            <p class="date"><%= @player.birth_date.year %>年<%= @player.birth_date.month %>月<%= @player.birth_date.day %>日</p>
-            <p class="place_birth"><%= @player.place_birth %></p>
-            <p class="blood_type"><%= @player.blood_type %></p>
+            <p class="sport">競技：<%= @player.sport.name %></p>
+            <p class="date">生年月日：<%= @player.birth_date.year %>年<%= @player.birth_date.month %>月<%= @player.birth_date.day %>日</p>
+            <p class="place_birth">出身地：<%= @player.place_birth %></p>
+            <p class="blood_type">血液型：<%= @player.blood_type %></p>
           </div><!-- /.main-profile -->
         </div><!-- /.main-visual -->
       </div><!-- /.main-visual-box -->
@@ -141,27 +145,26 @@
         <p class="head-title">プロフィール<span class="en-title profile-title">PROFILE</span></p><!-- /.head-title -->
 
         <div class="profile-block">
-          <p class="league_school"><%= @player.league_school %></p>
-          <p class="team"><%= @player.team %></p>
-          <p class="height"><%= @player.height %></p>
-          <p class="weight"><%= @player.weight %></p>
-          <p class="alma_mater"><%= @player.alma_mater %></p>
+          <p class="league_school">所属リーグ：<%= @player.league_school %></p>
+          <p class="team">所属チーム：<%= @player.team %></p>
+          <p class="height">身長：<%= @player.height %>cm</p>
+          <p class="weight">体重：<%= @player.weight %>kg</p>
+          <p class="alma_mater">出身校：<%= @player.alma_mater %></p>
           <div class="website">
+            <span>Webサイト/ブログ：</span>
             <%= link_to("#{@player.website}", target: "_blank") do %>
               <%= @player.website %>
             <% end %>
           </div>
 
-          <div class="profile-accordion">
-            <div class="accordion-body">
-              <p class="introduction"><%= simple_format(@player.introduction) %></p>
-            </div><!-- /.acordion-body -->
+          <div id="profile" class="collapse">
+            <p class="introduction"><%= simple_format(@player.introduction) %></p>
+          </div>
 
-            <div class="accordion-header">
-              プロフィールを読む
-              <i class="fa fa-2x fa-angle-down header-icon"></i>
-            </div><!-- /.accordion-header -->
-          </div><!-- /.profile-accordion -->
+          <button class="profile-btn" type="button" data-toggle="collapse" data-target="#profile">
+            プロフィールを読む<span class="glyphicon glyphicon-plus"></span>
+          </button>
+
         </div><!-- /.profile-block -->
       </div><!-- /.profile-box -->
 
