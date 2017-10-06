@@ -4,6 +4,7 @@ class TopController < ApplicationController
     @articles = Article.limit(9).order(created_at: :desc)
     @movie = @movies.first
     @search = Player.ransack(params[:q])
+    @sports = Sport.all.order(created_at: :desc)
   end
 
   def click_movie

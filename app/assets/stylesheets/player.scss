@@ -4,9 +4,8 @@
 
 /* sass */
 $red: #cc3333;
-$grey: #ccc;
+$grey: #f3f3f4;
 $black: #333;
-
 
 /* player-list-box */
 #player #main {
@@ -37,10 +36,8 @@ $black: #333;
               -webkit-transform: translate(-50%, -50%);
               -ms-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%);
-              max-width: 100%;
-              max-height: 100%;
               width: auto;
-              height: auto;
+              height: 100%;
             }
           }
 
@@ -135,6 +132,144 @@ $black: #333;
     @media screen and (min-width:769px) {
       .head-title:after {
         width: 245px;
+      }
+    }
+  }
+}
+
+
+@mixin listblock() {
+  background: #fff;
+  
+}
+
+#player.detail {
+  .gellery-list,.friend-list {
+    margin-top: 2vw;
+    padding: 4vw;
+    @include listblock();
+
+    ul {
+      margin-bottom: 0;
+
+      .slide {
+        padding: 0 2vw;
+
+        .thum {
+          position: relative;
+          overflow: hidden;
+          background: $black;
+          height: 40vw;
+          display: flex;
+          justify-content: center;
+
+          img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            width: auto;
+            height: 100%;
+          }
+          .glyphicon-play-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 6.4vw;
+            height: 7.467vw;
+            margin-top: -3.734vw;
+            margin-left: -3.2vw;
+            color: #fff;
+            font-size: 2.8rem;
+          }
+        }
+
+        .title {
+          margin-top: 1.333vw;
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+        .name {
+          margin-top: 2vw;
+          text-align: center;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .slick-prev {
+      width: 5.333vw;
+      height: 12vw;
+      background: url(/images/common/arrow-l.gif);
+      background-size: cover;
+
+      &:before {
+        content: none;
+      }
+    }
+    .slick-next {
+      width: 5.333vw;
+      height: 12vw;
+      background: url(/images/common/arrow-r.gif);
+      background-size: cover;
+
+      &:before {
+        content: none;
+      }
+    }
+
+    .slick-dots {
+      display: none !important;
+    }
+  }
+
+  @media screen and (min-width:769px) {
+    .gellery-list,.friend-list {
+      margin-top: 10px;
+      padding: 15px 10px 10px;
+
+      ul .slide {
+       padding: 0 5px;
+
+        .thum {
+          height: 120px;
+
+          .glyphicon-play-circle {
+            width: 40px;
+            height: 48px;
+            margin-top: -20px;
+            margin-left: -20px;
+            font-size: 4rem;
+          }
+        }
+
+        .title {
+          margin-top: 8px;
+          font-size: 1.3rem;
+        }
+        .name {
+          margin-top: 13px;
+          font-size: 1.4rem;
+        }
+      }
+
+      .slick-prev {
+        width: 25px;
+        height: 56px;
+
+        &:before {
+          content: none;
+        }
+      }
+      .slick-next {
+        width: 25px;
+        height: 56px;
+
+        &:before {
+          content: none;
+        }
       }
     }
   }

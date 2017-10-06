@@ -141,7 +141,7 @@ a:hover {
 
 $black: #333;
 $red: #cc3333;
-$grey: #ccc;
+$grey: #f3f3f4;
 $formgrey: #999;
 @mixin link() {
   color: #006699;
@@ -149,7 +149,6 @@ $formgrey: #999;
 }
 @mixin listblock() {
   background: #fff;
-  border: 1px solid #ccc;
 }
 
 
@@ -158,9 +157,13 @@ html,body { height: 100%; }
 .pc-only {
   display: none;
 }
+
 @media screen and (min-width: 769px) {
   .sp-only {
-    display: none;
+    display: none !important;
+  }
+  .navbar-collapse.collapse.sp-only {
+    display: none !important;
   }
   .pc-only {
     display: block;
@@ -171,7 +174,7 @@ html,body { height: 100%; }
 /* ===== wrapper ===== */
 .wrapper {
   position: relative;
-  background: #eee;
+  background: $grey;
   min-height: 100%;
 }
 @media screen and (min-width: 992px) {
@@ -251,13 +254,21 @@ header,header.navbar-default {
     }
 
     .icon-bar {
-      width: 10.667vw;
-      height: .667vw;
+      width: 8vw;
+      height: 1.067vw;
       background: $black;
     }
 
     .icon-bar + .icon-bar {
-      margin-top: 1.6vw;
+      margin-top: 1.333vw;
+    }
+  }
+
+  .search-nav {
+    margin-top: 6vw;
+
+    .glyphicon-search {
+      font-size: 2.4rem;
     }
   }
 
@@ -266,12 +277,12 @@ header,header.navbar-default {
     a {
       color: $black;
       font-size: 1.5rem;
+      font-weight: bold;
     }
     @media screen and (min-width:769px) {
       a {
-        padding: 10px 25px 5px;
+        padding: 15px 25px 10px;
         color: #fff;
-        font-size: 1.3rem;
         border-bottom: 4px solid $black;
 
         &:hover {
@@ -325,118 +336,31 @@ header + .container {
   }
 }
 
+/* ===== search ===== */
+.search-block {
+  padding-bottom: 8vw;
+}
 
-/* ===== side ===== */
-#side {
-  .search-box {
-    display: table;
+.search-box {
+  display: table;
 
-    .search-form {
-      display:table-cell;
-      position: relative;
-
-      .form-group {
-        margin-bottom: 0;
-
-        input[type="text"] {
-          width: 80vw;
-          height: 12vw;
-          padding: 2vw;
-          background: #fff;
-          font-size: 1.6rem;
-        }
-        @media screen and (min-width: 769px) {
-          input[type="text"] {
-            width: 220px;
-            height: 35px;
-            padding: 8px 10px;
-            font-size: 1.3rem;
-          }
-        }
-      }
-    }
-
-    .submit-form {
-      position: relative;
-      width: 20vw;
-      display:table-cell;
-      background: $formgrey;
-
-      input[type="submit"] {
-        width: 12vw;
-        height: 11vw;
-        background: $formgrey;
-        text-indent: -9999px;
-      }
-      @media screen and (min-width: 769px) {
-        input[type="submit"] {
-          width: 42px;
-          height: 35px;
-        }
-      }
-
-      .glyphicon-search {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin: -1rem 0 -0 -1rem;
-        color: #fff;
-        font-size: 2rem;
-      }
-      @media screen and (min-width: 769px) {
-        .glyphicon-search {
-          font-size: 1.8rem;
-        }
-      }
-    }
-  }
-
-  .select-box {
+  .search-form {
+    display:table-cell;
     position: relative;
-    margin-top: 2.667vw;
 
-    .select-form {
-      &:after {
-        position: absolute;
-        top: 50%;
-        right: 2.667vw;
-        margin-top: -1.333vw;
-        content: '';
-        display: block;
-        width: 0;
-        height: 0;
-        border-top: 3.333vw solid $formgrey;
-        border-left: 2vw solid transparent;
-        border-bottom: 3.333vw solid transparent;
-        border-right: 2vw solid transparent;
-      }
+    .form-group {
+      margin-bottom: 0;
 
-      select{
-        width: 100%;
+      input[type="text"] {
+        width: 80vw;
         height: 12vw;
         padding: 2vw;
         background: #fff;
         font-size: 1.6rem;
-        color: $formgrey;
-        box-sizing: border-box;
       }
-    }
-  }
-  @media screen and (min-width: 769px) {
-    .select-box {
-      margin-top: 8px;
-
-      .select-form {
-        &:after {
-          right: 10px;
-          margin-top: -5px;
-          border-top: 10px solid $formgrey;
-          border-left: 8px solid transparent;
-          border-bottom: 10px solid transparent;
-          border-right: 8px solid transparent;
-        }
-
-        select {
+      @media screen and (min-width: 769px) {
+        input[type="text"] {
+          width: 220px;
           height: 35px;
           padding: 8px 10px;
           font-size: 1.3rem;
@@ -445,32 +369,124 @@ header + .container {
     }
   }
 
-  .submit-btn {
-    margin-top: 2.667vw;
+  .submit-form {
+    position: relative;
+    width: 20vw;
+    display:table-cell;
+    background: $formgrey;
 
-    input {
-      width: 100%;
-      padding: 2.667vw 1.333vw;
+    input[type="submit"] {
+      width: 12vw;
+      height: 11vw;
       background: $formgrey;
-      color: #fff;
-      text-align: center;
-      font-size: 1.5rem;
+      text-indent: -9999px;
     }
-  }
-  @media screen and (min-width: 769px) {
-    .submit-btn {
-      margin-top: 15px;
-      text-align: center;
-
-      input {
-        width: 110px;
+    @media screen and (min-width: 769px) {
+      input[type="submit"] {
+        width: 42px;
         height: 35px;
-        padding: 5px 10px;
-        font-size: 1.4rem;
+      }
+    }
+
+    .glyphicon-search {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -1rem 0 -0 -1rem;
+      color: #fff;
+      font-size: 2rem;
+    }
+    @media screen and (min-width: 769px) {
+      .glyphicon-search {
+        font-size: 1.8rem;
       }
     }
   }
 }
+
+.select-box {
+  position: relative;
+  margin-top: 2.667vw;
+
+  .select-form {
+    &:after {
+      position: absolute;
+      top: 50%;
+      right: 2.667vw;
+      margin-top: -1.333vw;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-top: 3.333vw solid $formgrey;
+      border-left: 2vw solid transparent;
+      border-bottom: 3.333vw solid transparent;
+      border-right: 2vw solid transparent;
+    }
+
+    select{
+      width: 100%;
+      height: 12vw;
+      padding: 2vw;
+      background: #fff;
+      font-size: 1.6rem;
+      color: $formgrey;
+      box-sizing: border-box;
+    }
+  }
+}
+@media screen and (min-width: 769px) {
+  .select-box {
+    margin-top: 8px;
+
+    .select-form {
+      &:after {
+        right: 10px;
+        margin-top: -5px;
+        border-top: 10px solid $formgrey;
+        border-left: 8px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 8px solid transparent;
+      }
+
+      select {
+        height: 35px;
+        padding: 8px 10px;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+.submit-btn {
+  margin-top: 2.667vw;
+
+  input {
+    width: 100%;
+    padding: 2.667vw 1.333vw;
+    background: $formgrey;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 769px) {
+  .submit-btn {
+    margin-top: 15px;
+    text-align: center;
+
+    input {
+      width: 110px;
+      height: 35px;
+      padding: 5px 10px;
+      font-size: 1.4rem;
+    }
+  }
+}
+
+
+
+/* ===== side ===== */
 @media screen and (min-width:769px) {
   #side {
     margin-top: 28px;
@@ -480,8 +496,6 @@ header + .container {
 
 /* ===== main ===== */
 #main {
-  margin-top: 8vw;
-
   /* head-title */
   .head-title {
     padding-bottom: 2.267vw;
@@ -595,6 +609,7 @@ header + .container {
 
           .thum {
             position: relative;
+            overflow: hidden;
             background: $black;
             height: 22vw;
             display: flex;
@@ -607,10 +622,8 @@ header + .container {
               -webkit-transform: translate(-50%, -50%);
               -ms-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%);
-              max-width: 100%;
-              max-height: 100%;
               width: auto;
-              height: auto;
+              height: 100%;
             }
             .glyphicon-play-circle {
               position: absolute;
@@ -764,7 +777,7 @@ header + .container {
           width: 37.333vw;/* トリミングしたい枠の幅 */
           height: 55.333vw;/* トリミングしたい枠の高さ */
           margin: 0 auto;
-          background: $grey;
+          background: #333;
 
           img {
             position: absolute;
@@ -1079,7 +1092,7 @@ footer {
     .copyright {
       padding: 20px 0 ;
 
-      small {
+      .container small {
         font-size: 1.3rem;
       }
     }

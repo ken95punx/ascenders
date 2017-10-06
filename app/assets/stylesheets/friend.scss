@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-$grey: #ccc;
+$grey: #f3f3f4;
 
 #friend {
   .head-title:after {
@@ -45,6 +45,7 @@ $grey: #ccc;
 
     li .thum {
       position: relative;
+      overflow: hidden;
       background: $grey;
       width: 44vw;
       height: 44vw;
@@ -58,10 +59,8 @@ $grey: #ccc;
         -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-        max-width: 100%;
-        max-height: 100%;
         width: auto;
-        height: auto;
+        height: 100%;
       }
     }
 

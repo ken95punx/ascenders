@@ -1,95 +1,145 @@
-<%= search_form_for @search, url:article_path do |f| %>
-  <div id="article" class="row">
-    <div id="main" class="col-sm-9">
-      <div class="search-box sp-only">
+<div id="article" class="row">
+  <div id="search-nav" class="collapse navbar-collapse sp-only">
+    <%= search_form_for @search, url:player_path do |f| %>
+      <div class="search-block">
+        <div class="search-box">
+          <div class="search-form">
+            <div class="form-group">
+              <%= f.text_field :title_or_player_name_or_player_team_or_player_hiragana_name_or_player_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（記事検索）', class: 'form-control' %>
+            </div><!-- /.form-group -->
+          </div><!-- /.search-form -->
+
+          <div class="submit-form">
+            <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
+          </div><!-- /.submit-form -->
+        </div><!-- /.search-box -->
+
+        <div class="select-box">
+          <div class="select-form">
+            <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
+          </div><!-- /.select-form -->
+        </div><!-- /.select-box -->
+
+        <div class="submit-btn">
+          <div><%= f.submit '検索', class: 'search-btn' %></div>
+        </div>
+      </div><!-- /.search-block -->
+    <% end %>
+  </div><!-- /.search-nav -->
+
+  <div id="side" class="col-sm-3 col-sm-push-9 pc-only">
+    <%= search_form_for @search, url:article_path do |f| %>
+      <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :title_or_player_name_or_player_team_or_player_hiragana_name_or_player_katakana_name_cont, placeholder: 'キーワードを入力（記事検索）', class: 'form-control' %>
+            <%= f.text_field :title_or_player_name_or_player_team_or_player_hiragana_name_or_player_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（記事検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
-
-        <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
-        </div><!-- /.select-form -->
-
 
         <div class="submit-form">
           <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
         </div><!-- /.submit-form -->
       </div><!-- /.search-box -->
 
-      <div class="detail-news-box">
-        <p class="head-title">選手記事<%= image_tag("/images/common/head_title_article.png", alt:"NEWS", class:"details-news-title") %></p><!-- /.head-title -->
+      <div class="select-box">
+        <div class="select-form">
+          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
+        </div><!-- /.select-form -->
+      </div><!-- /.select-box -->
 
-        <div class="detail-block">
+      <div class="submit-btn">
+        <div><%= f.submit '検索', class: 'search-btn' %></div>
+      </div>
+    <% end %>
+
+    <!--
+    <div class="pop-movie-box">
+      人気動画箇所
+    </div>
+
+    <div class="pop-news-box">
+      人気記事箇所
+    </div>
+    -->
+  </div><!-- /#side -->
+
+  <div id="main" class="col-sm-9 col-sm-pull-3">
+    <div class="detail-news-box">
+      <p class="head-title">選手記事<span class="en-title details-news-title">NEWS</span></p><!-- /.head-title -->
+
+      <div class="detail-block">
+        <div class="article-bg">
           <% if @article.image_link? %>
             <%= image_tag("#{@article.image_link}", class:"thum") %>
           <% else %>
             <%= image_tag("/images/common/default_article_thum.jpg") %>
           <% end %>
-          <span class="title"><%= @article.title %></span>
-          <span class="media"><%= @article.media %></span>
-          <span class="published"><%= @article.created_at %></span>
-          <span class="name"><%= @article.player.name %></span>
-        </div><!-- /.detail-block -->
+        </div><!-- /.article-bg -->
 
-        <span class="url"><%= link_to("続きを見る", "#{@article.original_link}", target: "_blank") %><i class="glyphicon glyphicon-chevron-right"></i></span>
-      </div><!-- /.detail-news-box -->
+        <div class="article-detail">
+          <p class="title"><%= @article.title %></p>
+          <p class="media"><%= @article.media %></p>
+          <p class="name">
+            <%= link_to("/player/#{@article.player_id}") do %>
+              <%= @article.player.name %>
+            <% end %>
+          </p>
+        </div><!-- /.article-detail -->
+      </div><!-- /.detail-block -->
 
-      <div class="recent-news-box">
-        <p class="head-title">新着記事<%= image_tag("/images/common/head_title_article.png", alt:"RECENT NEWS", class:"new-article-title") %></p><!-- /.head-title -->
+      <div class="more-btn">
+        <a href=<%= "#{@article.original_link}" %> target="_blank"><i class="glyphicon glyphicon-chevron-right"></i><span>続きを見る</span></a>
+      </div><!-- /.more-btn -->
+    </div><!-- /.detail-news-box -->
 
-        <div class="article-list">
-          <ul>
-            <% @articles.each do |article| %>
-              <li>
-                <%= link_to("/article/#{article.id}") do %>
-                  <% if article.image_link? %>
-                    <%= image_tag("#{article.image_link}", class:"thum") %>
-                  <% else %>
-                    <%= image_tag("/images/common/default_article_thum.jpg") %>
-                  <% end %>
+    <div class="news-box recent-news-box">
+      <p class="head-title">新着記事<span class="en-title new-article-title">RECENT NEWS</span></p><!-- /.head-title -->
+
+      <div class="article-list pc-only ">
+        <ul>
+          <% @articles.each do |article| %>
+            <li>
+              <%= link_to("/article/#{article.id}") do %>
+                <% if article.image_link? %>
+                  <%= image_tag("#{article.image_link}", class:"thum") %>
+                <% else %>
+                  <%= image_tag("/images/common/default_article_thum.jpg") %>
+                <% end %>
+                <span class="detail">
                   <span class="title"><%= article.title %></span>
                   <span class="media"><%= article.media %></span>
-                  <span class="published"><%= article.created_at %></span>
                   <span class="name"><%= article.player.name %></span>
+                </span><!-- /.detail -->
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div><!-- /.article-list -->
+
+      <div class="article-list sp-only">
+        <ul class="multiple-item">
+          <% @articles.each do |article| %>
+            <li>
+              <%= link_to("/article/#{article.id}") do %>
+                <% if article.image_link? %>
+                  <%= image_tag("#{article.image_link}", class:"thum") %>
+                <% else %>
+                  <%= image_tag("/images/common/default_article_thum.jpg") %>
                 <% end %>
-              </li>
-            <% end %>
-          </ul>
-        </div><!-- /.article-list -->
+                <span class="detail">
+                  <span class="title"><%= article.title %></span>
+                  <span class="media"><%= article.media %></span>
+                  <span class="name"><%= article.player.name %></span>
+                </span><!-- /.detail -->
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div><!-- /.article-list -->
 
-        <div class="more-btn">
-          <%= link_to("もっと見る", "/article") %><i class="glyphicon glyphicon-chevron-right"></i>
-        </div><!-- /.more-btn -->
-      </div><!-- /.recent-news-box -->
-    </div><!-- /#main -->
-
-    <div id="side" class="col-sm-3">
-      <div class="search-box pc-only">
-        <div class="search-form">
-          <div class="form-group">
-            <%= f.text_field :title_or_player_name_or_player_team_or_player_hiragana_name_or_player_katakana_name_cont, placeholder: 'キーワードを入力（記事検索）', class: 'form-control' %>
-          </div><!-- /.form-group -->
-        </div><!-- /.search-form -->
-
-        <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
-        </div><!-- /.select-form -->
-
-
-        <div class="submit-form">
-          <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
-        </div><!-- /.submit-form -->
-      </div><!-- /.search-box -->
-
-      <div class="pop-movie-box">
-
-      </div><!-- /.pop-movie-box -->
-
-      <div class="pop-news-box">
-
-      </div><!-- /.pop-news-box -->
-    </div><!-- /#side -->
-  </div><!-- /.row -->
-<% end %>
+      <div class="more-btn">
+        <a href="/article"><i class="glyphicon glyphicon-chevron-right"></i><span>もっと見る</span></a>
+      </div><!-- /.more-btn -->
+    </div><!-- /.recent-news-box -->
+  </div><!-- /#main -->
+</div><!-- /.row -->

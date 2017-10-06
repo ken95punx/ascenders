@@ -1,5 +1,33 @@
 <div id="player" class="row">
-  <div id="side" class="col-sm-3 col-sm-push-9">
+  <div id="search-nav" class="collapse navbar-collapse sp-only">
+    <%= search_form_for @search, url:player_path do |f| %>
+      <div class="search-block">
+        <div class="search-box">
+          <div class="search-form">
+            <div class="form-group">
+              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+            </div><!-- /.form-group -->
+          </div><!-- /.search-form -->
+
+          <div class="submit-form">
+            <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
+          </div><!-- /.submit-form -->
+        </div><!-- /.search-box -->
+
+        <div class="select-box">
+          <div class="select-form">
+            <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
+          </div><!-- /.select-form -->
+        </div><!-- /.select-box -->
+
+        <div class="submit-btn">
+          <div><%= f.submit '検索', class: 'search-btn' %></div>
+        </div>
+      </div><!-- /.search-block -->
+    <% end %>
+  </div><!-- /.search-nav -->
+
+  <div id="side" class="col-sm-3 col-sm-push-9 pc-only">
     <%= search_form_for @search, url:player_path do |f| %>
       <div class="search-box">
         <div class="search-form">
