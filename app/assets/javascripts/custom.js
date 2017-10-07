@@ -1,3 +1,9 @@
+// ローディング
+$(window).on('load', function() {
+  $('.wrapper').css({opacity: '0'}).animate({opacity: '1'}, 1500);
+  $('.loading').hide();
+});
+
 // slick.js（slider）
 $(function() {
   $('.multiple-item').slick({

@@ -170,12 +170,37 @@ html,body { height: 100%; }
   }
 }
 
+/* ===== loading ===== */
+.loading {
+  position: fixed;
+  left:50%;
+  top:50%;
+  display: block;
+  width: 18.667vw;
+  height: 18.667vw;
+  margin-top: -9.333vw;
+  margin-left: -9.333vw;
+
+  img {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 769px) {
+  .loading {
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+  }
+}
+
 
 /* ===== wrapper ===== */
 .wrapper {
   position: relative;
   background: $grey;
   min-height: 100%;
+  opacity: 0;
 }
 @media screen and (min-width: 992px) {
   .wrapper {
@@ -266,6 +291,7 @@ header,header.navbar-default {
 
   .search-nav {
     margin-top: 6vw;
+    margin-right: 1.333vw;
 
     .glyphicon-search {
       font-size: 2.4rem;
@@ -745,12 +771,41 @@ header + .container {
         width: 250px;
         margin: 30px auto 0;
         padding: 15px 10px;
-        border-bottom: 2px solid $grey;
         font-size: 1.7rem;
 
         .glyphicon {
           margin-right: 8px;
         }
+      }
+    }
+  }
+  .profile-btn {
+    position: relative;
+    width: 100%;
+    margin-top: 4vw;
+    padding: 4vw 2vw;
+    border: none;
+    background: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+
+    .glyphicon {
+      position: absolute;
+      top: 50%;
+      right: 2.667vw;
+      margin-top: -2vw;
+    }
+  }
+  @media screen and (min-width:769px) {
+    .profile-btn {
+      width: 250px;
+      margin: 30px auto 0;
+      padding: 15px 10px;
+      font-size: 1.7rem;
+
+      .glyphicon {
+        margin-left: 8px;
       }
     }
   }
