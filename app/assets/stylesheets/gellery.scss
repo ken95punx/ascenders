@@ -6,15 +6,6 @@
 $grey: #f3f3f4;
 
 #gellery {
-  .head-title:after {
-    width: 53.333vw;
-  }
-  @media screen and (min-width:769px) {
-    .head-title:after {
-      width: 190px;
-    }
-  }
-
   .gellery-list ul {
     display: flex;
     flex-wrap: wrap;

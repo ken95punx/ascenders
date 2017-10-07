@@ -1,203 +1,169 @@
-// Place all the styles related to the player controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+  // Place all the styles related to the player controller here.
+  // They will automatically be included in application.css.
+  // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* sass */
-$red: #cc3333;
-$grey: #f3f3f4;
-$black: #333;
+  /* sass */
+  $red: #cc3333;
+  $grey: #f3f3f4;
+  $black: #333;
 
-/* player-list-box */
-#player #main {
-  .player-list-box {
-    .head-title:after {
-      width: 47vw;
-    }
+  /* player-list-box */
+  #player #main {
+    .player-list-box {
+      .player-list {
+        li {
+          background: #fff;
 
-    .player-list {
-      li {
-        background: #fff;
+          a {
+            padding: 4vw;
 
-        a {
-          padding: 4vw;
+            .player-img {
+              overflow: hidden;
+              float: left;
+              position: relative;
+              width: 40vw;
+              height: 26.667vw;
+              background: #eee;
 
-          .player-img {
-            overflow: hidden;
-            float: left;
-            position: relative;
-            width: 40vw;
-            height: 26.667vw;
-            background: #eee;
-
-            img{
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              -webkit-transform: translate(-50%, -50%);
-              -ms-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
-              width: auto;
-              height: 100%;
-            }
-          }
-
-          .player-detail {
-            margin-left: 46.667vw;
-
-            span {
-              display: block;
-              font-size: 1.3rem;
-              font-weight: bold;
-            }
-
-            [class$='-label'] {
-              color: $red;
-              padding-bottom: .667vw;
-              border-bottom: 1px dashed $red;
-            }
-            .sport-label {
-              margin-top: 4vw;
-            }
-            [class$='-name'] {
-              margin-top: 2vw;
-              font-size: 1.4rem;
-            }
-          }
-        }
-      }
-      @media screen and (min-width:769px) {
-        ul {
-          display: flex;
-          flex-wrap: wrap;
-
-          li {
-            width: 275px;
-            height: 100px;
-
-            a {
-              padding: 10px;
-
-              .player-img {
-                width: 70px;
-                height: 70px;
-              }
-
-              .player-detail {
-                display: flex;
-                margin-left: 80px;
-
-                span {
-                  display: block;
-                  font-size: 1.2rem;
-                }
-                .name {
-                  width: 100px;
-                }
-                [class$='-label'] {
-                  padding-bottom: 3px;
-                }
-                .sport {
-                  width: 65px;
-                  margin-left: 10px;
-                }
-                .sport-label {
-                  margin-top: 0;
-                }
-                [class$='-name'] {
-                  margin-top: 8px;
-                  font-size: 1.4rem;
-                }
+              img{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+                width: auto;
+                height: 100%;
               }
             }
 
-            &:nth-child(3n+2),
-            &:nth-child(3n+3) {
-              margin-left: 10px;
-            }
-            &:nth-child(n+4) {
-              margin-top: 10px;
-            }
-          }
+            .player-detail {
+              margin-left: 46.667vw;
 
-          li + li {
-            margin-top: 0;
+              span {
+                display: block;
+                font-size: 1.3rem;
+                font-weight: bold;
+              }
+
+              [class$='-label'] {
+                color: $red;
+                padding-bottom: .667vw;
+                border-bottom: 1px dashed $red;
+              }
+              .sport-label {
+                margin-top: 4vw;
+              }
+              [class$='-name'] {
+                margin-top: 2vw;
+                font-size: 1.4rem;
+              }
+            }
           }
         }
-      }
+        @media screen and (min-width:769px) {
+          ul {
+            display: flex;
+            flex-wrap: wrap;
 
-      li + li {
-        margin-top: 4vw;
-      }
-    }
-    @media screen and (min-width:769px) {
-      .head-title:after {
-        width: 245px;
+            li {
+              width: 275px;
+              height: 100px;
+
+              a {
+                padding: 10px;
+
+                .player-img {
+                  width: 70px;
+                  height: 70px;
+                }
+
+                .player-detail {
+                  display: flex;
+                  margin-left: 80px;
+
+                  span {
+                    display: block;
+                    font-size: 1.2rem;
+                  }
+                  .name {
+                    width: 100px;
+                  }
+                  [class$='-label'] {
+                    padding-bottom: 3px;
+                  }
+                  .sport {
+                    width: 65px;
+                    margin-left: 10px;
+                  }
+                  .sport-label {
+                    margin-top: 0;
+                  }
+                  [class$='-name'] {
+                    margin-top: 8px;
+                    font-size: 1.4rem;
+                  }
+                }
+              }
+
+              &:nth-child(3n+2),
+              &:nth-child(3n+3) {
+                margin-left: 10px;
+              }
+              &:nth-child(n+4) {
+                margin-top: 10px;
+              }
+            }
+
+            li + li {
+              margin-top: 0;
+            }
+          }
+        }
+
+        li + li {
+          margin-top: 4vw;
+        }
       }
     }
   }
-}
 
 
-@mixin listblock() {
-  background: #fff;
-}
-
-#player.detail {
-
-  .movie-box,
-  .profile-box,
-  .news-box,
-  .player-gellery-box,
-  .player-friend-box,
-  .player-event-box {
-    margin-top: 10.667vw;
+  @mixin listblock() {
+    background: #fff;
   }
-  @media screen and (min-width:769px) {
+
+  #player.detail {
+
     .movie-box,
     .profile-box,
     .news-box,
     .player-gellery-box,
     .player-friend-box,
     .player-event-box {
-      margin-top: 50px;
+      margin-top: 10.667vw;
     }
-  }
-
-  .main-visual-box .main-visual {
-    position: relative;
-    height: 66.667vw;
-
-    .cover-image {
-      overflow: hidden;
-      position: relative;
-      width: 100%;
-      height: 66.667vw;
-      background: #333;
-
-      img {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
-        transform: translate(-50%, -50%);
-        width: auto;
-        height: 100%;
+    @media screen and (min-width:769px) {
+      .movie-box,
+      .profile-box,
+      .news-box,
+      .player-gellery-box,
+      .player-friend-box,
+      .player-event-box {
+        margin-top: 50px;
       }
     }
 
-    .profile-image {
-      position: absolute;
-      bottom: 4vw;
-      left: 4vw;
+    .main-visual-box .main-visual {
+      position: relative;
+      height: 66.667vw;
 
-      .thum {
+      .cover-image {
         overflow: hidden;
         position: relative;
-        width: 28vw;
-        height: 28vw;
+        width: 100%;
+        height: 66.667vw;
         background: #333;
-        border: 2px solid #fff;
 
         img {
           position: absolute;
@@ -210,57 +176,19 @@ $black: #333;
           height: 100%;
         }
       }
-    }
 
-    .main-profile {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 56vw;
-      padding: 2.667vw;
-      background: rgba(51,51,51,.6);
-      color: #fff;
-
-      p {
-        margin-bottom: 0;
-      }
-
-      .name {
-        font-size: 1.6rem;
-        font-weight: bold;
-      }
-      .sport {
-        margin-top: 1.333vw;
-      }
-    }
-  }
-
-  .profile-box {
-    font-size: 1.5rem;
-
-    .website a {
-      color: #006699;
-    }
-  }
-
-  .gellery-list,.friend-list {
-    margin-top: 2vw;
-    padding: 4vw;
-    @include listblock();
-
-    ul {
-      margin-bottom: 0;
-
-      .slide {
-        padding: 0 2vw;
+      .profile-image {
+        position: absolute;
+        bottom: 4vw;
+        left: 4vw;
 
         .thum {
-          position: relative;
           overflow: hidden;
-          background: $black;
-          height: 40vw;
-          display: flex;
-          justify-content: center;
+          position: relative;
+          width: 28vw;
+          height: 28vw;
+          background: #333;
+          border: 2px solid #fff;
 
           img {
             position: absolute;
@@ -272,153 +200,307 @@ $black: #333;
             width: auto;
             height: 100%;
           }
-          .glyphicon-play-circle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 6.4vw;
-            height: 7.467vw;
-            margin-top: -3.734vw;
-            margin-left: -3.2vw;
-            color: #fff;
-            font-size: 2.8rem;
-          }
+        }
+      }
+
+      .main-profile {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 56vw;
+        padding: 2.667vw;
+        background: rgba(51,51,51,.6);
+        color: #fff;
+
+        p {
+          margin-bottom: 0;
         }
 
-        .title {
+        .name {
+          font-size: 1.6rem;
+          font-weight: bold;
+        }
+        .sport {
           margin-top: 1.333vw;
-          font-size: 1.2rem;
-          font-weight: bold;
-        }
-        .name {
-          margin-top: 2vw;
-          text-align: center;
-          font-weight: bold;
         }
       }
     }
+    @media screen and (min-width:769px) {
+      .main-visual-box {
+        .main-visual {
+          height: 440px;
 
-    .slick-prev {
-      width: 5.333vw;
-      height: 12vw;
-      background: url(/images/common/arrow-l.gif);
-      background-size: cover;
+          .cover-image {
+            height: 440px;
+          }
 
-      &:before {
-        content: none;
-      }
-    }
-    .slick-next {
-      width: 5.333vw;
-      height: 12vw;
-      background: url(/images/common/arrow-r.gif);
-      background-size: cover;
+          .profile-image {
+            bottom: 20px;
+            left: 30px;
 
-      &:before {
-        content: none;
-      }
-    }
+            .thum {
+              width: 200px;
+              height: 200px;
+              border: 3px solid #fff;
+            }
+          }
 
-    .slick-dots {
-      display: none !important;
-    }
-  }
+          .main-profile {
+            width: 530px;
+            padding: 15px 15px 20px;
 
-  @media screen and (min-width:769px) {
-    .gellery-list,.friend-list {
-      margin-top: 10px;
-      padding: 15px 10px 10px;
+            p {
+              margin-bottom: 0;
+            }
 
-      ul .slide {
-       padding: 0 5px;
-
-        .thum {
-          height: 120px;
-
-          .glyphicon-play-circle {
-            width: 40px;
-            height: 48px;
-            margin-top: -20px;
-            margin-left: -20px;
-            font-size: 4rem;
+            .name {
+              font-size: 2rem;
+              font-weight: bold;
+            }
+            .sport {
+              margin-top: 10px;
+            }
           }
         }
+      }
+    }
 
-        .title {
-          margin-top: 8px;
-          font-size: 1.3rem;
+    .profile-box {
+      font-size: 1.5rem;
+
+      .website a {
+        color: #006699;
+      }
+    }
+
+    @media screen and (max-width:768px) {
+      .article-list ul {
+        display: block;
+        flex-wrap: nowrap;
+
+        li:nth-child(2n+2) {
+          margin-left: 0;
         }
-        .name {
-          margin-top: 13px;
-          font-size: 1.4rem;
+      }
+    }
+
+    .gellery-list,.friend-list {
+      margin-top: 2vw;
+      padding: 4vw;
+      @include listblock();
+
+      ul {
+        margin-bottom: 0;
+
+        .slide {
+          padding: 0 2vw;
+
+          .thum {
+            position: relative;
+            overflow: hidden;
+            background: $black;
+            height: 40vw;
+            display: flex;
+            justify-content: center;
+
+            img {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              -webkit-transform: translate(-50%, -50%);
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+              width: auto;
+              height: 100%;
+            }
+            .glyphicon-play-circle {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 6.4vw;
+              height: 7.467vw;
+              margin-top: -3.734vw;
+              margin-left: -3.2vw;
+              color: #fff;
+              font-size: 2.8rem;
+            }
+          }
+
+          .title {
+            margin-top: 1.333vw;
+            font-size: 1.2rem;
+            font-weight: bold;
+          }
+          .name {
+            margin-top: 2vw;
+            text-align: center;
+            font-weight: bold;
+          }
         }
       }
 
       .slick-prev {
-        width: 25px;
-        height: 56px;
+        width: 5.333vw;
+        height: 12vw;
+        background: url(/images/common/arrow-l.gif);
+        background-size: cover;
 
         &:before {
           content: none;
         }
       }
       .slick-next {
-        width: 25px;
-        height: 56px;
+        width: 5.333vw;
+        height: 12vw;
+        background: url(/images/common/arrow-r.gif);
+        background-size: cover;
 
         &:before {
           content: none;
         }
       }
-    }
-  }
 
-  .friend-list li a {
-    position: relative;
-
-    .name {
-      position: absolute;
-      left:0;
-      bottom:0;
-      width: 100%;
-      margin: 0;
-      padding: 1.333vw .667vw;
-      background: rgba(51,51,51,.8);
-      color: #fff;
-    }
-  }
-
-  .player-event-box {
-    .label-game {
-      display: inline-block;
-      width: 13.333vw;
-      color: $red;
-      font-size: 1.5rem;
-      font-weight: bold;
+      .slick-dots {
+        display: none !important;
+      }
     }
 
-    .next-game-block,
-    .result-game-block {
-      padding: 3.333vw 4vw;
-      background: $black;
+    @media screen and (min-width:769px) {
+      .gellery-list,.friend-list {
+        margin-top: 10px;
+        padding: 15px 10px 10px;
 
-      p {
+        ul .slide {
+         padding: 0 5px;
+
+          .thum {
+            height: 120px;
+
+            .glyphicon-play-circle {
+              width: 40px;
+              height: 48px;
+              margin-top: -20px;
+              margin-left: -20px;
+              font-size: 4rem;
+            }
+          }
+
+          .title {
+            margin-top: 8px;
+            font-size: 1.3rem;
+          }
+          .name {
+            margin-top: 13px;
+            font-size: 1.4rem;
+          }
+        }
+
+        .slick-prev {
+          width: 25px;
+          height: 56px;
+
+          &:before {
+            content: none;
+          }
+        }
+        .slick-next {
+          width: 25px;
+          height: 56px;
+
+          &:before {
+            content: none;
+          }
+        }
+      }
+    }
+
+    .friend-list li a {
+      position: relative;
+
+      .name {
+        position: absolute;
+        left:0;
+        bottom:0;
+        width: 100%;
+        margin: 0;
+        padding: 1.333vw .667vw;
+        background: rgba(51,51,51,.8);
         color: #fff;
       }
-      .title {
-        .en-title {
-          font-size: 2rem;
-          font-family: 'Roboto', sans-serif;
-        }
-        .ja-title {
-          margin-left: 2.667vw;
-          font-size: 1.2rem;
+      @media screen and (min-width:769px) {
+        .name {
+          padding: 10px 5px;
+          font-size: 1.4rem;
+          line-height: 1.3;
         }
       }
     }
 
-    .result-game-block {
-      margin-top: 4vw;
+    .player-event-box {
+      .next-game-block,
+      .result-game-block {
+        background: $black;
+
+        a {
+          padding: 3.333vw 4vw;
+
+          p {
+            color: #fff;
+            display: table;
+
+            .label-game {
+              display: table-cell;
+              width: 13.333vw;
+              color: $red;
+              font-size: 1.5rem;
+              font-weight: bold;
+            }
+            .detail {
+              display: table-cell;
+            }
+          }
+
+          .title {
+            .en-title {
+              font-size: 2rem;
+              font-family: 'Roboto', sans-serif;
+            }
+            .ja-title {
+              margin-left: 2.667vw;
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+
+      .result-game-block {
+        margin-top: 4vw;
+      }
+
+      @media screen and (min-width:769px) {
+        .next-game-block {
+          float: left;
+          width: 410px;
+        }
+        .result-game-block {
+          float: right;
+          width: 410px;
+          margin-top: 0;
+        }
+
+        .next-game-block,
+        .result-game-block {
+          a {
+            padding: 20px 30px;
+
+            p {
+              .label-game {
+                width: 60px;
+                font-size: 1.8rem;
+              }
+            }
+          }
+        }
+      }
     }
   }
-}

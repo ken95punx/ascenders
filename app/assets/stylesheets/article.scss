@@ -11,15 +11,6 @@ $grey: #f3f3f4;
 
 
 #article #main {
-  .head-title:after {
-    width: 40.667vw;
-  }
-  @media screen and (min-width:769px) {
-    .head-title:after {
-      width: 140px;
-    }
-  }
-
   .detail-block .article-bg {
     overflow: hidden;
     position: relative;

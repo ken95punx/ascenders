@@ -3,16 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-#movie #main .head-title:after {
-  width: 40vw;
-}
-
 @media screen and (min-width: 769px) {
   #movie #main .movie-box {
-    .head-title:after {
-      width: 220px;
-    }
-
     .movie-list ul {
       display: flex;
       flex-wrap: wrap;
