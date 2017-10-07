@@ -1,4 +1,4 @@
-$(".wrapper").on('click', '#movie<%= @movie.id %>', function () {
+$(".slide").on('click', '#movie<%= @movie.id %>', function () {
   $('.movie-player .html').html('<%= @movie.movie_html.html_safe %>');
   $('.movie-player .title').html('<%= @movie.title %>');
   $('.movie-player .name').html('<%= @movie.player.name %>');

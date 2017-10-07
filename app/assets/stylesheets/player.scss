@@ -218,7 +218,7 @@ $black: #333;
       right: 0;
       width: 56vw;
       padding: 2.667vw;
-      background: rgba(51,51,51,.5);
+      background: rgba(51,51,51,.6);
       color: #fff;
 
       p {
@@ -232,6 +232,14 @@ $black: #333;
       .sport {
         margin-top: 1.333vw;
       }
+    }
+  }
+
+  .profile-box {
+    font-size: 1.5rem;
+
+    .website a {
+      color: #006699;
     }
   }
 
@@ -362,6 +370,55 @@ $black: #333;
           content: none;
         }
       }
+    }
+  }
+
+  .friend-list li a {
+    position: relative;
+
+    .name {
+      position: absolute;
+      left:0;
+      bottom:0;
+      width: 100%;
+      margin: 0;
+      padding: 1.333vw .667vw;
+      background: rgba(51,51,51,.8);
+      color: #fff;
+    }
+  }
+
+  .player-event-box {
+    .label-game {
+      display: inline-block;
+      width: 13.333vw;
+      color: $red;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .next-game-block,
+    .result-game-block {
+      padding: 3.333vw 4vw;
+      background: $black;
+
+      p {
+        color: #fff;
+      }
+      .title {
+        .en-title {
+          font-size: 2rem;
+          font-family: 'Roboto', sans-serif;
+        }
+        .ja-title {
+          margin-left: 2.667vw;
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .result-game-block {
+      margin-top: 4vw;
     }
   }
 }

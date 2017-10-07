@@ -104,29 +104,8 @@
     <div class="news-box recent-news-box">
       <p class="head-title">新着記事<span class="en-title new-article-title">RECENT NEWS</span></p><!-- /.head-title -->
 
-      <div class="article-list pc-only">
+      <div class="article-list">
         <ul>
-          <% @articles.each do |article| %>
-            <li>
-              <%= link_to("/article/#{article.id}") do %>
-                <% if article.image_link? %>
-                  <%= image_tag("#{article.image_link}", class:"thum") %>
-                <% else %>
-                  <%= image_tag("/images/common/default_article_thum.jpg") %>
-                <% end %>
-                <div class="detail">
-                  <span class="title"><%= article.title %></span>
-                  <span class="media"><%= article.media %></span>
-                  <span class="name"><%= article.player.name %></span>
-                </div><!-- /.detail -->
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </div><!-- /.article-list -->
-
-      <div class="article-list sp-only">
-        <ul class="multiple-item">
           <% @articles.each do |article| %>
             <li>
               <%= link_to("/article/#{article.id}") do %>

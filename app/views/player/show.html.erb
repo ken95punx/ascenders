@@ -100,7 +100,7 @@
       </div><!-- /.main-visual-box -->
 
       <div class="movie-box">
-        <p class="head-title">選手動画<%= image_tag("/images/common/head_title_article.png", alt:"MOVIE", class:"movie-title") %></p><!-- /.head-title -->
+        <p class="head-title">選手動画<span class="en-title movie-title">MOVIE</span></p><!-- /.head-title -->
 
         <% if @movie %>
           <div class="movie-player">
@@ -284,35 +284,41 @@
           <div class="next-game-block">
             <% if @player.url_next %>
               <%= link_to("#{@player.url_next}", target: "_blank") do %>
-                <p class="opponent_next"><%= @player.opponent_next %></p>
-                <div class="time-zone">
-                  <p class="time_next"><%= @player.time_next.year %></p>
-                  <p class="time_next"><%= @player.time_next.month %></p>
-                  <p class="time_next"><%= @player.time_next.day %></p>
-                  <p class="time_next"><%= @player.time_next.hour %></p>
-                  <p class="time_next"><%= @player.time_next.min %></p>
-                </div><!-- /.time-zone -->
-                <p class="place_next"><%= @player.place_next %></p>
+                <p class="title"><span class="en-title">NEXT GAME</span></p>
+                <p class="opponent-next"><span class="label-game">VS</span><%= @player.opponent_next %></p>
+                <p class="time-zone">
+                  <span class="label-game">日時</span>
+                  <span><%= @player.time_next.year %>.</span>
+                  <span><%= @player.time_next.month %>.</span>
+                  <span><%= @player.time_next.day %>.</span>
+                  <span><%= @player.time_next.hour %>.</span>
+                  <span><%= @player.time_next.min %>（japan time）</span>
+                </p><!-- /.time-zone -->
+                <p class="place-next"><span class="label-game">場所</span><%= @player.place_next %></p>
               <% end %>
             <% else %>
-              <p>VS</p>
-              <p>日時</p>
-              <p>場所</p>
+              <p class="opponent-next"><span class="label-game">VS</span></p>
+              <p class="time-zone"><span class="label-game">日時</span></p>
+              <p class="place-next"><span class="label-game">場所</span></p>
             <% end %>
           </div><!-- /.next-game-block -->
 
-          <div class="next-game-block">
+          <div class="result-game-block">
             <% if @player.url_result %>
               <%= link_to("#{@player.url_result}", target: "_blank") do %>
-                <p class="opponent_result"><%= @player.opponent_result %></p>
-                <p class="result_result"><%= @player.result_result %></p>
-                <p class="self_point_result"><%= @player.self_point_result %></p>
-                <p class="enemy_point_result"><%= @player.enemy_point_result %></p>
+                <p class="title"><span class="en-title">RESULT</span><span class="ja-title">前回の試合結果</span></p>
+                <p class="opponent-result"><span class="label-game">VS</span><%= @player.opponent_result %></p>
+                <p class="result-result"><span class="label-game">結果</span><%= @player.result_result %></p>
+                <p class="point-result">
+                  <span class="label-game">得点</span>
+                  <span class="self_point_result"><%= @player.self_point_result %> -</span>
+                  <span class="enemy_point_result"><%= @player.enemy_point_result %></span>
+                </p><!-- /.point-result -->
               <% end %>
             <% else %>
-              <p>VS</p>
-              <p>結果</p>
-              <p>得点</p>
+              <p class="opponent-result"><span class="label-game">VS</span></p>
+              <p class="result-result"><span class="label-game">結果</span></p>
+              <p class="point-result"><span class="label-game">得点</span></p>
             <% end %>
           </div><!-- /.next-game-block -->
         </div><!-- /.event-block -->
