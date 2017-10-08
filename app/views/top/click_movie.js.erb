@@ -1,4 +1,4 @@
-$(".slide").on('click', '#movie<%= @movie.id %>', function () {
+$(".slide").on('ajax:success', '#movie<%= @movie.id %>', function () {
 
   console.log("test");
   $('.movie-player .html').html('<%= @movie.movie_html.html_safe %>');
