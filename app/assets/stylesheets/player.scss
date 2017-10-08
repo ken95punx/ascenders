@@ -129,6 +129,8 @@
   }
 
 
+/* ========== show ========== */
+
   @mixin listblock() {
     background: #fff;
   }
@@ -270,6 +272,45 @@
 
       .website a {
         color: #006699;
+      }
+
+      @media screen and (min-width:769px) {
+        .profile-block {
+          width: 80%;
+          margin: 40px auto 0;
+
+          .clearfix p,
+          .website {
+            float: left;
+            width: 48%;
+          }
+          .clearfix p:nth-child(n+3),
+          .website {
+            margin-top:10px;
+          }
+          .clearfix p:nth-child(2n+2),
+          .website {
+            margin-left: 4%;
+            width: 48%;
+          }
+        }
+        #profile {
+          margin: 30px auto 0;
+          width: 80%;
+        }
+        .profile-btn {
+          display: block;
+          width: 80%;
+          margin: 30px auto 0;
+          padding: 8px;
+          font-size: 1.7rem;
+
+          .glyphicon {
+            margin-left: 8px;
+            right: 15px;
+            margin-top: -9px;
+          }
+        }
       }
     }
 
@@ -441,7 +482,7 @@
       .result-game-block {
         background: $black;
 
-        a {
+        .game-wrap {
           padding: 3.333vw 4vw;
 
           p {
@@ -490,7 +531,7 @@
 
         .next-game-block,
         .result-game-block {
-          a {
+          .game-wrap {
             padding: 20px 30px;
 
             p {

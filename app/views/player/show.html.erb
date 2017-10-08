@@ -283,8 +283,8 @@
 
         <div class="event-block">
           <div class="next-game-block">
-            <% if @player.url_next %>
-              <%= link_to("#{@player.url_next}", target: "_blank") do %>
+            <% if @player.url_next != "" %>
+              <%= link_to("#{@player.url_next}", target: "_blank", class:"game-wrap") do %>
                 <p class="title"><span class="en-title">NEXT GAME</span></p>
                 <p class="opponent-next"><span class="label-game">VS</span><span class="detail"><%= @player.opponent_next %></span></p>
                 <p class="time-zone">
@@ -300,15 +300,18 @@
                 <p class="place-next"><span class="label-game">場所</span><span class="detail"><%= @player.place_next %></span></p>
               <% end %>
             <% else %>
-              <p class="opponent-next"><span class="label-game">VS</span></p>
-              <p class="time-zone"><span class="label-game">日時</span></p>
-              <p class="place-next"><span class="label-game">場所</span></p>
+              <div class="game-wrap">
+                <p class="title"><span class="en-title">NEXT GAME</span></p>
+                <p class="opponent-next"><span class="label-game">VS</span></p>
+                <p class="time-zone"><span class="label-game">日時</span></p>
+                <p class="place-next"><span class="label-game">場所</span></p>
+              </div><!-- /.game-wrap -->
             <% end %>
           </div><!-- /.next-game-block -->
 
           <div class="result-game-block">
-            <% if @player.url_result %>
-              <%= link_to("#{@player.url_result}", target: "_blank") do %>
+            <% if @player.url_result != "" %>
+              <%= link_to("#{@player.url_result}", target: "_blank", class:"game-wrap") do %>
                 <p class="title"><span class="en-title">RESULT</span><span class="ja-title">前回の試合結果</span></p>
                 <p class="opponent-result"><span class="label-game">VS</span><span class="detail"><%= @player.opponent_result %></span></p>
                 <p class="result-result"><span class="label-game">結果</span><span class="detail"><%= @player.result_result %></span></p>
@@ -321,9 +324,12 @@
                 </p><!-- /.point-result -->
               <% end %>
             <% else %>
-              <p class="opponent-result"><span class="label-game">VS</span></p>
-              <p class="result-result"><span class="label-game">結果</span></p>
-              <p class="point-result"><span class="label-game">得点</span></p>
+              <div class="game-wrap">
+                <p class="title"><span class="en-title">RESULT</span><span class="ja-title">前回の試合結果</span></p>
+                <p class="opponent-result"><span class="label-game">VS</span></p>
+                <p class="result-result"><span class="label-game">結果</span></p>
+                <p class="point-result"><span class="label-game">得点</span></p>
+              </div><!-- /.game-wrap -->
             <% end %>
           </div><!-- /.next-game-block -->
         </div><!-- /.event-block -->
