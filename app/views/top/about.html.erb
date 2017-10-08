@@ -1,0 +1,142 @@
+<div id="about" class="row">
+  <div id="search-nav" class="collapse navbar-collapse sp-only">
+    <%= search_form_for @search, url:player_path do |f| %>
+      <div class="search-block">
+        <div class="search-box">
+          <div class="search-form">
+            <div class="form-group">
+              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+            </div><!-- /.form-group -->
+          </div><!-- /.search-form -->
+
+          <div class="submit-form">
+            <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
+          </div><!-- /.submit-form -->
+        </div><!-- /.search-box -->
+
+        <div class="select-box">
+          <div class="select-form">
+            <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
+          </div><!-- /.select-form -->
+        </div><!-- /.select-box -->
+
+        <div class="submit-btn">
+          <div><%= f.submit '検索', class: 'search-btn' %></div>
+        </div>
+      </div><!-- /.search-block -->
+    <% end %>
+  </div><!-- /.search-nav -->
+
+  <div id="side" class="col-sm-3 col-sm-push-9 pc-only">
+    <%= search_form_for @search, url:player_path do |f| %>
+      <div class="search-box">
+        <div class="search-form">
+          <div class="form-group">
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+          </div><!-- /.form-group -->
+        </div><!-- /.search-form -->
+
+        <div class="submit-form">
+          <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
+        </div><!-- /.submit-form -->
+      </div><!-- /.search-box -->
+
+      <div class="select-box">
+        <div class="select-form">
+          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
+        </div><!-- /.select-form -->
+      </div><!-- /.select-box -->
+
+      <div class="submit-btn">
+        <div><%= f.submit '検索', class: 'search-btn' %></div>
+      </div>
+    <% end %>
+
+    <!--
+    <div class="pop-movie-box">
+      人気動画箇所
+    </div>
+
+    <div class="pop-news-box">
+      人気記事箇所
+    </div>
+    -->
+  </div><!-- /#side -->
+
+  <div id="main" class="col-sm-9 col-sm-pull-3">
+    <div class="main-visual">
+      <figure class="thum">
+        <%= image_tag("/images/common/about_bg.jpg") %>
+      </figure>
+
+      <div class="detail">
+        <p class="title">アスリートのすべてがわかるメディア</p>
+        <p class="description">Asendersは動画・記事・プロフィールなど<br>ネット上のアスリートの情報がここに集約されています。</p>
+      </div><!-- /.detail -->
+    </div>
+
+    <div class="plan-box">
+      <div class="title-block">
+        <p class="main-title">今後の予定</p>
+        <p class="notice">※下記予定は変更になる場合がありますので、御了承ください。</p>
+      </div><!-- /.title-block -->
+
+      <div class="schedule-block">
+        <div class="year-block">
+          <p class="year-title">2017</p>
+
+          <div class="detail clearfix">
+            <hr>
+            <span class="month">12月</span>
+
+            <div class="contents-block">
+              <div class="contents-item">
+                <div class="title">ログイン・タイムライン機能</div>
+                <div class="description">ログイン後フォローしたアスリートの記事・動画が自分のタイムラインに流れるようになります。<br>ネットで情報を探さなくても、お気に入りのアスリートの情報が流れてきます。</div>
+              </div><!-- /.contents-item -->
+            </div><!-- /.contents-block -->
+
+            <div class="contents-block">
+              <div class="contents-item">
+                <div class="title">フォロー・アスリート機能</div>
+                <div class="description">お気に入りのアスリートをフォローしましょう！<br>フォローしたアスリートの動画・記事が更新されたらタイムラインで流れるようになります。</div>
+              </div><!-- /.contents-item -->
+
+              <div class="contents-item">
+                <div class="title">「ナイスプレイ！」（保存）機能</div>
+                <div class="description">アスリートのお気に入りの動画や記事に対して「ナイスプレイ」ボタンを押してストック（保存）していこう。<br>マイページにて保存した記事・動画を見る事ができます。</div>
+              </div><!-- /.contents-item -->
+            </div><!-- /.contents-block -->
+          </div><!-- /.detail -->
+        </div><!-- /.year-block -->
+
+        <div class="year-block">
+          <p class="year-title">2018</p>
+
+          <div class="detail">
+            <div class="contents-wide-block">
+              <div class="contents-item">
+                <div class="title">特集コンテンツ公開</div>
+                <div class="description">Asendersオリジナル特集・動画公開!!</div>
+
+                <figure class="thum">
+                  <%= image_tag("/images/common/about_contents.png") %>
+                </figure>
+              </div><!-- /.contents-item -->
+            </div><!-- /.contents-block -->
+          </div><!-- /.detail -->
+        </div><!-- /.year-block -->
+      </div><!-- /.schedule -->
+    </div><!-- /.plan-box -->
+
+    <div class="recruit-block">
+      <p class="title">助けてください！エンジニア募集</p>
+
+      <div class="description">「Ascenders」はじめ弊社のサービスの開発に興味を持ったエンジニアの方、一度代表とお話しませんか？<br>データプラットフォーム・データ分析・フロントエンド・バックエンドなど多岐にわたり募集しています。</div>
+
+      <div class="recruit-btn">
+        <a href="https://corporation.ascenders.co.jp/contact/"><i class="glyphicon glyphicon-chevron-right"></i><span>お問い合わせ</span></a>
+      </div><!-- /.recruit-btn -->
+    </div><!-- /.recruit-block -->
+  </div><!-- /#main -->
+</div><!-- /.row -->

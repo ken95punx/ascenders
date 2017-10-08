@@ -2,11 +2,336 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+/* ========== top ========== */
+
 .recent-news-box .head-title {
   margin-top: 10.667vw;
 }
 @media screen and (min-width:769px) {
   .recent-news-box .head-title {
     margin-top: 40px;
+  }
+}
+
+
+$grey: #f3f3f4;
+$red: #cc3333;
+
+/* ========== about ========== */
+
+#about #main {
+  .main-visual {
+    position: relative;
+
+    @media screen and (min-width:769px) {
+      .thum img {
+        width: 100%;
+      }
+    }
+
+    .detail {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 1.333vw 1.333vw 2vw;
+      background: rgba(51,51,51,.7);
+      color: #fff;
+      text-align: center;
+
+      p {
+        margin: 0;
+      }
+      .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .description {
+        margin-top: 1.333vw;
+        font-size: 1.2rem;
+      }
+    }
+
+    @media screen and (min-width:769px) {
+      .detail {
+        padding: 20px;
+
+        .title {
+          font-size: 2.6rem;
+        }
+        .description {
+          margin-top: 0;
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+
+  .plan-box {
+    margin-top: 5.333vw;
+    background: #fff;
+
+    .title-block {
+      padding: 4vw 4vw 1.333vw;
+      text-align: center;
+
+      .main-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+      }
+    }
+
+    .schedule-block {
+      .year-block {
+        .year-title {
+          margin: 0;
+          background: $red;
+          color: #fff;
+          font-size: 1.6rem;
+          text-align: center;
+        }
+        .detail {
+          position: relative;
+
+          hr {
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            width: 84vw;
+            margin: 8vw 4vw 0;
+            border-top: 2px solid $red;
+          }
+
+          .month {
+            position: absolute;
+            display: inline-block;
+            top: 4.667vw;
+            left: 50%;
+            width: 9.333vw;
+            height: 9.333vw;
+            margin-left: -4.667vw;
+            background: $red;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.2rem;
+            font-family: 'Roboto', sans-serif;
+            line-height: 9.333vw;
+            text-align: center;
+            z-index: 1;
+          }
+
+          .contents-block {
+            float: left;
+            width: 50%;
+            padding-top: 8vw;
+
+            .contents-item {
+              padding: 0 4vw;
+
+              .title {
+                padding-top: 2.667vw;
+                color: $red;
+                font-weight: bold;
+                font-size: 1.4rem;
+                line-height: 1.3;
+              }
+              .description {
+                margin: 2vw 0 4vw;
+              }
+            }
+          }
+          .contents-block + .contents-block {
+            float: right;
+            border-left: 2px solid $red;
+            border-right: 0 none;
+
+            .contents-item {
+              margin: 0 4vw;
+              padding: 0;
+            }
+
+            .contents-item + .contents-item {
+              margin-top: 2vw;
+              border-top: 2px solid $red;
+            }
+          }
+        }
+      }
+
+      .contents-wide-block {
+        .contents-item {
+          text-align: center;
+
+          .title {
+            padding-top: 2.667vw;
+            color: $red;
+            font-weight: bold;
+            font-size: 1.4rem;
+            line-height: 1.3;
+          }
+          .description {
+            margin: 2vw 0 4vw;
+          }
+
+          .thum {
+            width: 80%;
+            margin: 0 auto;
+
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  @media screen and (min-width:769px) {
+    .plan-box {
+      margin-top: 30px;
+
+      .title-block {
+        padding: 20px 20px 10px;
+
+        .main-title {
+          font-size: 2.6rem;
+        }
+      }
+
+      .schedule-block {
+        .year-block {
+          .year-title {
+            font-size: 2.5rem;
+          }
+          .detail {
+            hr {
+              left: 50%;
+              width: 95.28%;
+              margin: 50px 0 0 -47.48%;
+              padding: 0;
+            }
+
+            .month {
+              top: 25px;
+              left: 50%;
+              width: 50px;
+              height: 50px;
+              margin-left: -25px;
+              font-size: 1.6rem;
+              line-height: 50px;
+            }
+
+            .contents-block {
+              padding-top: 50px;
+
+              .contents-item {
+                padding: 0 20px;
+
+                .title {
+                  padding-top: 20px;
+                  font-size: 1.8rem;
+                  line-height: 1.8;
+                }
+                .description {
+                  margin: 5px 0 40px;
+                }
+              }
+            }
+            .contents-block + .contents-block {
+              .contents-item {
+                margin: 0 20px;
+                padding: 0;
+              }
+
+              .contents-item + .contents-item {
+                border-top: 2px solid $red;
+              }
+            }
+          }
+        }
+
+        .contents-wide-block {
+          .contents-item {
+            .title {
+              padding-top: 20px;
+              font-size: 1.8rem;
+              line-height: 1.8;
+            }
+            .description {
+              margin: 5px 0 40px;
+            }
+
+            .thum {
+              width: 80%;
+              margin: 0 auto;
+
+              img {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .recruit-block {
+    margin-top: 5.333vw;
+    padding: 4vw;
+    background: #fff;
+
+    .title {
+      font-size: 1.8rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .recruit-btn {
+      a {
+        margin-top: 4vw;
+        padding: 4vw 2vw;
+        background: #eee;
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+
+        .glyphicon {
+          margin-right: 1.333vw;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width:769px) {
+    .recruit-block {
+      margin-top: 30px;
+      padding: 20px;
+
+      .title {
+        font-size: 2.6rem;
+      }
+
+      .description {
+        text-align: center;
+      }
+
+      .recruit-btn {
+        a {
+          width: 250px;
+          margin: 30px auto 0;
+          padding: 15px 10px;
+          font-size: 1.7rem;
+
+          .glyphicon {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width:769px) {
+  #about #main {
+    margin-top: 28px;
   }
 }

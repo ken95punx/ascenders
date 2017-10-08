@@ -1,7 +1,7 @@
 class Player < ApplicationRecord
-  has_many :movies
-  has_many :articles
-  has_many :gelleries
+  has_many :movies, dependent: :destroy
+  has_many :articles, dependent: :destroy
+  has_many :gelleries, dependent: :destroy
   belongs_to :sport
   belongs_to :administrator
 

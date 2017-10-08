@@ -7,6 +7,11 @@ class TopController < ApplicationController
     @sports = Sport.all.order(created_at: :desc)
   end
 
+  def about
+    @search = Player.ransack(params[:q])
+    @sports = Sport.all.order(created_at: :desc)
+  end
+
   def click_movie
     @movie = Movie.find_by(id: params[:movie_id])
   end

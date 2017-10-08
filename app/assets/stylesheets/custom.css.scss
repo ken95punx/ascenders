@@ -582,6 +582,7 @@ header + .container {
       .html {
         background: $black;
         text-align: center;
+        overflow: hidden;
 
         * {
           width: 100%;
@@ -592,6 +593,11 @@ header + .container {
       @media screen and (min-width:769px) {
         .html {
           height: 436px;
+
+          input#u_0_0 {
+            postion: absolute;
+            top: 210px;
+          }
         }
       }
 
@@ -801,44 +807,6 @@ header + .container {
       margin-top: -2vw;
     }
   }
-  @media screen and (min-width:769px) {
-    .profile-block {
-      width: 500px;
-      margin: 40px auto 0;
-
-      .clearfix p,
-      .website {
-        float: left;
-        width: 48%;
-      }
-      .clearfix p:nth-child(n+3),
-      .website {
-        margin-top:10px;
-      }
-      .clearfix p:nth-child(2n+2),
-      .website {
-        margin-left: 4%;
-        width: 48%;
-      }
-    }
-    #profile {
-      margin-top: 30px;
-    }
-    .profile-btn {
-      display: block;
-      width: 80%;
-      margin: 30px auto 0;
-      padding: 8px;
-      font-size: 1.7rem;
-
-      .glyphicon {
-        margin-left: 8px;
-        right: 15px;
-        margin-top: -9px;
-      }
-    }
-  }
-
 
   /* news-box */
   .news-box {
