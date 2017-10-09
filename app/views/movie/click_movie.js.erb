@@ -6,7 +6,7 @@ $(".slide").on('ajax:success', '#movie<%= @movie.id %>', function () {
   $('.movie-player .name').html('<%= link_to("/player/#{@movie.player_id}") do %><%= @movie.player.name %><% end %>');
 
   // スクロールトップ
-  var position = $("body").offset().top;
+  var position = $(".movie-box .head-title").offset().top;
 
   $("html,body").animate({
       scrollTop : position
