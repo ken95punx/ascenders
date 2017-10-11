@@ -1,10 +1,11 @@
 class GelleryController < ApplicationController
-  PER = 12
+  PER = 50
 
   before_action :set_gellery
 
   def index
     @gelleries = Gellery.where(player_id: params[:player_id]).page(params[:page]).per(PER).order(created_at: :desc)
+    @gellery = @gelleries.first
   end
 
   def show

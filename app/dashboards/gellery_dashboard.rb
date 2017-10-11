@@ -39,6 +39,7 @@ class GelleryDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :image,
+    :player,
   ].freeze
 
   # Overwrite this method to customize how gelleries are displayed

@@ -1,5 +1,17 @@
-$(".wrapper").on('click', '#movie<%= @movie.id %>', function () {
+$(".slide").on('ajax:success', '#movie<%= @movie.id %>', function () {
+
+  // DOM書き換え
   $('.movie-player .html').html('<%= @movie.movie_html.html_safe %>');
   $('.movie-player .title').html('<%= @movie.title %>');
-  $('.movie-player .name').html('<%= @movie.player.name %>');
+  $('.movie-player .name').html('<%= link_to("/player/#{@movie.player_id}") do %><%= @movie.player.name %><% end %>');
+
+  // スクロールトップ
+  var position = $(".movie-box .head-title").offset().top;
+
+  $("html,body").animate({
+      scrollTop : position
+  }, {
+      queue : false
+  });
 });
+

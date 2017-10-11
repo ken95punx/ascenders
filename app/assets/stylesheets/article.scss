@@ -1,3 +1,76 @@
 // Place all the styles related to the article controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$grey: #f3f3f4;
+@mixin link() {
+  color: #006699;
+  text-decoration: underline;
+}
+
+
+#main {
+  .detail-block .article-bg {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 53.333vw;
+    background: #333;
+
+    .thum {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: auto;
+      height: 100%;
+    }
+  }
+  @media screen and (min-width:769px) {
+    .detail-block .article-bg {
+      height: 400px;
+    }
+  }
+
+  .article-detail {
+    padding: 2.667vw;
+    background: #fff;
+
+    .title {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .media {
+      margin: 5.333vw 0 0;
+    }
+    .name {
+      margin-top: .667vw;
+      text-align: right;
+
+      a {
+        @include link();
+        display: inline-block;
+      }
+    }
+  }
+  @media screen and (min-width:769px) {
+    .article-detail {
+      padding: 15px 25px 10px;
+
+      .title {
+        font-size: 2rem;
+      }
+      .media {
+        margin-top: 20px;
+        font-size: 1.6rem;
+      }
+      .name {
+        margin-top: 5px;
+        font-size: 1.6rem;
+      }
+    }
+  }
+}

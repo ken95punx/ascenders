@@ -1,118 +1,183 @@
-<%= search_form_for @search, url:player_path do |f| %>
-  <div class="row">
-    <div id="main" class="col-sm-9">
-      <div class="search-box sp-only">
+<% provide(:title, "#{@player.name}") %>
+<% provide(:description, "#{@player.name}についての詳細ページです。") %>
+<% provide(:og_url, "player/#{@movie.player_id}") %>
+
+<div id="player" class="row detail">
+  <div id="search-nav" class="collapse navbar-collapse sp-only">
+    <%= search_form_for @search, url:player_path do |f| %>
+      <div class="search-block">
+        <div class="search-box">
+          <div class="search-form">
+            <div class="form-group">
+              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
+            </div><!-- /.form-group -->
+          </div><!-- /.search-form -->
+
+          <div class="submit-form">
+            <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
+          </div><!-- /.submit-form -->
+        </div><!-- /.search-box -->
+
+        <div class="select-box">
+          <div class="select-form">
+            <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
+          </div><!-- /.select-form -->
+        </div><!-- /.select-box -->
+
+        <div class="submit-btn">
+          <div><%= f.submit '検索', class: 'search-btn' %></div>
+        </div>
+      </div><!-- /.search-block -->
+    <% end %>
+  </div><!-- /.search-nav -->
+
+  <div id="side" class="col-sm-3 col-sm-push-9 pc-only">
+    <%= search_form_for @search, url:player_path do |f| %>
+      <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_cont, placeholder: 'キーワードを入力（名前・出身検索）', class: 'form-control' %>
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
-
-        <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
-        </div><!-- /.select-form -->
 
         <div class="submit-form">
           <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
         </div><!-- /.submit-form -->
       </div><!-- /.search-box -->
 
-      <div class="player-detail-area">
-        <div class="main-visual-box">
-          <p class="head-title"><%= @player.name %></p><!-- /.head-title -->
+      <div class="select-box">
+        <div class="select-form">
+          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
+        </div><!-- /.select-form -->
+      </div><!-- /.select-box -->
 
-          <div class="main-visual">
+      <div class="submit-btn">
+        <div><%= f.submit '検索', class: 'search-btn' %></div>
+      </div>
+    <% end %>
+
+    <!--
+    <div class="pop-movie-box">
+      人気動画箇所
+    </div>
+
+    <div class="pop-news-box">
+      人気記事箇所
+    </div>
+    -->
+  </div><!-- /#side -->
+
+  <div id="main" class="col-sm-9 col-sm-pull-3">
+    <section class="player-detail-area">
+      <div class="main-visual-box">
+        <h1 class="head-title"><%= @player.name %></h1><!-- /.head-title -->
+
+        <div class="main-visual">
+          <div class="cover-image">
             <% if @player.cover_image? %>
               <%= image_tag(@player.cover_image.url) %>
             <% else %>
               <%= image_tag("/images/common/default_player_cover.jpg") %>
             <% end %>
+          </div><!-- /.cover-image -->
 
+          <div class="profile-image">
             <% if @player.profile_image? %>
-              <%= image_tag(@player.profile_image.url) %>
+              <figure class="thum">
+                <%= image_tag(@player.profile_image.url) %>
+              </figure>
             <% else %>
-              <%= image_tag("/images/common/default_player_profile.jpg") %>
+              <figure class="thum">
+                <%= image_tag("/images/common/default_player_profile.jpg") %>
+              </figure>
             <% end %>
+          </div><!-- /.profile-image -->
 
-            <span class="name"><%= @player.name %></span>
-            <span class="sport"><%= @player.sport.name %></span>
-            <span class="date"><%= @player.birth_date.year %>年<%= @player.birth_date.month %>月<%= @player.birth_date.day %>日</span>
-            <span class="place_birth"><%= @player.place_birth %></span>
-            <span class="blood_type"><%= @player.blood_type %></span>
-          </div><!-- /.main-visual -->
-        </div><!-- /.main-visual-box -->
+          <div class="main-profile">
+            <p class="name"><%= @player.name %></p>
+            <p class="sport">競技：<%= @player.sport.name %></p>
+            <p class="date">生年月日：<%= @player.birth_date.year %>年<%= @player.birth_date.month %>月<%= @player.birth_date.day %>日</p>
+            <p class="place_birth">出身地：<%= @player.place_birth %></p>
+            <p class="blood_type">血液型：<%= @player.blood_type %></p>
+          </div><!-- /.main-profile -->
+        </div><!-- /.main-visual -->
+      </div><!-- /.main-visual-box -->
 
-        <div class="movie-box">
-          <p class="head-title">選手動画<%= image_tag("/images/common/head_title_article.png", alt:"MOVIE", class:"movie-title") %></p><!-- /.head-title -->
+      <div class="movie-box">
+        <p class="head-title">動画<span class="en-title movie-title">MOVIE</span></p><!-- /.head-title -->
 
-          <div class="player-movie-block">
-            <% if @movie %>
-              <div class="movie-player">
-                  <div class="html"><%= @movie.movie_html.html_safe %></div>
-                  <div class="title"><%= @movie.title %></div>
-                  <div class="name">
-                    <%= link_to("/player/#{@movie.player_id}") do %>
-                      <%= @movie.player.name %>
-                    <% end %>
-                  </div>
-              </div><!-- /.movie-player -->
+        <% if @movie %>
+          <div class="movie-player">
+            <div class="html"><%= @movie.movie_html.html_safe %></div>
+            <div class="detail">
+              <div class="title"><%= @movie.title %></div>
+              <div class="name">
+                <%= link_to("/player/#{@movie.player_id}") do %>
+                  <%= @movie.player.name %>
+                <% end %>
+              </div><!-- /.name -->
+            </div><!-- /.detail -->
+          </div><!-- /.movie-player -->
 
-              <!-- new-movie-list -->
-              <div class="movie-list">
-                <ul>
-                  <% @movies.each do |movie| %>
-                    <li class="slide">
-                      <%= link_to("/player/#{movie.id}", {method: "post", remote: true, id: "movie#{movie.id}"}) do %>
-                        <img src="<%= movie.movie_thum %>"  class="thum">
-                        <span class="title"><%= movie.title %></span>
-                        <span class="name"><%= movie.player.name %></span>
-                      <% end %>
-                    </li>
+          <div class="movie-list">
+            <ul class="multiple-item">
+              <% @movies.each do |movie| %>
+                <li class="slide">
+                  <%= link_to("/player/#{movie.id}", {method: "post", remote: true, id: "movie#{movie.id}"}) do %>
+                    <figure class="thum">
+                      <img src="<%= movie.movie_thum %>"  class="thum">
+                    </figure>
+                    <p class="title"><%= movie.title %></p>
+                    <p class="name"><%= movie.player.name %></p>
                   <% end %>
-                </ul>
-              </div><!-- /.movie-list -->
-              <!-- /new-movie-list -->
+                </li>
+              <% end %>
+            </ul><!-- /.multiple-item -->
+          </div><!-- /.movie-list -->
 
-              <div class="more-btn">
-                <%= link_to "もっと見る", movie_path(@search, :'q[player_id_eq]' => "#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
-              </div><!-- /.more-btn -->
-            <% else %>
+          <div class="more-btn">
+            <%= link_to(movie_path(@search, :'q[player_id_eq]' => "#{@player.id}")) do %>
+              <i class="glyphicon glyphicon glyphicon-menu-right"></i><span>もっと見る</span>
             <% end %>
-          </div><!-- /.player-movie-block -->
-        </div><!-- /.movie-box -->
+          </div><!-- /.more-btn -->
+        <% else %>
+          <p>動画が登録されていません</p>
+        <% end %>
+      </div><!-- /.movie-box -->
 
-        <div class="profile-box">
-          <p class="head-title">プロフィール<%= image_tag("/images/common/head_title_article.png", alt:"MOVIE", class:"profile-title") %></p><!-- /.head-title -->
+      <div class="profile-box">
+        <p class="head-title">プロフィール<span class="en-title profile-title">PROFILE</span></p><!-- /.head-title -->
 
-          <div class="profile-block">
-            <span class="league_school"><%= @player.league_school %></span>
-            <span class="team"><%= @player.team %></span>
-            <span class="height"><%= @player.height %></span>
-            <span class="weight"><%= @player.weight %></span>
-            <span class="alma_mater"><%= @player.alma_mater %></span>
+        <div class="profile-block">
+          <div class="clearfix">
+            <p class="league_school">所属リーグ：<%= @player.league_school %></p>
+            <p class="team">所属チーム：<%= @player.team %></p>
+            <p class="height">身長：<%= @player.height %>cm</p>
+            <p class="weight">体重：<%= @player.weight %>kg</p>
+            <p class="alma_mater">出身校：<%= @player.alma_mater %></p>
             <div class="website">
+              <span>Webサイト/ブログ：</span>
               <%= link_to("#{@player.website}", target: "_blank") do %>
                 <%= @player.website %>
               <% end %>
             </div>
+          </div>
+        </div><!-- /.profile-block -->
 
-            <div class="profile-accordion">
-              <div class="accordion-body">
-                <p class="introduction"><%= @player.introduction %></p>
-              </div><!-- /.acordion-body -->
+        <div id="profile" class="collapse">
+          <p class="introduction"><%= simple_format(@player.introduction) %></p>
+        </div>
 
-              <div class="accordion-header">
-                続きを読む
-                <i class="fa fa-2x fa-angle-down header-icon"></i>
-              </div><!-- /.accordion-header -->
-            </div><!-- /.profile-accordion -->
-          </div><!-- /.profile-block -->
-        </div><!-- /.profile-box -->
+        <button class="profile-btn" type="button" data-toggle="collapse" data-target="#profile">
+          プロフィールをの続きを読む<span class="glyphicon glyphicon-plus"></span>
+        </button>
+      </div><!-- /.profile-box -->
 
-        <div class="player-news-box">
-          <p class="head-title">選手記事<%= image_tag("/images/common/head_title_article.png", alt:"NEWS", class:"player-article-title") %></p><!-- /.head-title -->
+      <div class="news-box player-news-box">
+        <p class="head-title">記事<span class="en-title player-article-title">NEWS</span></p><!-- /.head-title -->
 
-          <div class="article-list">
+        <% if @article %>
+          <div class="article-list pc-only">
             <ul>
               <% @articles.each do |article| %>
                 <li>
@@ -122,10 +187,32 @@
                     <% else %>
                       <%= image_tag("/images/common/default_article_thum.jpg") %>
                     <% end %>
-                    <span class="title"><%= article.title %></span>
-                    <span class="media"><%= article.media %></span>
-                    <span class="published"><%= article.created_at %></span>
-                    <span class="name"><%= article.player.name %></span>
+                    <div class="detail">
+                      <span class="title"><%= article.title %></span>
+                      <span class="media"><%= article.media %></span>
+                      <span class="name"><%= article.player.name %></span>
+                    </div><!-- /.detail -->
+                  <% end %>
+                </li>
+              <% end %>
+            </ul>
+          </div><!-- /.article-list -->
+
+          <div class="article-list sp-only">
+            <ul class="multiple-item">
+              <% @articles.each do |article| %>
+                <li>
+                  <%= link_to("/article/#{article.id}") do %>
+                    <% if article.image_link? %>
+                      <%= image_tag("#{article.image_link}", class:"thum") %>
+                    <% else %>
+                      <%= image_tag("/images/common/default_article_thum.jpg") %>
+                    <% end %>
+                    <div class="detail">
+                      <span class="title"><%= article.title %></span>
+                      <span class="media"><%= article.media %></span>
+                      <span class="name"><%= article.player.name %></span>
+                    </div><!-- /.detail -->
                   <% end %>
                 </li>
               <% end %>
@@ -133,19 +220,27 @@
           </div><!-- /.article-list -->
 
           <div class="more-btn">
-            <%= link_to "もっと見る", article_path(@search, :'q[player_id_eq]' => "#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
+            <%= link_to(article_path(@search, :'q[player_id_eq]' => "#{@player.id}")) do %>
+              <i class="glyphicon glyphicon glyphicon-menu-right"></i><span>もっと見る</span>
+            <% end %>
           </div><!-- /.more-btn -->
-        </div><!-- /.player-news-box -->
+        <% else %>
+          <p>記事が登録されていません</p>
+        <% end %>
+      </div><!-- /.player-news-box -->
 
-        <div class="player-gellery-box">
-          <p class="head-title">選手ギャラリー<%= image_tag("/images/common/head_title_article.png", alt:"NEWS", class:"player-gellery-title") %></p><!-- /.head-title -->
+      <div class="player-gellery-box">
+        <p class="head-title">ギャラリー<span class="en-title player-gellery-title">GELLERY</span></p><!-- /.head-title -->
 
+        <% if @gellery %>
           <div class="gellery-list">
-            <ul>
+            <ul class="multiple-item">
               <% @gelleries.each do |gellery| %>
-                <li>
+                <li class="slide">
                   <%= link_to("/player/#{@player.id}/gellery/#{gellery.id}") do %>
-                    <%= image_tag("#{gellery.image.url}") %>
+                    <figure class="thum">
+                      <%= image_tag("#{gellery.image.url}") %>
+                    </figure>
                   <% end %>
                 </li>
               <% end %>
@@ -153,103 +248,92 @@
           </div><!-- /.gellery-list -->
 
           <div class="more-btn">
-            <%= link_to("もっと見る", "/player/#{@player.id}/gellery") %><i class="glyphicon glyphicon-chevron-right"></i>
+            <a href=<%= "/player/#{@player.id}/gellery" %>><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>ギャラリーページ</span></a>
           </div><!-- /.more-btn -->
-        </div><!-- /.player-gellery-box -->
+        <% else %>
+          <p>ギャラリー画像が登録されていません</p>
+        <% end %>
+      </div><!-- /.player-gellery-box -->
 
-        <div class="player-friend-box">
-          <p class="head-title">交友関係・同出身地・同出身校<%= image_tag("/images/common/head_title_article.png", alt:"FRIENDS", class:"player-friend-title") %></p><!-- /.head-title -->
+      <div class="player-friend-box">
+        <p class="head-title">関連アスリート<span class="en-title player-friend-title">RELATED ATHLETE</span></p><!-- /.head-title -->
 
-          <% if @friends %>
-            <div class="friend-list">
-              <ul>
-                <% @friends.each do |friend| %>
-                    <li>
-                      <%= link_to("/player/#{friend.id}") do %>
-                        <%= image_tag("#{friend.profile_image.url}") %>
-                      <% end %>
-                    </li>
-                <% end %>
-              </ul>
-            </div><!-- /.friend-list -->
-
-            <div class="more-btn">
-              <%= link_to("もっと見る", "/player/#{@player.id}/frined") %><i class="glyphicon glyphicon-chevron-right"></i>
-            </div><!-- /.more-btn -->
-          <% else %>
-          <% end %>
-        </div><!-- /.player-friend-box -->
-
-        <div class="player-event-box">
-          <p class="head-title">イベント<%= image_tag("/images/common/head_title_article.png", alt:"EVENT", class:"player-event-title") %></p><!-- /.head-title -->
-
-          <div class="event-block">
-            <div class="next-game-block">
-              <% if @player.url_next %>
-                <%= link_to("#{@player.url_next}", target: "_blank") do %>
-                  <span class="opponent_next"><%= @player.opponent_next %></span>
-                  <div class="time-zone">
-                    <span class="time_next"><%= @player.time_next.year %></span>
-                    <span class="time_next"><%= @player.time_next.month %></span>
-                    <span class="time_next"><%= @player.time_next.day %></span>
-                    <span class="time_next"><%= @player.time_next.hour %></span>
-                    <span class="time_next"><%= @player.time_next.min %></span>
-                  </div><!-- /.time-zone -->
-                  <span class="place_next"><%= @player.place_next %></span>
-                <% end %>
-              <% else %>
-                <span>VS</span>
-                <span>日時</span>
-                <span>場所</span>
+        <% if @friend %>
+          <div class="friend-list">
+            <ul class="multiple-item">
+              <% @friends.each do |friend| %>
+                <li class="slide">
+                  <%= link_to("/player/#{friend.id}") do %>
+                    <figure class="thum">
+                      <%= image_tag("#{friend.profile_image.url}") %>
+                    </figure>
+                    <p class="name"><%= friend.name %></p>
+                  <% end %>
+                </li>
               <% end %>
-            </div><!-- /.next-game-block -->
+            </ul>
+          </div><!-- /.friend-list -->
 
-            <div class="next-game-block">
-              <% if @player.url_result %>
-                <%= link_to("#{@player.url_result}", target: "_blank") do %>
-                  <span class="opponent_result"><%= @player.opponent_result %></span>
-                  <span class="result_result"><%= @player.result_result %></span>
-                  <span class="self_point_result"><%= @player.self_point_result %></span>
-                  <span class="enemy_point_result"><%= @player.enemy_point_result %></span>
-                <% end %>
-              <% else %>
-                <span>VS</span>
-                <span>結果</span>
-                <span>得点</span>
+          <div class="more-btn">
+            <a href=<%= "/player/#{@player.id}/frined" %>><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>関連アスリートページ</span></a>
+          </div><!-- /.more-btn -->
+        <% else %>
+          <p>関連アスリートが登録されていません</p>
+        <% end %>
+      </div><!-- /.player-friend-box -->
+
+      <div class="player-event-box">
+        <p class="head-title">イベント<span class="en-title player-event-title">EVENT</span></p><!-- /.head-title -->
+
+        <div class="event-block">
+          <div class="next-game-block">
+            <% if @player.url_next != "" %>
+              <%= link_to("#{@player.url_next}", target: "_blank", class:"game-wrap") do %>
+                <p class="title"><span class="en-title">NEXT GAME</span><span class="ja-title">次回の試合</span></p>
+                <i class="glyphicon glyphicon glyphicon-menu-right"></i>
+                <!--
+                <p class="convention-next"><span class="label-game">大会・リーグ</span><span class="detail"><%= @player.convention_next %></span></p>
+                <p class="opponent-next"><span class="label-game">VS</span><span class="detail"><%= @player.opponent_next %></span></p>
+                <p class="time-zone">
+                  <span class="label-game">日時</span>
+                  <span class="detail">
+                    <span><%= @player.time_next.year %>/</span>
+                    <span><%= @player.time_next.month %>/</span>
+                    <span><%= @player.time_next.day %>　</span>
+                    <span><%= @player.time_next.hour %> :</span>
+                    <span><%= @player.time_next.min %>（japan time）</span>
+                  </span>
+                </p>
+                <p class="place-next"><span class="label-game">場所</span><span class="detail"><%= @player.place_next %></span></p>
+                -->
               <% end %>
-            </div><!-- /.next-game-block -->
-          </div><!-- /.event-block -->
-        </div><!-- /.player-event-box -->
+            <% else %>
+            <% end %>
+          </div><!-- /.next-game-block -->
 
-      </div><!-- /player-detail-area -->
-
-
-    </div><!-- /#main -->
-
-    <div id="side" class="col-sm-3">
-      <div class="search-box pc-only">
-        <div class="search-form">
-          <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_cont, placeholder: 'キーワードを入力（名前・出身検索）', class: 'form-control' %>
-          </div><!-- /.form-group -->
-        </div><!-- /.search-form -->
-
-        <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
-        </div><!-- /.select-form -->
-
-        <div class="submit-form">
-          <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
-        </div><!-- /.submit-form -->
-      </div><!-- /.search-box -->
-
-      <div class="pop-movie-box">
-
-      </div><!-- /.pop-movie-box -->
-
-      <div class="pop-news-box">
-
-      </div><!-- /.pop-news-box -->
-    </div><!-- /#side -->
-  </div><!-- /.row -->
-<% end %>
+          <div class="result-game-block">
+            <% if @player.url_result != "" %>
+              <%= link_to("#{@player.url_result}", target: "_blank", class:"game-wrap") do %>
+                <p class="title"><span class="en-title">RESULT</span><span class="ja-title">前回の試合結果</span></p>
+                <i class="glyphicon glyphicon glyphicon-menu-right"></i>
+                <!--
+                <p class="convention-result"><span class="label-game">大会・リーグ</span><span class="detail"><%= @player.convention_result %></span></p>
+                <p class="opponent-result"><span class="label-game">VS</span><span class="detail"><%= @player.opponent_result %></span></p>
+                <p class="result-result"><span class="label-game">結果</span><span class="detail"><%= @player.result_result %></span></p>
+                <p class="point-result">
+                  <span class="label-game">得点</span>
+                  <span class="detail">
+                    <span class="self_point_result"><%= @player.self_point_result %> -</span>
+                    <span class="enemy_point_result"><%= @player.enemy_point_result %></span>
+                  </span>
+                </p>
+                -->
+              <% end %>
+            <% else %>
+            <% end %>
+          </div><!-- /.next-game-block -->
+        </div><!-- /.event-block -->
+      </div><!-- /.player-event-box -->
+    </section><!-- /player-detail-area -->
+  </div><!-- /#main -->
+</div><!-- /.row -->

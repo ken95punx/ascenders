@@ -1,3 +1,56 @@
 // Place all the styles related to the sport controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#sport {
+  .sport-list ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      width: 44vw;
+
+      &:nth-child(2n+2) {
+        margin-left: 4vw;
+      }
+      &:nth-child(n+3) {
+        margin-top: 4vw;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      .name {
+        margin: 2vw 0 0;
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+    @media screen and (min-width:769px) {
+      li {
+        width: 204px;
+
+        &:nth-child(4n+2),
+        &:nth-child(4n+3),
+        &:nth-child(4n+4) {
+          margin-left: 10px;
+        }
+        &:nth-child(n+3) {
+          margin-top: 0;
+        }
+        &:nth-child(n+5) {
+          margin-top: 20px;
+        }
+
+        .name {
+          margin-top: 10px;
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}

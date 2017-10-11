@@ -1,61 +1,85 @@
-<%= search_form_for @search, url:player_path do |f| %>
-  <div class="row">
-    <div id="main" class="col-sm-9">
-      <div class="search-box sp-only">
+<% provide(:title, "ギャラリー画像 | #{@player.name}") %>
+<% provide(:description, "#{@player.name}のギャラリー画像ページです。") %>
+<% provide(:og_url, "player/#{@player.id}/gellery/#{@gellery.id}") %>
+
+<div id="gellery" class="row">
+  <div id="search-nav" class="collapse navbar-collapse sp-only">
+    <%= search_form_for @search, url:player_path do |f| %>
+      <div class="search-block">
+        <div class="search-box">
+          <div class="search-form">
+            <div class="form-group">
+              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
+            </div><!-- /.form-group -->
+          </div><!-- /.search-form -->
+
+          <div class="submit-form">
+            <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
+          </div><!-- /.submit-form -->
+        </div><!-- /.search-box -->
+
+        <div class="select-box">
+          <div class="select-form">
+            <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
+          </div><!-- /.select-form -->
+        </div><!-- /.select-box -->
+
+        <div class="submit-btn">
+          <div><%= f.submit '検索', class: 'search-btn' %></div>
+        </div>
+      </div><!-- /.search-block -->
+    <% end %>
+  </div><!-- /.search-nav -->
+
+  <div id="side" class="col-sm-3 col-sm-push-9 pc-only">
+    <%= search_form_for @search, url:player_path do |f| %>
+      <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
-
-        <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
-        </div><!-- /.select-form -->
 
         <div class="submit-form">
           <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
         </div><!-- /.submit-form -->
       </div><!-- /.search-box -->
 
-      <div class="player-detail-area">
-        <div class="player-gellery-box">
-          <p class="head-title">選手ギャラリー<%= image_tag("/images/common/head_title_article.png", alt:"NEWS", class:"player-gellery-title") %></p><!-- /.head-title -->
-
-          <div class="geller-image">
-            <%= image_tag("#{@gellery.image.url}") %>
-          </div><!-- /.geller-image -->
-
-          <div class="back-btn">
-            <%= link_to("戻る", "/gellery/#{@player.id}") %><i class="glyphicon glyphicon-chevron-right"></i>
-          </div><!-- /.back-btn -->
-        </div><!-- /.player-gellery-box -->
-      </div><!-- /player-detail-area -->
-    </div><!-- /#main -->
-
-    <div id="side" class="col-sm-3">
-      <div class="search-box pc-only">
-        <div class="search-form">
-          <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
-          </div><!-- /.form-group -->
-        </div><!-- /.search-form -->
-
+      <div class="select-box">
         <div class="select-form">
-          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "選択してください", :include_blank => 'すべて' %>
+          <%= f.collection_select :sport_id_eq_any, @sports, :id, :name, :prompt => "競技", :include_blank => 'すべて' %>
         </div><!-- /.select-form -->
+      </div><!-- /.select-box -->
 
-        <div class="submit-form">
-          <div><%= f.submit '検索', class: 'search-btn' %><i class="glyphicon glyphicon-search"></i></div>
-        </div><!-- /.submit-form -->
-      </div><!-- /.search-box -->
+      <div class="submit-btn">
+        <div><%= f.submit '検索', class: 'search-btn' %></div>
+      </div>
+    <% end %>
 
-      <div class="pop-movie-box">
+    <!--
+    <div class="pop-movie-box">
+      人気動画箇所
+    </div>
 
-      </div><!-- /.pop-movie-box -->
+    <div class="pop-news-box">
+      人気記事箇所
+    </div>
+    -->
+  </div><!-- /#side -->
 
-      <div class="pop-news-box">
+  <div id="main" class="col-sm-9 col-sm-pull-3">
+    <section class="player-detail-area">
+      <div class="player-gellery-box">
+        <h1 class="head-title">ギャラリー<span class="en-title player-gellery-title">GELLERY</span></h1><!-- /.head-title -->
 
-      </div><!-- /.pop-news-box -->
-    </div><!-- /#side -->
-  </div><!-- /.row -->
-<% end %>
+        <div class="gellery-image">
+          <%= image_tag("#{@gellery.image.url}") %>
+        </div><!-- /.geller-image -->
+
+        <div class="back-btn">
+          <a href=<%= "/player/#{@player.id}/gellery" %>><i class="glyphicon glyphicon glyphicon-menu-left"></i><span>戻る</span></a>
+        </div><!-- /.back-btn -->
+      </div><!-- /.player-gellery-box -->
+    </section><!-- /player-detail-area -->
+  </div><!-- /#main -->
+</div><!-- /.row -->

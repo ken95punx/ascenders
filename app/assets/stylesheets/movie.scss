@@ -1,3 +1,35 @@
 // Place all the styles related to the movie controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@media screen and (min-width: 769px) {
+  #movie #main .movie-box {
+    .movie-list ul {
+      display: flex;
+      flex-wrap: wrap;
+
+      .slide {
+        width: 198px;
+        padding: 0;
+
+        &:nth-child(4n+2),
+        &:nth-child(4n+3),
+        &:nth-child(4n+4) {
+          margin-left: 10px;
+        }
+        &:nth-child(n+5) {
+          margin-top: 20px;
+        }
+
+        .thum {
+          height: 120px;
+        }
+      }
+    }
+  }
+}
+
+.pagination {
+  margin: 4vw 0 0;
+}

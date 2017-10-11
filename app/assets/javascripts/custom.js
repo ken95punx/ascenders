@@ -1,17 +1,41 @@
-//footerの高さ指定
-$(function() {
-  var footer_height = $('footer').height();
-
-  $('footer').css('bottom', "-" + footer_height + "px");
+// ローディング
+$(window).on('load', function() {
+  $('.wrapper').css({opacity: '0'}).animate({opacity: '1'}, 1500);
+  $('.loading').hide();
 });
 
-// bxslider
+
+// slick.js（slider）
 $(function() {
-  $('.movie-slider').bxSlider({
-    slideWidth: 200,
-    minSlides: 2,
-    maxSlides: 3,
-    slideMargin: 10
+  $('.multiple-item').slick({
+    infinite: true,
+    dots:true,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    responsive: [{
+        breakpoint: 768,
+        settings: {
+           slidesToShow: 2,
+           slidesToScroll: 2,
+        }
+    },{
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      }
+    ]
   });
-  $('.bx-wrapper').css('max-width', '100%');
 });
+
+// プロフィールボタン開閉
+$(function() {
+  $("#profile").on("hide.bs.collapse", function(){
+    $(".profile-btn").html('プロフィールをの続きを読む<span class="glyphicon glyphicon-plus"></span>');
+  });
+  $("#profile").on("show.bs.collapse", function(){
+    $(".profile-btn").html('閉じる<span class="glyphicon glyphicon-minus"></span>');
+  });
+});
+

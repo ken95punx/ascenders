@@ -47,6 +47,7 @@ class MovieDashboard < Administrate::BaseDashboard
     :title,
     :movie_thum,
     :movie_html,
+    :player,
     :sport,
   ].freeze
 

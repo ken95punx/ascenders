@@ -24,5 +24,7 @@ FactoryGirl.define do
     url_result "MyString"
     sports_id 1
     staff_id 1
+    convention_next "MyString"
+    convention_result "MyString"
   end
 end

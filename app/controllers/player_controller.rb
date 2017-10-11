@@ -1,10 +1,11 @@
 class PlayerController < ApplicationController
-  PER = 8
+  PER = 30
 
   before_action :set_player, only: [:index, :show]
 
   def index
     @result = @search.result.page(params[:page]).per(PER).order(created_at: :desc)
+    @player = @result.first
   end
 
   def show
@@ -12,8 +13,11 @@ class PlayerController < ApplicationController
     @movies = Movie.where(player_id: params[:id]).limit(10).order(created_at: :desc)
     @movie = @movies.first
     @articles = Article.where(player_id: params[:id]).limit(10).order(created_at: :desc)
+    @article = @articles.first
     @gelleries = Gellery.where(player_id: params[:id]).limit(10).order(created_at: :desc)
+    @gellery = @gelleries.first
     @friends = @player.followed_players.page(params[:page]).per(PER).limit(10).order(created_at: :desc)
+    @friend = @friends.first
   end
 
   def click_movie

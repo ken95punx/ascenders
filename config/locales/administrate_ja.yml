@@ -1,0 +1,77 @@
+ja:
+  helpers:
+    label:
+      administrator:
+        name: 名前
+        players: アスリート
+      article:
+        title: タイトル
+        media: メディア
+        image_link: 画像URL
+        original_link: 記事元URL
+        player: アスリート
+        sport: 競技
+        created_at: 作成日
+        updated_at: 更新日
+      gellery:
+        image: 画像
+        player: アスリート
+      movie:
+        title: タイトル
+        movie_thum: サムネイル画像
+        movie_html: HTML
+        player: アスリート
+        sport: 競技
+        created_at: 作成日
+        updated_at: 更新日
+      player:
+        name: 名前
+        hiragana_name: 名前（ひらがな）
+        katakana_name: 名前（カタカナ）
+        administrator: 管理者
+        sport: 競技
+        profile_image: プロフィール画像
+        cover_image: カバー画像
+        birth_date: 誕生日
+        place_birth: 出身地
+        blood_type: 血液型
+        league_school: 所属（リーグ・学校）
+        team: チーム
+        height: 身長
+        weight: 体重
+        alma_mater: 母校
+        website: アスリートサイト/ブログ
+        introduction: プロフィール文
+        convention_next: 大会・リーグ（次回）
+        opponent_next: 対戦相手（次回）
+        time_next: 試合時間（次回）
+        url_next: 詳細ページURL（次回）
+        place_next: 会場（次回）
+        convention_result: 大会・リーグ（結果）
+        opponent_result: 対戦相手（結果）
+        result_result: 試合結果[例：勝ち、負け、1位]
+        self_point_result: 得点[自分]（結果）
+        enemy_point_result: 得点[相手]（結果）
+        url_result: 詳細ページURL（結果）
+        followed_players: 関連アスリート[友人・出身・同校]
+        movies: アスリート動画
+        articles: アスリート記事
+        gelleries: アスリートギャラリー画像
+      sport:
+        name: 名前
+        image: サムネイル画像
+        movies: アスリート動画
+        articles: アスリート記事
+        players: アスリート
+      friend_relationship:
+        follower: フォロー
+        followed: フォロワー
+  activerecord:
+    models:
+      administrator: 管理人
+      article: 記事
+      gellery: 画像ギャラリー
+      movie: 動画
+      player: アスリート
+      sport: 競技
+      friend_relationship: 交友関係

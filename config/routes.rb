@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'movie/' => 'movie#index'
   post 'movie/:movie_id' => 'movie#click_movie'
 
+  get 'about/' => 'top#about'
+
   root :to => 'top#index'
   post '/:movie_id' => 'top#click_movie'
 
