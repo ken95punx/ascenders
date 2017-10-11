@@ -1,3 +1,7 @@
+<% provide(:title, "記事一覧") %>
+<% provide(:description, "記事一覧ページです。") %>
+<% provide(:og_url, "article") %>
+
 <div id="article" class="row">
   <div id="search-nav" class="collapse navbar-collapse sp-only">
     <%= search_form_for @search, url:player_path do |f| %>
@@ -64,8 +68,36 @@
   </div><!-- /#side -->
 
   <div id="main" class="col-sm-9 col-sm-pull-3">
-    <div class="news-box">
-      <p class="head-title">記事一覧<span class="en-title article-list-title">NEWS</span></p><!-- /.head-title -->
+    <section class="detail-news-box">
+      <h1 class="head-title">記事<span class="en-title details-news-title">PICK UP NEWS</span></h1><!-- /.head-title -->
+
+      <div class="detail-block">
+        <div class="article-bg">
+          <% if @article.image_link? %>
+            <%= image_tag("#{@article.image_link}", class:"thum") %>
+          <% else %>
+            <%= image_tag("/images/common/default_article_thum.jpg") %>
+          <% end %>
+        </div><!-- /.article-bg -->
+
+        <div class="article-detail">
+          <p class="title"><%= @article.title %></p>
+          <p class="media"><%= @article.media %></p>
+          <p class="name">
+            <%= link_to("/player/#{@article.player_id}") do %>
+              <%= @article.player.name %>
+            <% end %>
+          </p>
+        </div><!-- /.article-detail -->
+      </div><!-- /.detail-block -->
+
+      <div class="more-btn">
+        <a href=<%= "#{@article.original_link}" %> target="_blank"><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>続きを読む</span></a>
+      </div><!-- /.more-btn -->
+    </section><!-- /.detail-news-box -->
+
+    <section class="news-box recent-news-box">
+      <h1 class="head-title">記事一覧<span class="en-title article-list-title">NEWS</span></h1><!-- /.head-title -->
 
       <% if @article %>
         <div class="article-list">
@@ -92,6 +124,6 @@
       <% else %>
         <p>検索結果が見つかりませんでした</p>
       <% end %>
-    </div><!-- /.news-box -->
+    </section><!-- /.news-box -->
   </div><!-- /#main -->
 </div><!-- /.row -->

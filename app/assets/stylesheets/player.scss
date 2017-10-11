@@ -3,7 +3,7 @@
   // You can use Sass (SCSS) here: http://sass-lang.com/
 
   /* sass */
-  $red: #cc3333;
+  $red: #801F4C;
   $grey: #f3f3f4;
   $black: #333;
 
@@ -480,9 +480,10 @@
     .player-event-box {
       .next-game-block,
       .result-game-block {
-        background: $black;
+        background: #444;
 
         .game-wrap {
+          position: relative;
           padding: 3.333vw 4vw;
 
           p {
@@ -491,25 +492,39 @@
 
             .label-game {
               display: table-cell;
-              width: 13.333vw;
+              width: 18.667vw;
+              border-right: 1px solid $red;
               color: $red;
               font-size: 1.5rem;
               font-weight: bold;
             }
             .detail {
+              padding-left: 4vw;
               display: table-cell;
+              vertical-align: middle;
             }
           }
 
           .title {
+            margin-bottom: 0;
+
             .en-title {
               font-size: 2rem;
-              font-family: 'Roboto', sans-serif;
+              font-family: 'Teko', sans-serif;
+              line-height: 1;
             }
             .ja-title {
               margin-left: 2.667vw;
               font-size: 1.2rem;
             }
+          }
+
+          i.glyphicon {
+            position: absolute;
+            top: 50%;
+            right: 4vw;
+            margin-top: -2vw;
+            color: #fff;
           }
         }
       }
@@ -536,9 +551,37 @@
 
             p {
               .label-game {
-                width: 60px;
+                width: 80px;
+                padding-right: 10px;
                 font-size: 1.8rem;
+                line-height: 1.4;
               }
+
+              .detail {
+                padding-left: 20px;
+              }
+            }
+
+            p + p {
+              margin-top: 15px;
+            }
+
+            .title {
+              .en-title {
+                font-size: 3rem;
+                line-height: 1;
+              }
+              .ja-title {
+                margin-left: 10px;
+                font-size: 1.4rem;
+              }
+            }
+
+            i.glyphicon {
+              right: 20px;
+              margin-top: -12px;
+              color: #fff;
+              font-size: 2rem;
             }
           }
         }

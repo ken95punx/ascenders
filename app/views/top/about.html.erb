@@ -1,3 +1,7 @@
+<% provide(:title, "Ascendersについて") %>
+<% provide(:description, "Ascendersについてのページです。") %>
+<% provide(:og_url, "about") %>
+
 <div id="about" class="row">
   <div id="search-nav" class="collapse navbar-collapse sp-only">
     <%= search_form_for @search, url:player_path do |f| %>
@@ -5,7 +9,7 @@
         <div class="search-box">
           <div class="search-form">
             <div class="form-group">
-              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
             </div><!-- /.form-group -->
           </div><!-- /.search-form -->
 
@@ -32,7 +36,7 @@
       <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
 
@@ -130,12 +134,12 @@
     </div><!-- /.plan-box -->
 
     <div class="recruit-block">
-      <p class="title">助けてください！エンジニア募集</p>
+      <p class="title">助けてください！<span>エンジニア募集</span></p>
 
       <div class="description">「Ascenders」はじめ弊社のサービスの開発に興味を持ったエンジニアの方、一度代表とお話しませんか？<br>データプラットフォーム・データ分析・フロントエンド・バックエンドなど多岐にわたり募集しています。</div>
 
       <div class="recruit-btn">
-        <a href="https://corporation.ascenders.co.jp/contact/"><i class="glyphicon glyphicon-chevron-right"></i><span>お問い合わせ</span></a>
+        <a href="https://corporation.ascenders.co.jp/contact/"><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>お問い合わせ</span></a>
       </div><!-- /.recruit-btn -->
     </div><!-- /.recruit-block -->
   </div><!-- /#main -->

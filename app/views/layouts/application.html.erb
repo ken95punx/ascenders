@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html prefix="og: http://ogp.me/ns#">
   <head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-107328094-3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-107328094-3');
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta description="<%= full_description(yield(:description)) %>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= full_title(yield(:title)) %></title>
+    <meta property="og:title" content="<%= full_title(yield(:title)) %>" />
+    <meta property="og:type" content="<%= full_og_type(yield(:og_type)) %>" />
+    <meta property="og:url" content="<%= full_og_url(yield(:og_url)) %>" />
+    <meta property="og:image" content="https://ascenders.co.jp/images/common/facebook-ogp.jpg" />
+    <meta property="og:site_name"  content="Ascenders（アセンダーズ）" />
+    <meta property="og:description" content="アスリートのすべてがわかるメディア「Ascenders（アセンダーズ）" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Ascenderstv" />
+    <meta name="twitter:title" content="<%= full_title(yield(:title)) %>" />
+    <meta name="twitter:url" content="<%= full_og_url(yield(:og_url)) %>" />
+    <meta name="twitter:description" content="アスリートのすべてがわかるメディア「Ascenders（アセンダーズ）" />
+    <meta name="twitter:image" content="https://ascenders.co.jp/images/common/twitter-card.jpg" />
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Teko" rel="stylesheet">
     <%= javascript_include_tag 'application' %>
 
     <!--[if lt IE 9]>
@@ -27,35 +51,35 @@
 
     <div class="wrapper">
       <header class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-right">
-            <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
+        <div class="header-wrap">
+          <div class="container">
+            <div class="navbar-right">
+              <button class="navbar-toggle" data-toggle="collapse" data-target="#main-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="icon-bar glyphicon glyphicon-option-horizontal"></i>
+              </button>
 
-            <button class="navbar-toggle search-nav" data-toggle="collapse" data-target="#search-nav">
-              <span class="sr-only">Toggle navigation</span>
-              <i class="glyphicon glyphicon-search"></i>
-            </button>
-          </div><!-- /.navbar-right -->
+              <button class="navbar-toggle search-nav" data-toggle="collapse" data-target="#search-nav">
+                <span class="sr-only">Toggle navigation</span>
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div><!-- /.navbar-right -->
 
-          <div class="title">
-            <%= link_to image_tag("/images/common/logo.png", alt:"Ascenders"), "/", id: "logo" %>
-            <p class="sub-title">アスリートのすべてがわかるメディア</p>
-          </div><!-- /.title -->
-        </div><!-- /.container -->
+            <h1 class="title">
+              <%= link_to image_tag("/images/common/logo.png", alt:"Ascenders（アセンダーズ）"), "/", id: "logo" %>
+              <p class="sub-title">アスリートのすべてがわかるメディア</p>
+            </h1><!-- /.title -->
+          </div><!-- /.container -->
+        </div><!-- /.header-wrap -->
 
         <nav class="collapse navbar-collapse" id="main-nav">
           <div class="container">
             <ul class="nav navbar-nav">
-              <li><%= link_to("トップ", "/") %></li>
-              <li><%= link_to("選手一覧", "/player") %></li>
-              <li><%= link_to("競技一覧", "/sport") %></li>
-              <li><%= link_to("動画一覧", "/movie") %></li>
-              <li><%= link_to("記事一覧", "/article") %></li>
+              <li><a href="/"><i class="glyphicon glyphicon-home"></i><span>トップ</span></a></li>
+              <li><a href="/player"><i class="glyphicon glyphicon-fire"></i><span>アスリートを探す</span></a></li>
+              <li><a href="/sport"><i class="glyphicon glyphicon-globe"></i><span>競技で探す</span></a></li>
+              <li><a href="/movie"><i class="glyphicon glyphicon-film"></i><span>動画一覧</span></a></li>
+              <li><a href="/article"><i class="glyphicon glyphicon-file"></i><span>記事一覧</span></a></li>
             </ul>
           </div><!-- /.container -->
         </nav><!-- /#mainNav -->

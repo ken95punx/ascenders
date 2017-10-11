@@ -140,7 +140,7 @@ a:hover {
 /* ========== base ========== */
 
 $black: #333;
-$red: #cc3333;
+$red: #801F4C;
 $grey: #f3f3f4;
 $formgrey: #999;
 @mixin link() {
@@ -230,12 +230,15 @@ html,body { height: 100%; }
 
 /* ===== header ===== */
 header,header.navbar-default {
+  .header-wrap {
+    background: linear-gradient(315deg, rgba(228, 90, 67, 1) 0%, rgba(128, 30, 75, 1) 63.6%);
+  }
   .title {
     margin-bottom: 2.667vw;
 
     /* logo */
     #logo {
-      width: 50vw;
+      width: 37.333vw;
       margin-top: 2.667vw;
       display: inline-block;
 
@@ -253,7 +256,8 @@ header,header.navbar-default {
     }
 
     .sub-title {
-      margin: 1.333vw 0 0 6.667vw;
+      margin: 1.333vw 0 0;
+      color: #fff;
       font-size: .8rem;
       font-weight: bold;
     }
@@ -276,7 +280,7 @@ header,header.navbar-default {
   /* nav_btn */
   .navbar-toggle {
 
-    margin: 6.667vw 0 0 0;
+    margin: 4.667vw 0 0 0;
     padding-top: 0;
     background: transparent;
     border: 0 none;
@@ -286,9 +290,9 @@ header,header.navbar-default {
     }
 
     .icon-bar {
-      width: 8vw;
-      height: 1.067vw;
-      background: $black;
+      color: #fff;
+      font-size: 2rem;
+      background-color: transparent;
     }
 
     .icon-bar + .icon-bar {
@@ -297,52 +301,63 @@ header,header.navbar-default {
   }
 
   .search-nav {
-    margin-top: 6vw;
-    margin-right: 1.333vw;
+    margin-top: 4.667vw;
 
     .glyphicon-search {
-      font-size: 2.4rem;
-    }
-  }
+      font-size: 2rem;
 
-  #main-nav li {
-    border-bottom: 1px solid #e7e7e7;
-    a {
-      color: $black;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-    @media screen and (min-width:769px) {
-      a {
-        padding: 15px 25px 10px;
+      &:before {
         color: #fff;
-        border-bottom: 4px solid $black;
-
-        &:hover {
-          opacity: 1;
-          border-bottom: 4px solid $red;
-        }
       }
     }
-
-    &:last-child {
-      border-bottom: 0 none;
-    }
-  }
-  @media screen and (min-width:769px) {
-    #main-nav li {
-      border: 0 none;
-    }
   }
 
+  #main-nav {
+    li {
+      border-bottom: 1px solid #e7e7e7;
+      a {
+        color: $black;
+        font-size: 1.4rem;
 
-  /* nav */
+        .glyphicon {
+          margin-right: 4vw;
+        }
+      }
+      @media screen and (min-width:769px) {
+        a {
+          position: relative;
+          padding: 12px 15px;
+
+          &:hover {
+            opacity: 1;
+
+            &:after {
+              content:"";
+              position: absolute;
+              left: 10%;
+              bottom: 0;
+              display:block;
+              height:3px;
+              width:80%;
+              background: linear-gradient(315deg, rgba(228, 90, 67, 1) 0%, rgba(128, 30, 75, 1) 63.6%);
+            }
+          }
+
+          .glyphicon {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      &:last-child {
+        border-bottom: 0 none;
+      }
+    }
+  }
   @media screen and (min-width:769px) {
     #main-nav {
-      background: $black;
-
-      a {
-        color: #fff;
+      li {
+        border: 0 none;
       }
     }
   }
@@ -390,13 +405,14 @@ header + .container {
         padding: 2vw;
         background: #fff;
         font-size: 1.3rem;
+        line-height: 10vw;
       }
       @media screen and (min-width: 769px) {
         input[type="text"] {
           width: 220px;
           height: 35px;
           padding: 8px 10px;
-          font-size: 1.3rem;
+          font-size: 1.2rem;
         }
       }
     }
@@ -463,7 +479,7 @@ header + .container {
       height: 12vw;
       padding: 2vw;
       background: #fff;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       color: $formgrey;
       box-sizing: border-box;
     }
@@ -532,6 +548,7 @@ header + .container {
 #main {
   /* head-title */
   .head-title {
+    margin-bottom: 2.667vw;
     padding-bottom: 2.267vw;
     border-bottom: solid 2px #ccc;
     position: relative;
@@ -542,8 +559,8 @@ header + .container {
     .en-title {
       margin-left: 2vw;
       color: $red;
-      font-family: 'Roboto', sans-serif;
-      font-size: 1.5rem;
+      font-family: 'Teko', sans-serif;
+      font-size: 2rem;
     }
 
     &:after {
@@ -563,7 +580,7 @@ header + .container {
 
       .en-title {
         margin-left: 10px;
-        font-size: 1.9rem;
+        font-size: 2.5rem;
       }
 
       &:after {
@@ -711,7 +728,7 @@ header + .container {
     @media screen and (min-width:769px) {
       .movie-list {
         margin-top: 10px;
-        padding: 15px 10px 10px;
+        padding: 15px 10px 20px;
 
         ul .slide {
          padding: 0 5px;
@@ -769,6 +786,7 @@ header + .container {
 
       .glyphicon {
         margin-right: 1.333vw;
+        top: 2px;
       }
     }
     @media screen and (min-width:769px) {
@@ -1019,7 +1037,7 @@ footer {
 
   .footer-link {
     padding: 6vw 0 6.667vw;
-    background: $black;
+    background: linear-gradient(315deg, rgba(228, 90, 67, 1) 0%, rgba(128, 30, 75, 1) 63.6%);
 
     a {
       padding: 0;
@@ -1058,7 +1076,7 @@ footer {
             text-align: center;
 
             .fa:before {
-              color: $black;
+              color: #555;
               position: absolute;
               top: 50%;
               left: 50%;
@@ -1109,14 +1127,14 @@ footer {
               height: 40px;
 
               .fa:before {
-                margin-top: -13px;
-                font-size: 2.6rem;
+                margin-top: -11px;
+                font-size: 2.2rem;
               }
               .fa-facebook:before {
-                margin-left: -8px;
+                margin-left: -6px;
               }
               .fa-twitter:before {
-                margin-left: -12px;
+                margin-left: -10px;
               }
             }
           }

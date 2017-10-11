@@ -1,3 +1,5 @@
+<% provide(:og_type, "website") %>
+
 <div class="row">
   <div id="search-nav" class="collapse navbar-collapse sp-only">
     <%= search_form_for @search, url:player_path do |f| %>
@@ -5,7 +7,7 @@
         <div class="search-box">
           <div class="search-form">
             <div class="form-group">
-              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
             </div><!-- /.form-group -->
           </div><!-- /.search-form -->
 
@@ -32,7 +34,7 @@
       <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
 
@@ -64,8 +66,8 @@
   </div><!-- /#side -->
 
   <div id="main" class="col-sm-9 col-sm-pull-3">
-    <div class="movie-box recent-movie-box">
-      <p class="head-title">新着動画<span class="en-title new-movie-title">RECENT MOVIE</span></p><!-- /.head-title -->
+    <section class="movie-box recent-movie-box">
+      <div class="head-title">新着動画<span class="en-title new-movie-title">RECENT MOVIE</span></div><!-- /.head-title -->
 
       <div class="movie-player">
         <div class="html"><%= @movie.movie_html.html_safe %></div>
@@ -97,12 +99,40 @@
       </div><!-- /.movie-list -->
 
       <div class="more-btn">
-        <a href="/movie"><i class="glyphicon glyphicon-chevron-right"></i><span>もっと見る</span></a>
+        <a href="/movie"><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>新着動画一覧</span></a>
       </div><!-- /.more-btn -->
-    </div><!-- /.movie-box -->
+    </section><!-- /.movie-box -->
 
-    <div class="news-box recent-news-box">
-      <p class="head-title">新着記事<span class="en-title new-article-title">RECENT NEWS</span></p><!-- /.head-title -->
+    <section class="detail-news-box recent-news-box">
+      <div class="head-title">最新記事<span class="en-title details-news-title">LATEST NEWS</span></div><!-- /.head-title -->
+
+      <div class="detail-block">
+        <div class="article-bg">
+          <% if @article.image_link? %>
+            <%= image_tag("#{@article.image_link}", class:"thum") %>
+          <% else %>
+            <%= image_tag("/images/common/default_article_thum.jpg") %>
+          <% end %>
+        </div><!-- /.article-bg -->
+
+        <div class="article-detail">
+          <p class="title"><%= @article.title %></p>
+          <p class="media"><%= @article.media %></p>
+          <p class="name">
+            <%= link_to("/player/#{@article.player_id}") do %>
+              <%= @article.player.name %>
+            <% end %>
+          </p>
+        </div><!-- /.article-detail -->
+      </div><!-- /.detail-block -->
+
+      <div class="more-btn">
+        <a href=<%= "#{@article.original_link}" %> target="_blank"><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>この記事の続きを読む</span></a>
+      </div><!-- /.more-btn -->
+    </section><!-- /.detail-news-box -->
+
+    <section class="news-box recent-news-box">
+      <div class="head-title">記事一覧<span class="en-title new-article-title">NEWS</span></div><!-- /.head-title -->
 
       <div class="article-list">
         <ul>
@@ -126,8 +156,8 @@
       </div><!-- /.article-list -->
 
       <div class="more-btn">
-        <a href="/article"><i class="glyphicon glyphicon-chevron-right"></i><span>もっと見る</span></a>
+        <a href="/article"><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>新着記事一覧</span></a>
       </div><!-- /.more-btn -->
-    </div><!-- /.recent-news-box -->
+    </section><!-- /.recent-news-box -->
   </div><!-- /#main -->
 </div><!-- /.row -->

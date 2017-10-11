@@ -1,3 +1,7 @@
+<% provide(:title, "#{@article.title} | #{@article.player.name}") %>
+<% provide(:description, "#{@article.player.name}の記事詳細ページです。") %>
+<% provide(:og_url, "article/#{@article.id}") %>
+
 <div id="article" class="row">
   <div id="search-nav" class="collapse navbar-collapse sp-only">
     <%= search_form_for @search, url:player_path do |f| %>
@@ -64,8 +68,8 @@
   </div><!-- /#side -->
 
   <div id="main" class="col-sm-9 col-sm-pull-3">
-    <div class="detail-news-box">
-      <p class="head-title">選手記事<span class="en-title details-news-title">NEWS</span></p><!-- /.head-title -->
+    <section class="detail-news-box">
+      <h1 class="head-title">アスリート記事<span class="en-title details-news-title">NEWS</span></h1><!-- /.head-title -->
 
       <div class="detail-block">
         <div class="article-bg">
@@ -88,12 +92,12 @@
       </div><!-- /.detail-block -->
 
       <div class="more-btn">
-        <a href=<%= "#{@article.original_link}" %> target="_blank"><i class="glyphicon glyphicon-chevron-right"></i><span>続きを見る</span></a>
+        <a href=<%= "#{@article.original_link}" %> target="_blank"><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>続きを見る</span></a>
       </div><!-- /.more-btn -->
-    </div><!-- /.detail-news-box -->
+    </section><!-- /.detail-news-box -->
 
-    <div class="news-box recent-news-box">
-      <p class="head-title">新着記事<span class="en-title new-article-title">RECENT NEWS</span></p><!-- /.head-title -->
+    <section class="news-box recent-news-box">
+      <h1 class="head-title">新着記事<span class="en-title new-article-title">RECENT NEWS</span></h1><!-- /.head-title -->
 
       <div class="article-list">
         <ul>
@@ -117,8 +121,8 @@
       </div><!-- /.article-list -->
 
       <div class="more-btn">
-        <a href="/article"><i class="glyphicon glyphicon-chevron-right"></i><span>もっと見る</span></a>
+        <a href="/article"><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>もっと見る</span></a>
       </div><!-- /.more-btn -->
-    </div><!-- /.recent-news-box -->
+    </section><!-- /.recent-news-box -->
   </div><!-- /#main -->
 </div><!-- /.row -->

@@ -1,3 +1,7 @@
+<% provide(:title, "ギャラリー画像一覧 | #{@player.name}") %>
+<% provide(:description, "#{@player.name}のギャラリー画像一覧ページです。") %>
+<% provide(:og_url, "player/#{@player.id}/gellery") %>
+
 <div id="gellery" class="row">
   <div id="search-nav" class="collapse navbar-collapse sp-only">
     <%= search_form_for @search, url:player_path do |f| %>
@@ -5,7 +9,7 @@
         <div class="search-box">
           <div class="search-form">
             <div class="form-group">
-              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
             </div><!-- /.form-group -->
           </div><!-- /.search-form -->
 
@@ -32,7 +36,7 @@
       <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
 
@@ -64,9 +68,9 @@
   </div><!-- /#side -->
 
   <div id="main" class="col-sm-9 col-sm-pull-3">
-    <div class="player-detail-area">
+    <section class="player-detail-area">
       <div class="player-gellery-box">
-        <p class="head-title">ギャラリー<span class="en-title player-gellery-title">GELLERY</span></p><!-- /.head-title -->
+        <h1 class="head-title">ギャラリー<span class="en-title player-gellery-title">GELLERY</span></h1><!-- /.head-title -->
 
         <% if @gellery %>
           <div class="gellery-list">
@@ -91,9 +95,9 @@
         <% end %>
 
         <div class="back-btn">
-          <a href=<%= "/player/#{@player.id}" %>><i class="glyphicon glyphicon-chevron-left"></i><span>戻る</span></a>
+          <a href=<%= "/player/#{@player.id}" %>><i class="glyphicon glyphicon glyphicon-menu-left"></i><span>戻る</span></a>
         </div><!-- /.back-btn -->
       </div><!-- /.player-gellery-box -->
-    </div><!-- /player-detail-area -->
+    </section><!-- /player-detail-area -->
   </div><!-- /#main -->
 </div><!-- /.row -->

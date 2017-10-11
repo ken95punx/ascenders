@@ -1,3 +1,7 @@
+<% provide(:title, "動画一覧") %>
+<% provide(:description, "動画一覧ページです。") %>
+<% provide(:og_url, "movie") %>
+
 <div id="movie" class="row">
   <div id="search-nav" class="collapse navbar-collapse sp-only">
     <%= search_form_for @search, url:movie_path do |f| %>
@@ -64,8 +68,8 @@
   </div><!-- /#side -->
 
   <div id="main" class="col-sm-9 col-sm-pull-3">
-    <div class="movie-box">
-      <p class="head-title">動画一覧<span class="en-title movie-list-title">MOVIE</span></p><!-- /.head-title -->
+    <section class="movie-box">
+      <h1 class="head-title">動画一覧<span class="en-title movie-list-title">MOVIE</span></h1><!-- /.head-title -->
 
       <% if @movie %>
         <div class="movie-player">
@@ -118,7 +122,7 @@
       <% else %>
         <p>検索結果が見つかりませんでした</p>
       <% end %>
-    </div><!-- /.movie-box -->
+    </section><!-- /.movie-box -->
   </div><!-- /#main -->
 
 </div><!-- /.row -->

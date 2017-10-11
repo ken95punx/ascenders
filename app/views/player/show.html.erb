@@ -1,3 +1,7 @@
+<% provide(:title, "#{@player.name}") %>
+<% provide(:description, "#{@player.name}についての詳細ページです。") %>
+<% provide(:og_url, "player/#{@movie.player_id}") %>
+
 <div id="player" class="row detail">
   <div id="search-nav" class="collapse navbar-collapse sp-only">
     <%= search_form_for @search, url:player_path do |f| %>
@@ -5,7 +9,7 @@
         <div class="search-box">
           <div class="search-form">
             <div class="form-group">
-              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+              <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
             </div><!-- /.form-group -->
           </div><!-- /.search-form -->
 
@@ -32,7 +36,7 @@
       <div class="search-box">
         <div class="search-form">
           <div class="form-group">
-            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（選手検索）', class: 'form-control' %>
+            <%= f.text_field :name_or_place_birth_or_alma_mater_or_league_school_or_team_or_hiragana_name_or_katakana_name_or_sport_name_cont, placeholder: 'キーワードを入力（アスリート検索）', class: 'form-control' %>
           </div><!-- /.form-group -->
         </div><!-- /.search-form -->
 
@@ -64,9 +68,9 @@
   </div><!-- /#side -->
 
   <div id="main" class="col-sm-9 col-sm-pull-3">
-    <div class="player-detail-area">
+    <section class="player-detail-area">
       <div class="main-visual-box">
-        <p class="head-title"><%= @player.name %></p><!-- /.head-title -->
+        <h1 class="head-title"><%= @player.name %></h1><!-- /.head-title -->
 
         <div class="main-visual">
           <div class="cover-image">
@@ -100,7 +104,7 @@
       </div><!-- /.main-visual-box -->
 
       <div class="movie-box">
-        <p class="head-title">選手動画<span class="en-title movie-title">MOVIE</span></p><!-- /.head-title -->
+        <p class="head-title">動画<span class="en-title movie-title">MOVIE</span></p><!-- /.head-title -->
 
         <% if @movie %>
           <div class="movie-player">
@@ -133,7 +137,7 @@
 
           <div class="more-btn">
             <%= link_to(movie_path(@search, :'q[player_id_eq]' => "#{@player.id}")) do %>
-              <i class="glyphicon glyphicon-chevron-right"></i><span>もっと見る</span>
+              <i class="glyphicon glyphicon glyphicon-menu-right"></i><span>もっと見る</span>
             <% end %>
           </div><!-- /.more-btn -->
         <% else %>
@@ -165,12 +169,12 @@
         </div>
 
         <button class="profile-btn" type="button" data-toggle="collapse" data-target="#profile">
-          プロフィールを読む<span class="glyphicon glyphicon-plus"></span>
+          プロフィールをの続きを読む<span class="glyphicon glyphicon-plus"></span>
         </button>
       </div><!-- /.profile-box -->
 
       <div class="news-box player-news-box">
-        <p class="head-title">選手記事<span class="en-title player-article-title">NEWS</span></p><!-- /.head-title -->
+        <p class="head-title">記事<span class="en-title player-article-title">NEWS</span></p><!-- /.head-title -->
 
         <% if @article %>
           <div class="article-list pc-only">
@@ -217,7 +221,7 @@
 
           <div class="more-btn">
             <%= link_to(article_path(@search, :'q[player_id_eq]' => "#{@player.id}")) do %>
-              <i class="glyphicon glyphicon-chevron-right"></i><span>もっと見る</span>
+              <i class="glyphicon glyphicon glyphicon-menu-right"></i><span>もっと見る</span>
             <% end %>
           </div><!-- /.more-btn -->
         <% else %>
@@ -226,7 +230,7 @@
       </div><!-- /.player-news-box -->
 
       <div class="player-gellery-box">
-        <p class="head-title">選手ギャラリー<span class="en-title player-gellery-title">GELLERY</span></p><!-- /.head-title -->
+        <p class="head-title">ギャラリー<span class="en-title player-gellery-title">GELLERY</span></p><!-- /.head-title -->
 
         <% if @gellery %>
           <div class="gellery-list">
@@ -244,7 +248,7 @@
           </div><!-- /.gellery-list -->
 
           <div class="more-btn">
-            <a href=<%= "/player/#{@player.id}/gellery" %>><i class="glyphicon glyphicon-chevron-right"></i><span>もっと見る</span></a>
+            <a href=<%= "/player/#{@player.id}/gellery" %>><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>ギャラリーページ</span></a>
           </div><!-- /.more-btn -->
         <% else %>
           <p>ギャラリー画像が登録されていません</p>
@@ -252,7 +256,7 @@
       </div><!-- /.player-gellery-box -->
 
       <div class="player-friend-box">
-        <p class="head-title">関連選手<span class="en-title player-friend-title">RELATED PLAYER</span></p><!-- /.head-title -->
+        <p class="head-title">関連アスリート<span class="en-title player-friend-title">RELATED ATHLETE</span></p><!-- /.head-title -->
 
         <% if @friend %>
           <div class="friend-list">
@@ -271,10 +275,10 @@
           </div><!-- /.friend-list -->
 
           <div class="more-btn">
-            <a href=<%= "/player/#{@player.id}/frined" %>><i class="glyphicon glyphicon-chevron-right"></i><span>もっと見る</span></a>
+            <a href=<%= "/player/#{@player.id}/frined" %>><i class="glyphicon glyphicon glyphicon-menu-right"></i><span>関連アスリートページ</span></a>
           </div><!-- /.more-btn -->
         <% else %>
-          <p>交友関係が登録されていません</p>
+          <p>関連アスリートが登録されていません</p>
         <% end %>
       </div><!-- /.player-friend-box -->
 
@@ -285,27 +289,25 @@
           <div class="next-game-block">
             <% if @player.url_next != "" %>
               <%= link_to("#{@player.url_next}", target: "_blank", class:"game-wrap") do %>
-                <p class="title"><span class="en-title">NEXT GAME</span></p>
+                <p class="title"><span class="en-title">NEXT GAME</span><span class="ja-title">次回の試合</span></p>
+                <i class="glyphicon glyphicon glyphicon-menu-right"></i>
+                <!--
+                <p class="convention-next"><span class="label-game">大会・リーグ</span><span class="detail"><%= @player.convention_next %></span></p>
                 <p class="opponent-next"><span class="label-game">VS</span><span class="detail"><%= @player.opponent_next %></span></p>
                 <p class="time-zone">
                   <span class="label-game">日時</span>
                   <span class="detail">
-                    <span><%= @player.time_next.year %>.</span>
-                    <span><%= @player.time_next.month %>.</span>
-                    <span><%= @player.time_next.day %>.</span>
-                    <span><%= @player.time_next.hour %>.</span>
+                    <span><%= @player.time_next.year %>/</span>
+                    <span><%= @player.time_next.month %>/</span>
+                    <span><%= @player.time_next.day %>　</span>
+                    <span><%= @player.time_next.hour %> :</span>
                     <span><%= @player.time_next.min %>（japan time）</span>
                   </span>
-                </p><!-- /.time-zone -->
+                </p>
                 <p class="place-next"><span class="label-game">場所</span><span class="detail"><%= @player.place_next %></span></p>
+                -->
               <% end %>
             <% else %>
-              <div class="game-wrap">
-                <p class="title"><span class="en-title">NEXT GAME</span></p>
-                <p class="opponent-next"><span class="label-game">VS</span></p>
-                <p class="time-zone"><span class="label-game">日時</span></p>
-                <p class="place-next"><span class="label-game">場所</span></p>
-              </div><!-- /.game-wrap -->
             <% end %>
           </div><!-- /.next-game-block -->
 
@@ -313,6 +315,9 @@
             <% if @player.url_result != "" %>
               <%= link_to("#{@player.url_result}", target: "_blank", class:"game-wrap") do %>
                 <p class="title"><span class="en-title">RESULT</span><span class="ja-title">前回の試合結果</span></p>
+                <i class="glyphicon glyphicon glyphicon-menu-right"></i>
+                <!--
+                <p class="convention-result"><span class="label-game">大会・リーグ</span><span class="detail"><%= @player.convention_result %></span></p>
                 <p class="opponent-result"><span class="label-game">VS</span><span class="detail"><%= @player.opponent_result %></span></p>
                 <p class="result-result"><span class="label-game">結果</span><span class="detail"><%= @player.result_result %></span></p>
                 <p class="point-result">
@@ -321,19 +326,14 @@
                     <span class="self_point_result"><%= @player.self_point_result %> -</span>
                     <span class="enemy_point_result"><%= @player.enemy_point_result %></span>
                   </span>
-                </p><!-- /.point-result -->
+                </p>
+                -->
               <% end %>
             <% else %>
-              <div class="game-wrap">
-                <p class="title"><span class="en-title">RESULT</span><span class="ja-title">前回の試合結果</span></p>
-                <p class="opponent-result"><span class="label-game">VS</span></p>
-                <p class="result-result"><span class="label-game">結果</span></p>
-                <p class="point-result"><span class="label-game">得点</span></p>
-              </div><!-- /.game-wrap -->
             <% end %>
           </div><!-- /.next-game-block -->
         </div><!-- /.event-block -->
       </div><!-- /.player-event-box -->
-    </div><!-- /player-detail-area -->
+    </section><!-- /player-detail-area -->
   </div><!-- /#main -->
 </div><!-- /.row -->
