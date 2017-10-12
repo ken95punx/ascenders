@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'license_finder'
+  gem 'mysql2', '>= 0.3.18', '< 0.5'
 end
 
 group :development do
@@ -60,6 +61,7 @@ end
 
 group :production, :staging do
   gem 'therubyracer', platforms: :ruby
+  gem 'pg', '0.18.4'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
