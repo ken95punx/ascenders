@@ -35,6 +35,7 @@ gem 'jquery-rails'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
+  gem 'mysql2', '>= 0.3.18', '< 0.5'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-byebug'
   gem 'pry-doc'
@@ -42,7 +43,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'license_finder'
-  gem 'mysql2', '>= 0.3.18', '< 0.5'
 end
 
 group :development do
@@ -60,8 +60,8 @@ group :development do
 end
 
 group :production, :staging do
-  gem 'therubyracer', platforms: :ruby
   gem 'pg', '0.18.4'
+  gem 'therubyracer', platforms: :ruby
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
