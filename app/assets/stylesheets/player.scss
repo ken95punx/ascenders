@@ -1,171 +1,196 @@
-  // Place all the styles related to the player controller here.
-  // They will automatically be included in application.css.
-  // You can use Sass (SCSS) here: http://sass-lang.com/
+// Place all the styles related to the player controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
 
-  /* sass */
-  $red: #801F4C;
-  $grey: #f3f3f4;
-  $black: #333;
+/* sass */
+$red: #801F4C;
+$grey: #f3f3f4;
+$black: #333;
 
-  /* player-list-box */
-  #player #main {
-    .player-list-box {
-      .player-list {
-        li {
-          background: #fff;
+/* player-list-box */
+#player #main {
+  .player-list-box {
+    .player-list {
+      li {
+        background: #fff;
 
-          a {
-            padding: 4vw;
+        a {
+          padding: 4vw;
 
-            .player-img {
-              overflow: hidden;
-              float: left;
-              position: relative;
-              width: 40vw;
-              height: 26.667vw;
-              background: #eee;
+          .player-img {
+            overflow: hidden;
+            float: left;
+            position: relative;
+            width: 40vw;
+            height: 26.667vw;
+            background: #eee;
 
-              img{
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                -webkit-transform: translate(-50%, -50%);
-                -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-                width: auto;
-                height: 100%;
-              }
+            img{
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              -webkit-transform: translate(-50%, -50%);
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+              width: auto;
+              height: 100%;
+            }
+          }
+
+          .player-detail {
+            margin-left: 46.667vw;
+
+            span {
+              display: block;
+              font-size: 1.3rem;
+              font-weight: bold;
             }
 
-            .player-detail {
-              margin-left: 46.667vw;
-
-              span {
-                display: block;
-                font-size: 1.3rem;
-                font-weight: bold;
-              }
-
-              [class$='-label'] {
-                color: $red;
-                padding-bottom: .667vw;
-                border-bottom: 1px dashed $red;
-              }
-              .sport-label {
-                margin-top: 4vw;
-              }
-              [class$='-name'] {
-                margin-top: 2vw;
-                font-size: 1.4rem;
-              }
+            [class$='-label'] {
+              color: $red;
+              padding-bottom: .667vw;
+              border-bottom: 1px dashed $red;
+            }
+            .sport-label {
+              margin-top: 4vw;
+            }
+            [class$='-name'] {
+              margin-top: 2vw;
+              font-size: 1.4rem;
             }
           }
         }
-        @media screen and (min-width:769px) {
-          ul {
-            display: flex;
-            flex-wrap: wrap;
+      }
+      @media screen and (min-width:769px) {
+        ul {
+          display: flex;
+          flex-wrap: wrap;
 
-            li {
-              width: 275px;
-              height: 100px;
+          li {
+            width: 275px;
+            height: 100px;
 
-              a {
-                padding: 10px;
+            a {
+              padding: 10px;
 
-                .player-img {
-                  width: 70px;
-                  height: 70px;
-                }
-
-                .player-detail {
-                  display: flex;
-                  margin-left: 80px;
-
-                  span {
-                    display: block;
-                    font-size: 1.2rem;
-                  }
-                  .name {
-                    width: 100px;
-                  }
-                  [class$='-label'] {
-                    padding-bottom: 3px;
-                  }
-                  .sport {
-                    width: 65px;
-                    margin-left: 10px;
-                  }
-                  .sport-label {
-                    margin-top: 0;
-                  }
-                  [class$='-name'] {
-                    margin-top: 8px;
-                    font-size: 1.4rem;
-                  }
-                }
+              .player-img {
+                width: 70px;
+                height: 70px;
               }
 
-              &:nth-child(3n+2),
-              &:nth-child(3n+3) {
-                margin-left: 10px;
-              }
-              &:nth-child(n+4) {
-                margin-top: 10px;
+              .player-detail {
+                display: flex;
+                margin-left: 80px;
+
+                span {
+                  display: block;
+                  font-size: 1.2rem;
+                }
+                .name {
+                  width: 100px;
+                }
+                [class$='-label'] {
+                  padding-bottom: 3px;
+                }
+                .sport {
+                  width: 65px;
+                  margin-left: 10px;
+                }
+                .sport-label {
+                  margin-top: 0;
+                }
+                [class$='-name'] {
+                  margin-top: 8px;
+                  font-size: 1.4rem;
+                }
               }
             }
 
-            li + li {
-              margin-top: 0;
+            &:nth-child(3n+2),
+            &:nth-child(3n+3) {
+              margin-left: 10px;
+            }
+            &:nth-child(n+4) {
+              margin-top: 10px;
             }
           }
-        }
 
-        li + li {
-          margin-top: 4vw;
+          li + li {
+            margin-top: 0;
+          }
         }
+      }
+
+      li + li {
+        margin-top: 4vw;
       }
     }
   }
+}
 
 
 /* ========== show ========== */
 
-  @mixin listblock() {
-    background: #fff;
+@mixin listblock() {
+  background: #fff;
+}
+
+#player.detail {
+
+  .movie-box,
+  .profile-box,
+  .news-box,
+  .player-gellery-box,
+  .player-friend-box,
+  .player-event-box {
+    margin-top: 10.667vw;
   }
-
-  #player.detail {
-
+  @media screen and (min-width:769px) {
     .movie-box,
     .profile-box,
     .news-box,
     .player-gellery-box,
     .player-friend-box,
     .player-event-box {
-      margin-top: 10.667vw;
+      margin-top: 50px;
     }
-    @media screen and (min-width:769px) {
-      .movie-box,
-      .profile-box,
-      .news-box,
-      .player-gellery-box,
-      .player-friend-box,
-      .player-event-box {
-        margin-top: 50px;
+  }
+
+  .main-visual-box .main-visual {
+    position: relative;
+    height: 66.667vw;
+
+    .cover-image {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      height: 66.667vw;
+      background: #333;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        width: auto;
+        height: 100%;
       }
     }
 
-    .main-visual-box .main-visual {
-      position: relative;
-      height: 66.667vw;
+    .profile-image {
+      position: absolute;
+      bottom: 4vw;
+      left: 4vw;
 
-      .cover-image {
+      .thum {
         overflow: hidden;
         position: relative;
-        width: 100%;
-        height: 66.667vw;
+        width: 28vw;
+        height: 28vw;
         background: #333;
+        border: 2px solid #fff;
 
         img {
           position: absolute;
@@ -178,19 +203,146 @@
           height: 100%;
         }
       }
+    }
 
-      .profile-image {
-        position: absolute;
-        bottom: 4vw;
-        left: 4vw;
+    .main-profile {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 56vw;
+      padding: 2.667vw;
+      background: rgba(51,51,51,.6);
+      color: #fff;
+
+      p {
+        margin-bottom: 0;
+      }
+
+      .name {
+        font-size: 1.6rem;
+        font-weight: bold;
+      }
+      .sport {
+        margin-top: 1.333vw;
+      }
+    }
+  }
+  @media screen and (min-width:769px) {
+    .main-visual-box {
+      .main-visual {
+        height: 440px;
+
+        .cover-image {
+          height: 440px;
+        }
+
+        .profile-image {
+          bottom: 20px;
+          left: 30px;
+
+          .thum {
+            width: 200px;
+            height: 200px;
+            border: 3px solid #fff;
+          }
+        }
+
+        .main-profile {
+          width: 530px;
+          padding: 15px 15px 20px;
+
+          p {
+            margin-bottom: 0;
+          }
+
+          .name {
+            font-size: 2rem;
+            font-weight: bold;
+          }
+          .sport {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  .profile-box {
+    font-size: 1.5rem;
+
+    .website a {
+      color: #006699;
+    }
+
+    @media screen and (min-width:769px) {
+      .profile-block {
+        width: 80%;
+        margin: 40px auto 0;
+
+        .clearfix p,
+        .website {
+          float: left;
+          width: 48%;
+        }
+        .clearfix p:nth-child(n+3),
+        .website {
+          margin-top:10px;
+        }
+        .clearfix p:nth-child(2n+2),
+        .website {
+          margin-left: 4%;
+          width: 48%;
+        }
+      }
+      #profile {
+        margin: 30px auto 0;
+        width: 80%;
+      }
+      .profile-btn {
+        display: block;
+        width: 80%;
+        margin: 30px auto 0;
+        padding: 8px;
+        font-size: 1.7rem;
+
+        .glyphicon {
+          margin-left: 8px;
+          right: 15px;
+          margin-top: -9px;
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width:768px) {
+    .article-list ul {
+      display: block;
+      flex-wrap: nowrap;
+
+      li:nth-child(2n+2) {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .gellery-list,.friend-list {
+    margin-top: 2vw;
+    padding: 4vw;
+    @include listblock();
+
+    ul {
+      margin-bottom: 0;
+
+      .slide {
+        padding: 0 2vw;
 
         .thum {
-          overflow: hidden;
           position: relative;
-          width: 28vw;
-          height: 28vw;
-          background: #333;
-          border: 2px solid #fff;
+          overflow: hidden;
+          background: $black;
+          height: 40vw;
+          display: flex;
+          justify-content: center;
 
           img {
             position: absolute;
@@ -202,389 +354,237 @@
             width: auto;
             height: 100%;
           }
-        }
-      }
-
-      .main-profile {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 56vw;
-        padding: 2.667vw;
-        background: rgba(51,51,51,.6);
-        color: #fff;
-
-        p {
-          margin-bottom: 0;
+          .glyphicon-play-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 6.4vw;
+            height: 7.467vw;
+            margin-top: -3.734vw;
+            margin-left: -3.2vw;
+            color: #fff;
+            font-size: 2.8rem;
+          }
         }
 
-        .name {
-          font-size: 1.6rem;
+        .title {
+          margin-top: 1.333vw;
+          font-size: 1.2rem;
           font-weight: bold;
         }
-        .sport {
-          margin-top: 1.333vw;
-        }
-      }
-    }
-    @media screen and (min-width:769px) {
-      .main-visual-box {
-        .main-visual {
-          height: 440px;
-
-          .cover-image {
-            height: 440px;
-          }
-
-          .profile-image {
-            bottom: 20px;
-            left: 30px;
-
-            .thum {
-              width: 200px;
-              height: 200px;
-              border: 3px solid #fff;
-            }
-          }
-
-          .main-profile {
-            width: 530px;
-            padding: 15px 15px 20px;
-
-            p {
-              margin-bottom: 0;
-            }
-
-            .name {
-              font-size: 2rem;
-              font-weight: bold;
-            }
-            .sport {
-              margin-top: 10px;
-            }
-          }
+        .name {
+          margin-top: 2vw;
+          text-align: center;
+          font-weight: bold;
         }
       }
     }
 
-    .profile-box {
-      font-size: 1.5rem;
+    .slick-prev {
+      width: 5.333vw;
+      height: 12vw;
+      background: url(/images/common/arrow-l.gif);
+      background-size: cover;
 
-      .website a {
-        color: #006699;
+      &:before {
+        content: none;
       }
+    }
+    .slick-next {
+      width: 5.333vw;
+      height: 12vw;
+      background: url(/images/common/arrow-r.gif);
+      background-size: cover;
 
-      @media screen and (min-width:769px) {
-        .profile-block {
-          width: 80%;
-          margin: 40px auto 0;
-
-          .clearfix p,
-          .website {
-            float: left;
-            width: 48%;
-          }
-          .clearfix p:nth-child(n+3),
-          .website {
-            margin-top:10px;
-          }
-          .clearfix p:nth-child(2n+2),
-          .website {
-            margin-left: 4%;
-            width: 48%;
-          }
-        }
-        #profile {
-          margin: 30px auto 0;
-          width: 80%;
-        }
-        .profile-btn {
-          display: block;
-          width: 80%;
-          margin: 30px auto 0;
-          padding: 8px;
-          font-size: 1.7rem;
-
-          .glyphicon {
-            margin-left: 8px;
-            right: 15px;
-            margin-top: -9px;
-          }
-        }
+      &:before {
+        content: none;
       }
     }
 
-    @media screen and (max-width:768px) {
-      .article-list ul {
-        display: block;
-        flex-wrap: nowrap;
-
-        li:nth-child(2n+2) {
-          margin-left: 0;
-        }
-      }
+    .slick-dots {
+      display: none !important;
     }
+  }
 
+  @media screen and (min-width:769px) {
     .gellery-list,.friend-list {
-      margin-top: 2vw;
-      padding: 4vw;
-      @include listblock();
+      margin-top: 10px;
+      padding: 15px 10px 10px;
 
-      ul {
-        margin-bottom: 0;
+      ul .slide {
+       padding: 0 5px;
 
-        .slide {
-          padding: 0 2vw;
+        .thum {
+          height: 120px;
 
-          .thum {
-            position: relative;
-            overflow: hidden;
-            background: $black;
-            height: 40vw;
-            display: flex;
-            justify-content: center;
-
-            img {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              -webkit-transform: translate(-50%, -50%);
-              -ms-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
-              width: auto;
-              height: 100%;
-            }
-            .glyphicon-play-circle {
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              width: 6.4vw;
-              height: 7.467vw;
-              margin-top: -3.734vw;
-              margin-left: -3.2vw;
-              color: #fff;
-              font-size: 2.8rem;
-            }
+          .glyphicon-play-circle {
+            width: 40px;
+            height: 48px;
+            margin-top: -20px;
+            margin-left: -20px;
+            font-size: 4rem;
           }
+        }
 
-          .title {
-            margin-top: 1.333vw;
-            font-size: 1.2rem;
-            font-weight: bold;
-          }
-          .name {
-            margin-top: 2vw;
-            text-align: center;
-            font-weight: bold;
-          }
+        .title {
+          margin-top: 8px;
+          font-size: 1.3rem;
+        }
+        .name {
+          margin-top: 13px;
+          font-size: 1.4rem;
         }
       }
 
       .slick-prev {
-        width: 5.333vw;
-        height: 12vw;
-        background: url(/images/common/arrow-l.gif);
-        background-size: cover;
+        width: 25px;
+        height: 56px;
 
         &:before {
           content: none;
         }
       }
       .slick-next {
-        width: 5.333vw;
-        height: 12vw;
-        background: url(/images/common/arrow-r.gif);
-        background-size: cover;
+        width: 25px;
+        height: 56px;
 
         &:before {
           content: none;
         }
       }
+    }
+  }
 
-      .slick-dots {
-        display: none !important;
+  .friend-list li a {
+    position: relative;
+
+    .name {
+      position: absolute;
+      left:0;
+      bottom:0;
+      width: 100%;
+      margin: 0;
+      padding: 1.333vw .667vw;
+      background: rgba(51,51,51,.8);
+      color: #fff;
+    }
+    @media screen and (min-width:769px) {
+      .name {
+        padding: 10px 5px;
+        font-size: 1.4rem;
+        line-height: 1.3;
       }
+    }
+  }
+
+  .player-event-box {
+    .next-game-block,
+    .result-game-block {
+      background: #444;
+
+      .game-wrap {
+        position: relative;
+        padding: 3.333vw 4vw;
+
+        p {
+          color: #fff;
+          display: table;
+
+          .label-game {
+            display: table-cell;
+            width: 18.667vw;
+            border-right: 1px solid $red;
+            color: $red;
+            font-size: 1.5rem;
+            font-weight: bold;
+          }
+          .detail {
+            padding-left: 4vw;
+            display: table-cell;
+            vertical-align: middle;
+          }
+        }
+
+        .title {
+          margin-bottom: 0;
+
+          .en-title {
+            font-size: 2rem;
+            font-family: 'Teko', sans-serif;
+            line-height: 1;
+          }
+          .ja-title {
+            margin-left: 2.667vw;
+            font-size: 1.2rem;
+          }
+        }
+
+        i.glyphicon {
+          position: absolute;
+          top: 50%;
+          right: 4vw;
+          margin-top: -2vw;
+          color: #fff;
+        }
+      }
+    }
+
+    .result-game-block {
+      margin-top: 4vw;
     }
 
     @media screen and (min-width:769px) {
-      .gellery-list,.friend-list {
-        margin-top: 10px;
-        padding: 15px 10px 10px;
-
-        ul .slide {
-         padding: 0 5px;
-
-          .thum {
-            height: 120px;
-
-            .glyphicon-play-circle {
-              width: 40px;
-              height: 48px;
-              margin-top: -20px;
-              margin-left: -20px;
-              font-size: 4rem;
-            }
-          }
-
-          .title {
-            margin-top: 8px;
-            font-size: 1.3rem;
-          }
-          .name {
-            margin-top: 13px;
-            font-size: 1.4rem;
-          }
-        }
-
-        .slick-prev {
-          width: 25px;
-          height: 56px;
-
-          &:before {
-            content: none;
-          }
-        }
-        .slick-next {
-          width: 25px;
-          height: 56px;
-
-          &:before {
-            content: none;
-          }
-        }
+      .next-game-block {
+        float: left;
+        width: 410px;
       }
-    }
-
-    .friend-list li a {
-      position: relative;
-
-      .name {
-        position: absolute;
-        left:0;
-        bottom:0;
-        width: 100%;
-        margin: 0;
-        padding: 1.333vw .667vw;
-        background: rgba(51,51,51,.8);
-        color: #fff;
+      .result-game-block {
+        float: right;
+        width: 410px;
+        margin-top: 0;
       }
-      @media screen and (min-width:769px) {
-        .name {
-          padding: 10px 5px;
-          font-size: 1.4rem;
-          line-height: 1.3;
-        }
-      }
-    }
 
-    .player-event-box {
       .next-game-block,
       .result-game-block {
-        background: #444;
-
         .game-wrap {
-          position: relative;
-          padding: 3.333vw 4vw;
+          padding: 20px 30px;
 
           p {
-            color: #fff;
-            display: table;
-
             .label-game {
-              display: table-cell;
-              width: 18.667vw;
-              border-right: 1px solid $red;
-              color: $red;
-              font-size: 1.5rem;
-              font-weight: bold;
+              width: 80px;
+              padding-right: 10px;
+              font-size: 1.8rem;
+              line-height: 1.4;
             }
+
             .detail {
-              padding-left: 4vw;
-              display: table-cell;
-              vertical-align: middle;
+              padding-left: 20px;
             }
           }
 
-          .title {
-            margin-bottom: 0;
+          p + p {
+            margin-top: 15px;
+          }
 
+          .title {
             .en-title {
-              font-size: 2rem;
-              font-family: 'Teko', sans-serif;
+              font-size: 3rem;
               line-height: 1;
             }
             .ja-title {
-              margin-left: 2.667vw;
-              font-size: 1.2rem;
+              margin-left: 10px;
+              font-size: 1.4rem;
             }
           }
 
           i.glyphicon {
-            position: absolute;
-            top: 50%;
-            right: 4vw;
-            margin-top: -2vw;
+            right: 20px;
+            margin-top: -12px;
             color: #fff;
-          }
-        }
-      }
-
-      .result-game-block {
-        margin-top: 4vw;
-      }
-
-      @media screen and (min-width:769px) {
-        .next-game-block {
-          float: left;
-          width: 410px;
-        }
-        .result-game-block {
-          float: right;
-          width: 410px;
-          margin-top: 0;
-        }
-
-        .next-game-block,
-        .result-game-block {
-          .game-wrap {
-            padding: 20px 30px;
-
-            p {
-              .label-game {
-                width: 80px;
-                padding-right: 10px;
-                font-size: 1.8rem;
-                line-height: 1.4;
-              }
-
-              .detail {
-                padding-left: 20px;
-              }
-            }
-
-            p + p {
-              margin-top: 15px;
-            }
-
-            .title {
-              .en-title {
-                font-size: 3rem;
-                line-height: 1;
-              }
-              .ja-title {
-                margin-left: 10px;
-                font-size: 1.4rem;
-              }
-            }
-
-            i.glyphicon {
-              right: 20px;
-              margin-top: -12px;
-              color: #fff;
-              font-size: 2rem;
-            }
+            font-size: 2rem;
           }
         }
       }
     }
   }
+}

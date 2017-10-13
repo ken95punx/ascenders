@@ -6,7 +6,6 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.1.2'
-gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.7'
 gem 'jbuilder', '~> 2.5'
 gem 'settingslogic'
@@ -42,6 +41,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'license_finder'
+  gem 'mysql2', '>= 0.3.18', '< 0.5'
 end
 
 group :development do
@@ -58,8 +58,11 @@ group :development do
   gem 'bullet'
 end
 
+gem 'rails_12factor', group: :production
+
 group :production, :staging do
   gem 'therubyracer', platforms: :ruby
+  gem 'pg'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

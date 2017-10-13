@@ -1,9 +1,9 @@
 {
   "name": "ascenders",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
   "engines": {
-    "yarn": "1.1.1",
+    "yarn": "1.2.1",
     "node": "8.7.0"
   }
 }
